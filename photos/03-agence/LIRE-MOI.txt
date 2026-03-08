@@ -1,0 +1,7 @@
+SECTION "AGENCE DIGITALE"
+=========================
+Dépose ici 1 photo liée à ton agence (toi au travail, ton setup, logo, etc.).
+Elle apparaîtra à droite du texte, à côté du bouton Nexboost.
+
+Format recommandé : vertical (portrait), minimum 800x1200px
+Renomme-la : photo.jpg

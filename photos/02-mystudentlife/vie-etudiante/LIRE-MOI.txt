@@ -1,0 +1,6 @@
+CARTE "VIE ÉTUDIANTE"
+=====================
+Dépose ici 1 photo de la vie étudiante (campus, événements, etc.).
+
+Format recommandé : horizontal, minimum 800x600px
+Renomme-la : photo.jpg

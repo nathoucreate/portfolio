@@ -1,0 +1,7 @@
+SECTION "ÉLOQUENCE"
+===================
+Dépose ici 1 photo de la finale d'éloquence (toi sur scène, le théâtre, etc.).
+Elle apparaîtra en bas de la section.
+
+Format recommandé : horizontal, minimum 800x500px
+Renomme-la : photo.jpg

@@ -1,0 +1,6 @@
+CARTE "PORTRAITS"
+=================
+Dépose ici 1 photo portrait que tu as réalisée.
+
+Format recommandé : horizontal, minimum 800x600px
+Renomme-la : photo.jpg

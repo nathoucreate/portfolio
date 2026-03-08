@@ -1,0 +1,1609 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nathan — Étudiant, Entrepreneur, Créatif</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #0a0a0c;
+  --bg-subtle: #111113;
+  --fg: #eae8e4;
+  --fg-dim: rgba(234,232,228,0.45);
+  --accent: #8b7ec8;
+  --accent-glow: rgba(139,126,200,0.2);
+  --gradient-hero: linear-gradient(135deg, #8b7ec8, #a99be0);
+  --gradient-card: linear-gradient(135deg, rgba(139,126,200,0.05), rgba(139,126,200,0.02));
+  --serif: 'Cormorant Garamond', Georgia, serif;
+  --sans: 'Syne', system-ui, sans-serif;
+  --radius: 8px;
+  --transition: cubic-bezier(0.16,1,0.3,1);
+}
+
+html { scroll-behavior: smooth; scrollbar-width: thin; scrollbar-color: var(--accent) var(--bg); }
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--sans);
+  font-weight: 400;
+  line-height: 1.6;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+a { color: inherit; text-decoration: none; cursor: none; }
+img { display: block; max-width: 100%; }
+
+/* === CUSTOM CURSOR === */
+.cursor {
+  position: fixed; top: 0; left: 0;
+  width: 22px; height: 22px;
+  border: 1.5px solid var(--accent);
+  border-radius: 50%;
+  pointer-events: none; z-index: 10000;
+  transition: width 0.35s var(--transition), height 0.35s var(--transition), border-color 0.3s, background 0.3s, box-shadow 0.3s;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: difference;
+}
+.cursor.hovering {
+  width: 56px; height: 56px;
+  background: rgba(139,126,200,0.12);
+  border-color: var(--fg);
+  box-shadow: 0 0 30px var(--accent-glow);
+}
+.cursor-dot {
+  position: fixed; top: 0; left: 0;
+  width: 5px; height: 5px;
+  background: var(--accent);
+  border-radius: 50%;
+  pointer-events: none; z-index: 10001;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 8px var(--accent-glow);
+}
+
+/* === PROGRESS BAR === */
+.progress-bar {
+  position: fixed; top: 0; left: 0;
+  height: 3px;
+  background: var(--gradient-hero);
+  width: 0%; z-index: 9999;
+}
+
+/* === GRAIN === */
+.grain {
+  position: fixed; inset: 0;
+  pointer-events: none; z-index: 9998;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 150px;
+  animation: grainShift 0.4s steps(3) infinite;
+}
+@keyframes grainShift {
+  0% { transform: translate(0,0); }
+  33% { transform: translate(-3px,3px); }
+  66% { transform: translate(3px,-3px); }
+}
+
+/* === JOURNEY LINE === */
+.journey-line {
+  position: fixed;
+  left: 50px;
+  top: 0;
+  width: 2px;
+  height: 100vh;
+  z-index: 90;
+  pointer-events: none;
+}
+.journey-line-bg {
+  position: absolute;
+  inset: 0;
+  background: rgba(139,126,200,0.08);
+  border-radius: 2px;
+}
+.journey-line-fill {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 0%;
+  background: var(--gradient-hero);
+  border-radius: 2px;
+  box-shadow: 0 0 12px var(--accent-glow), 0 0 30px rgba(139,126,200,0.15);
+  transition: height 0.15s linear;
+}
+.journey-line-dot {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 2px solid rgba(139,126,200,0.2);
+  transition: border-color 0.5s, box-shadow 0.5s, background 0.5s;
+  z-index: 2;
+}
+.journey-line-dot.active {
+  border-color: var(--accent);
+  background: var(--accent);
+  box-shadow: 0 0 16px var(--accent-glow), 0 0 40px rgba(139,126,200,0.2);
+}
+.journey-line-dot::after {
+  content: attr(data-label);
+  position: absolute;
+  left: 22px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 10px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--fg-dim);
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.4s;
+  font-family: var(--sans);
+}
+.journey-line-dot.active::after { opacity: 1; color: var(--accent); }
+
+/* === SECTION COUNTER === */
+.section-counter {
+  position: fixed; right: 40px; bottom: 40px;
+  z-index: 100; font-family: var(--sans);
+  font-weight: 400; font-size: 13px;
+  letter-spacing: 3px; color: var(--fg-dim);
+}
+.section-counter .current {
+  font-weight: 700; font-size: 32px;
+  display: block; line-height: 1;
+  color: var(--accent);
+}
+
+/* === NAV DOTS === */
+.nav-dots {
+  position: fixed; right: 40px; top: 50%;
+  transform: translateY(-50%); z-index: 100;
+  display: flex; flex-direction: column; gap: 18px;
+}
+.nav-dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(244,242,238,0.15);
+  background: transparent;
+  cursor: none;
+  transition: all 0.4s var(--transition);
+  position: relative;
+}
+.nav-dot.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  transform: scale(1.4);
+  box-shadow: 0 0 14px var(--accent-glow);
+}
+.nav-dot::after {
+  content: attr(data-label);
+  position: absolute; right: 24px; top: 50%;
+  transform: translateY(-50%);
+  font-size: 10px; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--fg-dim);
+  white-space: nowrap; opacity: 0;
+  transition: opacity 0.3s; pointer-events: none;
+}
+.nav-dot:hover::after { opacity: 1; }
+
+/* === REVEAL ANIMATIONS === */
+.reveal {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.85s var(--transition), transform 0.85s var(--transition);
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+.reveal-word {
+  display: inline-block; opacity: 0;
+  transform: translateY(35px) rotateX(12deg);
+  transition: opacity 0.55s var(--transition), transform 0.55s var(--transition);
+}
+.reveal-word.visible { opacity: 1; transform: translateY(0) rotateX(0); }
+
+.delay-1 { transition-delay: 0.1s !important; }
+.delay-2 { transition-delay: 0.2s !important; }
+.delay-3 { transition-delay: 0.3s !important; }
+.delay-4 { transition-delay: 0.4s !important; }
+.delay-5 { transition-delay: 0.5s !important; }
+.delay-6 { transition-delay: 0.6s !important; }
+.delay-7 { transition-delay: 0.7s !important; }
+
+/* === GLOBAL SECTION === */
+section {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 140px 100px 140px 120px;
+}
+
+.section-label {
+  font-family: var(--sans);
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  margin-bottom: 36px;
+  color: var(--accent);
+}
+
+.gradient-text {
+  color: var(--accent);
+}
+
+/* === KEY PHRASE === */
+.key-phrase {
+  font-family: var(--serif);
+  font-size: clamp(20px, 2vw, 28px);
+  font-weight: 400; font-style: italic;
+  line-height: 1.5;
+  margin-top: 40px; padding-left: 24px;
+  border-left: 3px solid;
+  border-image: var(--gradient-hero) 1;
+  color: var(--fg);
+}
+
+/* === BIG DECORATIVE === */
+.section-big-number {
+  position: absolute; right: 6vw; top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--serif); font-size: 22vw;
+  font-weight: 300; line-height: 1;
+  pointer-events: none; user-select: none;
+  background: linear-gradient(135deg, rgba(139,126,200,0.04), rgba(139,126,200,0.03));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ============================== */
+/*    SECTION 1 — HERO            */
+/* ============================== */
+#hero {
+  height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 80px 10vw;
+  overflow: hidden;
+}
+#hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 65% 25%, rgba(139,126,200,0.1) 0%, transparent 55%),
+    radial-gradient(ellipse at 25% 75%, rgba(139,126,200,0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 80%, rgba(139,126,200,0.04) 0%, transparent 45%);
+  pointer-events: none;
+}
+/* Subtle ambient glow */
+.hero-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  pointer-events: none;
+  opacity: 0.5;
+}
+.hero-orb-1 {
+  width: 600px; height: 600px;
+  top: -20%; right: -10%;
+  background: radial-gradient(circle, rgba(139,126,200,0.07), transparent 70%);
+}
+.hero-orb-2, .hero-orb-3 { display: none; }
+
+.hero-overline {
+  font-size: 12px; font-weight: 600;
+  letter-spacing: 6px; text-transform: uppercase;
+  margin-bottom: 48px;
+  color: var(--accent);
+  position: relative;
+}
+
+.hero-title {
+  font-family: var(--serif);
+  font-size: clamp(38px, 5.5vw, 84px);
+  font-weight: 300; line-height: 1.12;
+  max-width: 920px; margin-bottom: 40px;
+  perspective: 600px; position: relative;
+}
+.hero-title em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.hero-line {
+  width: 80px; height: 3px;
+  background: var(--gradient-hero);
+  margin: 48px 0 32px;
+  border-radius: 3px;
+}
+
+.hero-subtitle {
+  font-size: clamp(14px, 1.5vw, 19px);
+  font-weight: 400; color: var(--fg-dim);
+  letter-spacing: 1px; max-width: 520px;
+}
+
+.scroll-indicator {
+  position: absolute; bottom: 48px; left: 50%;
+  transform: translateX(-50%);
+  display: flex; flex-direction: column;
+  align-items: center; gap: 12px;
+  color: var(--fg-dim); font-size: 10px;
+  letter-spacing: 4px; text-transform: uppercase;
+  animation: scrollPulse 2.5s ease-in-out infinite;
+}
+.scroll-indicator svg { width: 20px; height: 20px; stroke: var(--accent); }
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.3; transform: translateX(-50%) translateY(0); }
+  50% { opacity: 1; transform: translateX(-50%) translateY(10px); }
+}
+
+/* ============================== */
+/*   SECTION 2 — HISTOIRE         */
+/* ============================== */
+#histoire {
+  padding: 160px 10vw 160px 120px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px; align-items: center;
+}
+.histoire-text h2 {
+  font-family: var(--serif);
+  font-size: clamp(30px, 3.8vw, 56px);
+  font-weight: 300; line-height: 1.2;
+  margin-bottom: 36px;
+}
+.histoire-text p {
+  font-size: 16px; font-weight: 400;
+  color: var(--fg-dim); line-height: 1.9;
+  margin-bottom: 22px; max-width: 520px;
+}
+.histoire-image {
+  width: 100%; height: 480px;
+  border-radius: var(--radius);
+  position: relative; overflow: hidden;
+  background-color: #1a1816;
+  background-size: cover;
+  background-position: center;
+}
+
+/* ============================== */
+/*  SECTION 3 — MYSTUDENTLIFE     */
+/* ============================== */
+#mystudentlife {
+  flex-direction: column;
+  padding: 160px 10vw 160px 120px;
+  align-items: flex-start;
+}
+.msl-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px; width: 100%;
+  margin-bottom: 80px; align-items: start;
+}
+.msl-header h2 {
+  font-family: var(--serif);
+  font-size: clamp(34px, 4.2vw, 64px);
+  font-weight: 300; line-height: 1.12;
+}
+.msl-header h2 span { color: var(--accent); }
+.msl-info { padding-top: 12px; }
+.msl-info p {
+  font-size: 16px; font-weight: 400;
+  color: var(--fg-dim); line-height: 1.9;
+  margin-bottom: 18px;
+}
+
+.stats-row {
+  display: flex; gap: 56px; margin-top: 40px;
+}
+.stat { text-align: left; }
+.stat-number {
+  font-family: var(--serif);
+  font-size: 52px; font-weight: 300;
+  line-height: 1;
+  color: var(--accent);
+}
+.stat-label {
+  font-size: 11px; letter-spacing: 2.5px;
+  text-transform: uppercase; color: var(--fg-dim);
+  margin-top: 10px;
+}
+
+.msl-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px; width: 100%;
+}
+.msl-gallery-item {
+  height: 360px;
+  border-radius: var(--radius);
+  position: relative; overflow: hidden;
+  transition: transform 0.6s var(--transition), box-shadow 0.6s;
+  cursor: none;
+}
+.msl-gallery-item:hover {
+  transform: scale(1.03) translateY(-4px);
+  box-shadow: 0 20px 60px rgba(139,126,200,0.15);
+}
+.msl-gallery-item::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(to bottom, transparent 40%, rgba(11,11,15,0.85));
+  z-index: 1;
+}
+.msl-gallery-item::after {
+  content: attr(data-label);
+  position: absolute; bottom: 24px; left: 24px;
+  font-size: 13px; font-weight: 500;
+  letter-spacing: 1px; color: var(--fg);
+  z-index: 2;
+}
+/* fallback backgrounds removed — real photos used */
+
+/* ============================== */
+/*    SECTION 4 — AGENCE          */
+/* ============================== */
+.section-photo {
+  width: 100%; height: 400px;
+  border-radius: var(--radius);
+  background-color: #16141e;
+  background-size: cover;
+  background-position: center;
+  position: relative; overflow: hidden;
+  transition: transform 0.6s var(--transition), box-shadow 0.6s;
+}
+.section-photo:hover {
+  transform: scale(1.02);
+  box-shadow: 0 16px 50px rgba(139,126,200,0.1);
+}
+.section-photo.tall { height: 500px; }
+
+#agence {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  padding: 160px 10vw 160px 120px;
+}
+.agence-content { position: relative; }
+.agence-logos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  width: 100%;
+  height: 500px;
+  background: #0e0d12;
+  border-radius: var(--radius);
+}
+.agence-logo-item {
+  width: 90%;
+  height: 280px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.agence-logo-item.pepite {
+  height: 120px;
+  width: 60%;
+  opacity: 0.9;
+}
+.agence-logo-divider {
+  width: 60px;
+  height: 1px;
+  background: rgba(139,126,200,0.25);
+  margin: 20px 0;
+}
+.agence-date {
+  font-size: 13px; font-weight: 600;
+  letter-spacing: 6px;
+  margin-bottom: 48px;
+  color: var(--accent);
+}
+#agence h2 {
+  font-family: var(--serif);
+  font-size: clamp(32px, 3.8vw, 60px);
+  font-weight: 300; line-height: 1.12;
+  margin-bottom: 36px;
+}
+#agence h2 em {
+  font-style: italic;
+  color: var(--accent);
+}
+.agence-desc {
+  font-size: 16px; font-weight: 400;
+  color: var(--fg-dim); max-width: 520px;
+  line-height: 1.85; margin-bottom: 40px;
+}
+.agence-quote {
+  font-family: var(--serif);
+  font-size: clamp(22px, 2.8vw, 38px);
+  font-weight: 300; font-style: italic;
+  color: var(--fg); max-width: 700px;
+  line-height: 1.4; position: relative;
+}
+.agence-quote::before {
+  content: '\201C';
+  position: absolute; left: -45px; top: -24px;
+  font-size: 90px;
+  color: var(--accent);
+  opacity: 0.3;
+}
+
+/* ============================== */
+/*    SECTION 5 — PITCH           */
+/* ============================== */
+#pitch {
+  padding: 160px 10vw 160px 120px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 100px; align-items: center;
+}
+.pitch-left h2 {
+  font-family: var(--serif);
+  font-size: clamp(30px, 3.8vw, 56px);
+  font-weight: 300; line-height: 1.2;
+  margin-bottom: 32px;
+}
+.pitch-left p {
+  font-size: 16px; font-weight: 400;
+  color: var(--fg-dim); line-height: 1.9;
+  margin-bottom: 20px;
+}
+.pitch-card {
+  background: var(--gradient-card);
+  border: 1px solid rgba(139,126,200,0.12);
+  border-radius: var(--radius);
+  padding: 48px;
+  backdrop-filter: blur(10px);
+  transition: border-color 0.4s, box-shadow 0.4s;
+}
+.pitch-card:hover {
+  border-color: rgba(139,126,200,0.3);
+  box-shadow: 0 16px 60px rgba(139,126,200,0.1);
+}
+.pitch-card h3 {
+  font-family: var(--serif);
+  font-size: 24px; font-weight: 400;
+  margin-bottom: 28px; color: var(--accent);
+}
+.pitch-jury { list-style: none; display: flex; flex-direction: column; gap: 16px; }
+.pitch-jury li {
+  font-size: 14px; font-weight: 400;
+  color: var(--fg-dim); padding-left: 22px;
+  position: relative;
+}
+.pitch-jury li::before {
+  content: ''; position: absolute;
+  left: 0; top: 8px;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--gradient-hero);
+}
+.pitch-result {
+  margin-top: 36px; padding-top: 28px;
+  border-top: 1px solid rgba(139,126,200,0.15);
+}
+.pitch-result span {
+  font-family: var(--serif);
+  font-size: 18px; font-style: italic;
+  color: var(--accent);
+}
+
+/* ============================== */
+/*   SECTION 6 — ÉLOQUENCE       */
+/* ============================== */
+#eloquence {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  padding: 160px 10vw 160px 120px;
+  overflow: hidden;
+}
+.eloquence-bg {
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, var(--bg) 0%, #12110f 50%, var(--bg) 100%);
+  pointer-events: none;
+}
+.eloquence-content { position: relative; z-index: 2; }
+.eloquence-photo {
+  width: 100%; height: 580px;
+  border-radius: var(--radius);
+  background-size: cover;
+  background-position: center;
+  position: relative; z-index: 2;
+}
+
+#eloquence h2 {
+  font-family: var(--serif);
+  font-size: clamp(28px, 3.5vw, 50px);
+  font-weight: 300; line-height: 1.25;
+  margin-bottom: 36px;
+}
+.eloquence-subject {
+  font-family: var(--serif);
+  font-size: clamp(20px, 2.2vw, 34px);
+  font-weight: 300; font-style: italic;
+  margin-bottom: 36px;
+  line-height: 1.3;
+  color: var(--accent);
+}
+#eloquence p {
+  font-size: 16px; font-weight: 400;
+  color: var(--fg-dim); max-width: 520px;
+  line-height: 1.9; margin-bottom: 36px;
+}
+
+/* ============================== */
+/*    SECTION 7 — GALERIE         */
+/* ============================== */
+#galerie {
+  min-height: auto; padding: 140px 10vw 140px 120px;
+  flex-direction: column;
+  align-items: stretch;
+}
+.galerie-header {
+  margin-bottom: 60px;
+}
+.galerie-header h2 {
+  font-family: var(--serif);
+  font-size: clamp(34px, 4.2vw, 60px);
+  font-weight: 300;
+}
+.galerie-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-flow: dense;
+  gap: 16px;
+}
+.galerie-item {
+  border-radius: var(--radius);
+  position: relative; overflow: hidden;
+  transition: transform 0.5s var(--transition), box-shadow 0.5s;
+  cursor: none;
+  aspect-ratio: 3/4;
+  background-size: cover;
+  background-position: center;
+}
+.galerie-item:hover {
+  transform: scale(1.03);
+  box-shadow: 0 20px 60px rgba(139,126,200,0.15);
+  z-index: 2;
+}
+.galerie-item::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(to bottom, transparent 40%, rgba(11,11,15,0.85));
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+.galerie-item:hover::before { opacity: 1; }
+.galerie-item-info {
+  position: absolute; bottom: 24px; left: 24px; z-index: 2;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.4s, transform 0.4s var(--transition);
+}
+.galerie-item:hover .galerie-item-info {
+  opacity: 1;
+  transform: translateY(0);
+}
+.galerie-item-category {
+  font-size: 10px; letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  color: var(--accent);
+  font-weight: 600;
+}
+.galerie-item-title {
+  font-family: var(--serif);
+  font-size: 20px; font-weight: 400;
+  color: var(--fg);
+}
+/* make some items span 2 rows for visual interest */
+.galerie-item.tall-card { grid-row: span 2; }
+.galerie-item.wide-card { grid-column: span 2; aspect-ratio: 16/9; }
+
+/* Lightbox */
+.lightbox {
+  position: fixed; inset: 0;
+  background: rgba(11,11,15,0.95);
+  z-index: 10002;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.5s var(--transition);
+  backdrop-filter: blur(20px);
+  cursor: none;
+}
+.lightbox.active { opacity: 1; pointer-events: all; }
+.lightbox-content {
+  width: 80vw; height: 80vh;
+  border-radius: var(--radius);
+  position: relative; overflow: hidden;
+  transform: scale(0.9);
+  transition: transform 0.5s var(--transition);
+  background: linear-gradient(135deg, #1a1816, #0d0c0b);
+}
+.lightbox.active .lightbox-content { transform: scale(1); }
+.lightbox-close {
+  position: absolute; top: 24px; right: 24px;
+  width: 48px; height: 48px;
+  border: 1px solid rgba(244,242,238,0.2);
+  border-radius: 50%; background: transparent;
+  color: var(--fg); font-size: 20px;
+  cursor: none; z-index: 3;
+  display: flex; align-items: center; justify-content: center;
+  transition: border-color 0.3s, background 0.3s;
+}
+.lightbox-close:hover {
+  border-color: var(--accent);
+  background: rgba(139,126,200,0.1);
+}
+.lightbox-info {
+  position: absolute; bottom: 40px; left: 40px; z-index: 3;
+}
+.lightbox-info .galerie-item-category { font-size: 11px; margin-bottom: 10px; }
+.lightbox-info .galerie-item-title { font-size: 32px; }
+.lightbox-nav {
+  position: absolute; top: 50%;
+  transform: translateY(-50%);
+  width: 52px; height: 52px;
+  border: 1px solid rgba(244,242,238,0.15);
+  border-radius: 50%; background: transparent;
+  color: var(--fg); font-size: 18px;
+  cursor: none; z-index: 3;
+  display: flex; align-items: center; justify-content: center;
+  transition: border-color 0.3s, background 0.3s;
+}
+.lightbox-nav:hover {
+  border-color: var(--accent);
+  background: rgba(139,126,200,0.1);
+}
+.lightbox-prev { left: 24px; }
+.lightbox-next { right: 24px; }
+
+/* ============================== */
+/*    SECTION 8 — VISION          */
+/* ============================== */
+#vision {
+  flex-direction: column;
+  padding: 160px 10vw;
+  align-items: center; text-align: center;
+}
+#vision h2 {
+  font-family: var(--serif);
+  font-size: clamp(30px, 3.8vw, 56px);
+  font-weight: 300; margin-bottom: 32px;
+  max-width: 650px; line-height: 1.2;
+}
+.vision-desc {
+  font-size: 17px; font-weight: 400;
+  color: var(--fg-dim); max-width: 540px;
+  line-height: 1.85; margin-bottom: 80px;
+}
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px; width: 100%; max-width: 1000px;
+}
+.value-card {
+  background: var(--gradient-card);
+  border: 1px solid rgba(139,126,200,0.08);
+  border-radius: var(--radius);
+  padding: 44px 20px;
+  text-align: center;
+  transition: border-color 0.4s, transform 0.5s var(--transition), box-shadow 0.5s, background 0.4s;
+}
+.value-card:hover {
+  border-color: rgba(139,126,200,0.3);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(139,126,200,0.1);
+  background: rgba(139,126,200,0.08);
+}
+.value-number {
+  font-family: var(--sans);
+  font-size: 13px; font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--accent);
+  margin-bottom: 16px;
+  display: block;
+}
+.value-name {
+  font-family: var(--serif);
+  font-size: 20px; font-weight: 500;
+  color: var(--fg); letter-spacing: 0.5px;
+  display: block;
+  margin-bottom: 10px;
+}
+.value-desc {
+  font-size: 12px; font-weight: 400;
+  color: var(--fg-dim);
+  line-height: 1.5;
+  display: block;
+}
+
+/* ============================== */
+/*    SECTION 9 — CONTACT         */
+/* ============================== */
+#conclusion {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 160px 10vw;
+  min-height: 100vh;
+}
+#conclusion::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 50% 50%, rgba(139,126,200,0.06) 0%, transparent 55%),
+    radial-gradient(ellipse at 70% 80%, rgba(139,126,200,0.04) 0%, transparent 45%);
+  pointer-events: none;
+}
+#conclusion h2 {
+  font-family: var(--serif);
+  font-size: clamp(32px, 4.2vw, 64px);
+  font-weight: 300; line-height: 1.25;
+  max-width: 700px; margin-bottom: 16px;
+  position: relative;
+}
+.conclusion-second {
+  font-family: var(--serif);
+  font-size: clamp(26px, 3.5vw, 54px);
+  font-weight: 300; font-style: italic;
+  margin-bottom: 72px;
+  position: relative;
+  color: var(--accent);
+}
+
+/* Contact Cards */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  width: 100%; max-width: 860px;
+  margin-bottom: 48px;
+  position: relative;
+}
+.contact-card {
+  background: var(--gradient-card);
+  border: 1px solid rgba(139,126,200,0.08);
+  border-radius: var(--radius);
+  padding: 32px 24px;
+  text-align: center;
+  transition: border-color 0.4s, transform 0.5s var(--transition), box-shadow 0.5s;
+  display: flex; flex-direction: column;
+  align-items: center; gap: 12px;
+}
+.contact-card:hover {
+  border-color: rgba(139,126,200,0.3);
+  transform: translateY(-6px);
+  box-shadow: 0 16px 50px rgba(139,126,200,0.12);
+}
+.contact-icon {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: rgba(139,126,200,0.1);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+.contact-card-label {
+  font-size: 10px; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--fg-dim);
+  font-weight: 600;
+}
+.contact-card-value {
+  font-size: 14px; font-weight: 500;
+  color: var(--fg);
+  word-break: break-all;
+}
+
+.cta-row {
+  display: flex; gap: 20px;
+  margin-bottom: 56px;
+  position: relative;
+}
+.cta-btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 18px 40px;
+  border-radius: 60px;
+  font-family: var(--sans);
+  font-size: 13px; font-weight: 600;
+  letter-spacing: 2px; text-transform: uppercase;
+  transition: all 0.4s var(--transition);
+  cursor: none; position: relative;
+  overflow: hidden;
+}
+.cta-btn.primary {
+  background: var(--accent);
+  color: var(--bg);
+  border: none;
+}
+.cta-btn.primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 36px rgba(139,126,200,0.2);
+}
+.cta-btn.secondary {
+  background: transparent;
+  border: 1.5px solid rgba(139,126,200,0.3);
+  color: var(--fg);
+}
+.cta-btn.secondary:hover {
+  border-color: var(--accent);
+  background: rgba(139,126,200,0.08);
+  transform: translateY(-3px);
+}
+
+.social-row {
+  display: flex; gap: 28px;
+  position: relative;
+}
+.social-link {
+  font-size: 13px; font-weight: 500;
+  letter-spacing: 2px; color: var(--fg-dim);
+  transition: color 0.3s;
+  position: relative;
+}
+.social-link::after {
+  content: '';
+  position: absolute; bottom: -4px; left: 0;
+  width: 0; height: 2px;
+  background: var(--gradient-hero);
+  transition: width 0.4s var(--transition);
+}
+.social-link:hover { color: var(--fg); }
+.social-link:hover::after { width: 100%; }
+
+.footer-credit {
+  position: absolute; bottom: 28px;
+  font-size: 11px; letter-spacing: 2px;
+  color: rgba(244,242,238,0.2);
+}
+
+/* ============================== */
+/*       RESPONSIVE               */
+/* ============================== */
+@media (max-width: 1024px) {
+  section { padding: 100px 6vw 100px 80px; }
+  #histoire { grid-template-columns: 1fr; }
+  .histoire-image { height: 420px; }
+  .msl-header { grid-template-columns: 1fr; gap: 40px; }
+  .msl-gallery { grid-template-columns: 1fr 1fr; }
+  #agence { grid-template-columns: 1fr; gap: 50px; }
+  #pitch { grid-template-columns: 1fr; gap: 60px; }
+  .values-grid { grid-template-columns: repeat(3, 1fr); }
+  .galerie-grid { grid-template-columns: repeat(3, 1fr); }
+  #eloquence { grid-template-columns: 1fr; gap: 50px; }
+  .eloquence-photo { height: 400px; }
+  .contact-grid { grid-template-columns: 1fr 1fr; }
+  .journey-line { left: 30px; }
+}
+@media (max-width: 768px) {
+  section { padding: 80px 20px 80px 20px; }
+  #hero { padding: 60px 20px; }
+  .section-counter { right: 20px; bottom: 20px; }
+  .nav-dots { right: 14px; gap: 12px; }
+  .nav-dot { width: 7px; height: 7px; }
+  .nav-dot::after { display: none; }
+  .msl-gallery { grid-template-columns: 1fr; }
+  .stats-row { gap: 28px; flex-wrap: wrap; }
+  .values-grid { grid-template-columns: repeat(2, 1fr); }
+  .cta-row { flex-direction: column; align-items: center; }
+  .galerie-grid { grid-template-columns: repeat(2, 1fr); }
+  .galerie-item.tall-card { grid-row: span 1; }
+  .section-big-number { font-size: 35vw; }
+  .cursor, .cursor-dot { display: none; }
+  body { cursor: auto; }
+  a, button { cursor: pointer; }
+  .journey-line { display: none; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .contact-card { flex-direction: row; text-align: left; gap: 16px; }
+  .lightbox-content { width: 95vw; height: 70vh; }
+}
+</style>
+</head>
+<body>
+
+<!-- Cursor -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-dot" id="cursorDot"></div>
+
+<!-- Progress Bar -->
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- Grain -->
+<div class="grain"></div>
+
+<!-- Journey Line -->
+<div class="journey-line" id="journeyLine">
+  <div class="journey-line-bg"></div>
+  <div class="journey-line-fill" id="journeyFill"></div>
+  <div class="journey-line-dot" data-label="Accueil" style="top:5.5%"></div>
+  <div class="journey-line-dot" data-label="Histoire" style="top:16.6%"></div>
+  <div class="journey-line-dot" data-label="Photo" style="top:27.7%"></div>
+  <div class="journey-line-dot" data-label="Agence" style="top:38.8%"></div>
+  <div class="journey-line-dot" data-label="Pitch" style="top:50%"></div>
+  <div class="journey-line-dot" data-label="Éloquence" style="top:61.1%"></div>
+  <div class="journey-line-dot" data-label="Galerie" style="top:72.2%"></div>
+  <div class="journey-line-dot" data-label="Vision" style="top:83.3%"></div>
+  <div class="journey-line-dot" data-label="Contact" style="top:94.4%"></div>
+</div>
+
+<!-- Section Counter -->
+<div class="section-counter" id="sectionCounter">
+  <span class="current">01</span>
+  <span>/ 09</span>
+</div>
+
+<!-- Nav Dots -->
+<nav class="nav-dots" id="navDots">
+  <button class="nav-dot active" data-section="hero" data-label="Accueil" aria-label="Accueil"></button>
+  <button class="nav-dot" data-section="histoire" data-label="Histoire" aria-label="Histoire"></button>
+  <button class="nav-dot" data-section="mystudentlife" data-label="Photo" aria-label="Photo"></button>
+  <button class="nav-dot" data-section="agence" data-label="Agence" aria-label="Agence"></button>
+  <button class="nav-dot" data-section="pitch" data-label="Pitch" aria-label="Pitch"></button>
+  <button class="nav-dot" data-section="eloquence" data-label="Éloquence" aria-label="Éloquence"></button>
+  <button class="nav-dot" data-section="galerie" data-label="Galerie" aria-label="Galerie"></button>
+  <button class="nav-dot" data-section="vision" data-label="Vision" aria-label="Vision"></button>
+  <button class="nav-dot" data-section="conclusion" data-label="Contact" aria-label="Contact"></button>
+</nav>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-content" id="lightboxContent">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Fermer">&times;</button>
+    <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Précédent">&#8592;</button>
+    <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Suivant">&#8594;</button>
+    <div class="lightbox-info">
+      <div class="galerie-item-category" id="lightboxCategory"></div>
+      <div class="galerie-item-title" id="lightboxTitle"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== SECTION 1 — HERO ===== -->
+<section id="hero">
+  <div class="hero-orb hero-orb-1"></div>
+  <div class="hero-orb hero-orb-2"></div>
+  <div class="hero-orb hero-orb-3"></div>
+  <div class="section-big-number" aria-hidden="true">N</div>
+
+  <div class="hero-overline reveal delay-1">Nathan — Portfolio</div>
+  <h1 class="hero-title" id="heroTitle">
+    Je ne me contente pas d'étudier le <em>marketing</em>.<br>
+    Je le vis, je le crée, je l'<em>expérimente</em>.
+  </h1>
+  <div class="hero-line reveal delay-5"></div>
+  <p class="hero-subtitle reveal delay-6">
+    Étudiant, entrepreneur et créatif en construction.
+  </p>
+  <div class="scroll-indicator">
+    <span>Découvrir</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5">
+      <path d="M12 5v14M5 12l7 7 7-7"/>
+    </svg>
+  </div>
+</section>
+
+<!-- ===== SECTION 2 — HISTOIRE ===== -->
+<section id="histoire">
+  <div class="histoire-text">
+    <div class="section-label reveal">Mon Histoire</div>
+    <h2 class="reveal delay-1">Un étudiant qui sait que la <em style="font-style:italic;color:var(--accent)">théorie</em> ne suffit pas.</h2>
+    <p class="reveal delay-2">
+      Très tôt, j'ai compris que le marketing, ce n'est pas seulement des stratégies et des chiffres.
+      C'est comprendre les émotions, raconter des histoires, créer un impact qui résonne.
+    </p>
+    <p class="reveal delay-3">
+      Le sport m'a forgé autant que les études. Le handball m'a enseigné le collectif,
+      la rigueur et la force mentale. La musculation et la course sont devenues
+      des rituels de dépassement quotidien.
+    </p>
+    <p class="reveal delay-4">
+      Mon premier réflexe entrepreneurial ? Vinted. Pendant un an, j'ai acheté des produits,
+      je leur ai redonné vie en soignant leur image — photos, descriptions, mise en scène —
+      et j'ai généré 3 000 € de chiffre d'affaires. Ma première vraie leçon de marketing appliqué.
+    </p>
+    <div class="key-phrase reveal delay-5">
+      Tout ce que je fais repose sur une idée simple&nbsp;: progresser chaque jour.
+    </div>
+  </div>
+  <div class="histoire-image reveal delay-3 parallax-image" data-speed="0.04" style="background:url('photos/01-histoire/IMG_1.PNG') center/cover;"></div>
+</section>
+
+<!-- ===== SECTION 3 — MYSTUDENTLIFE ===== -->
+<section id="mystudentlife">
+  <div class="msl-header">
+    <div>
+      <div class="section-label reveal">Association</div>
+      <h2 class="reveal delay-1">
+        <span>MyStudentLife</span> Photo<br>
+        Président
+      </h2>
+    </div>
+    <div class="msl-info">
+      <p class="reveal delay-2">
+        Mettre en lumière la vie étudiante à travers la photographie artistique.
+        Coordonner une équipe de 3 étudiants passionnés, diriger les projets créatifs,
+        et transformer chaque instant en image qui raconte.
+      </p>
+      <p class="reveal delay-3">
+        Organisation d'une exposition photo avec vernissage les 16 et 17 octobre 2025.
+        Création d'un concours photo étudiant. Obtention de 2 subventions
+        pour un total de 5000 €.
+      </p>
+      <div class="stats-row reveal delay-4">
+        <div class="stat">
+          <div class="stat-number" style="white-space:nowrap;">5000&nbsp;€</div>
+          <div class="stat-label">De subventions</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">3</div>
+          <div class="stat-label">Collaborateurs</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">2</div>
+          <div class="stat-label">Jours d'expo</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="msl-gallery">
+    <div class="msl-gallery-item reveal delay-2" data-label="Vernissage — Oct. 2025" style="background:url('photos/02-mystudentlife/vernissage/IMG_8294.jpg') center/cover;"></div>
+    <div class="msl-gallery-item reveal delay-3" data-label="Vie Étudiante" style="background:url('photos/02-mystudentlife/vie-etudiante/IMG_3115.JPG') center/cover;"></div>
+    <div class="msl-gallery-item reveal delay-4" data-label="Exposition" style="background:url('photos/02-mystudentlife/portraits/IMG_8272.jpg') center/cover;"></div>
+  </div>
+  <div class="key-phrase reveal delay-5" style="margin-top:60px;">
+    Créer des images, c'est raconter ce que les mots ne montrent pas.
+  </div>
+</section>
+
+<!-- ===== SECTION 4 — AGENCE ===== -->
+<section id="agence">
+  <div class="agence-content">
+    <div class="section-label reveal">Entrepreneuriat</div>
+    <div class="agence-date reveal delay-1">Août 2025</div>
+    <h2 class="reveal delay-2">Naissance d'une<br><em>agence digitale</em></h2>
+    <p class="agence-desc reveal delay-3">
+      Transformer mes compétences en actions réelles.
+      Aider les entreprises à se rendre visibles, à raconter leur histoire,
+      à créer un impact concret. Apprendre en construisant,
+      pas seulement en étudiant.
+    </p>
+    <p class="agence-desc reveal delay-4" style="margin-bottom:40px;">
+      Grâce à cette démarche, j'ai obtenu le Statut National d'Étudiant-Entrepreneur (SNEE)
+      et je fais désormais partie des Pépites de Lille, le réseau qui accompagne
+      les étudiants entrepreneurs dans leurs projets.
+    </p>
+    <div class="agence-quote reveal delay-4">
+      Entreprendre, pour moi, c'est apprendre plus vite que les autres.
+    </div>
+    <a href="https://nexboost.fr" target="_blank" rel="noopener" class="cta-btn primary reveal delay-5" style="margin-top:40px;display:inline-flex;">Découvrir Nexboost.fr &rarr;</a>
+  </div>
+  <div class="agence-logos reveal delay-3">
+    <div class="agence-logo-item" style="background-image:url('photos/03-agence/logo-nexboost.svg');"></div>
+    <div class="agence-logo-divider"></div>
+    <div class="agence-logo-item pepite" style="background-image:url('photos/03-agence/logo-pepite.png');"></div>
+  </div>
+</section>
+
+<!-- ===== SECTION 5 — PITCH ===== -->
+<section id="pitch">
+  <div class="pitch-left">
+    <div class="section-label reveal">Décembre 2025</div>
+    <h2 class="reveal delay-1">Victoire au concours de <em style="font-style:italic;color:var(--accent)">pitch</em></h2>
+    <p class="reveal delay-2">
+      Le 13 décembre, j'ai remporté un concours de pitch entrepreneurial.
+      Création complète d'une entreprise : concept, business model,
+      stratégie et dossier professionnel.
+    </p>
+    <p class="reveal delay-3">
+      Une expérience qui m'a appris que la conviction et la clarté
+      sont aussi puissantes qu'un bon produit.
+    </p>
+  </div>
+  <div class="pitch-right">
+    <div class="section-photo reveal delay-2" style="height:280px;margin-bottom:24px;background:url('photos/04-pitch/IMG_3643.JPG') center/cover;"></div>
+    <div class="pitch-card reveal delay-3">
+      <h3>Devant un jury d'exception</h3>
+      <ul class="pitch-jury">
+        <li>Représentants des Pépites de Lille</li>
+        <li>Chambre de Commerce et d'Industrie</li>
+        <li>Incubateur Rives Créatives</li>
+        <li>Directeurs de banques</li>
+      </ul>
+      <div class="pitch-result">
+        <span>1re place — Conviction, vision, capacité à défendre une idée.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 6 — ÉLOQUENCE ===== -->
+<section id="eloquence">
+  <div class="eloquence-bg"></div>
+  <div class="eloquence-content">
+    <div class="section-label reveal">Moment Clé</div>
+    <h2 class="reveal delay-1">Finale d'éloquence<br>Théâtre Le Phénix, Valenciennes</h2>
+    <div class="eloquence-subject reveal delay-2">
+      « Peut-on être soi-même parmi les autres ? »
+    </div>
+    <p class="reveal delay-3">
+      Après plusieurs victoires en éloquence, la finale au théâtre Le Phénix.
+      Un moment de vérité, où chaque mot porte le poids d'une conviction.
+      L'art de parler, c'est d'abord l'art de se connaître.
+    </p>
+    <div class="key-phrase reveal delay-4">
+      Apprendre à parler, c'est apprendre à se connaître.
+    </div>
+  </div>
+  <div class="eloquence-photo reveal delay-3" style="background-image:url('photos/05-eloquence/IMG_9930.JPG');"></div>
+</section>
+
+<!-- ===== SECTION 7 — GALERIE ===== -->
+<section id="galerie">
+  <div class="galerie-header">
+    <div class="section-label reveal">Photographie</div>
+    <h2 class="reveal delay-1">Galerie</h2>
+  </div>
+  <div class="galerie-grid">
+    <div class="galerie-item reveal" data-category="Vie Étudiante" data-title="Entre les cours" style="background-image:url('photos/06-galerie/vie-etudiante/IMG_3149.JPG');">
+      <div class="galerie-item-info"><div class="galerie-item-category">Vie Étudiante</div><div class="galerie-item-title">Entre les cours</div></div>
+    </div>
+    <div class="galerie-item reveal" data-category="Sport" data-title="Terrain de handball" style="background-image:url('photos/06-galerie/sport/IMG_7880.jpg');">
+      <div class="galerie-item-info"><div class="galerie-item-category">Sport</div><div class="galerie-item-title">Terrain de handball</div></div>
+    </div>
+    <div class="galerie-item reveal" data-category="Portraits" data-title="Regards" style="background-image:url('photos/06-galerie/portraits/IMG_3439.JPG');">
+      <div class="galerie-item-info"><div class="galerie-item-category">Portraits</div><div class="galerie-item-title">Regards</div></div>
+    </div>
+    <div class="galerie-item reveal" data-category="Paysages" data-title="Horizon" style="background-image:url('photos/06-galerie/paysages/IMG_2701.JPG');">
+      <div class="galerie-item-info"><div class="galerie-item-category">Paysages</div><div class="galerie-item-title">Horizon</div></div>
+    </div>
+    <div class="galerie-item reveal" data-category="Instants de Vie" data-title="Le quotidien" style="background-image:url('photos/06-galerie/instants-de-vie/IMG_4308.JPG');">
+      <div class="galerie-item-info"><div class="galerie-item-category">Instants de Vie</div><div class="galerie-item-title">Le quotidien</div></div>
+    </div>
+    <div class="galerie-item reveal" data-category="Paysages" data-title="Lumière" style="background-image:url('photos/06-galerie/paysages/IMG_2836.JPG');">
+      <div class="galerie-item-info"><div class="galerie-item-category">Paysages</div><div class="galerie-item-title">Lumière</div></div>
+    </div>
+    <div class="galerie-item reveal" data-category="Sport" data-title="Dépassement" style="background-image:url('photos/06-galerie/sport/IMG_7881.WEBP');">
+      <div class="galerie-item-info"><div class="galerie-item-category">Sport</div><div class="galerie-item-title">Dépassement</div></div>
+    </div>
+    <div class="galerie-item reveal" data-category="Portraits" data-title="Lumière naturelle" style="background-image:url('photos/06-galerie/portraits/IMG_4144.JPG');">
+      <div class="galerie-item-info"><div class="galerie-item-category">Portraits</div><div class="galerie-item-title">Lumière naturelle</div></div>
+    </div>
+    <div class="galerie-item reveal" data-category="Paysages" data-title="Vue aérienne" style="background-image:url('photos/06-galerie/paysages/DJI_0181.JPG');">
+      <div class="galerie-item-info"><div class="galerie-item-category">Paysages</div><div class="galerie-item-title">Vue aérienne</div></div>
+    </div>
+    <div class="galerie-item reveal" data-category="Paysages" data-title="Évasion" style="background-image:url('photos/06-galerie/paysages/IMG_2918.jpg');">
+      <div class="galerie-item-info"><div class="galerie-item-category">Paysages</div><div class="galerie-item-title">Évasion</div></div>
+    </div>
+    <div class="galerie-item reveal" data-category="Paysages" data-title="Perspective" style="background-image:url('photos/06-galerie/paysages/IMG_2892.JPG');">
+      <div class="galerie-item-info"><div class="galerie-item-category">Paysages</div><div class="galerie-item-title">Perspective</div></div>
+    </div>
+    <div class="galerie-item reveal" data-category="Paysages" data-title="Altitude" style="background-image:url('photos/06-galerie/paysages/dji_fly_20250730_140308_54_1753882287078_photo_optimized.JPG');">
+      <div class="galerie-item-info"><div class="galerie-item-category">Paysages</div><div class="galerie-item-title">Altitude</div></div>
+    </div>
+    <div class="galerie-item reveal" data-category="Paysages" data-title="Crépuscule" style="background-image:url('photos/06-galerie/paysages/dji_fly_20250731_180542_76_1753977954816_photo_optimized.JPG');">
+      <div class="galerie-item-info"><div class="galerie-item-category">Paysages</div><div class="galerie-item-title">Crépuscule</div></div>
+    </div>
+    <div class="galerie-item reveal" data-category="Paysages" data-title="En hauteur" style="background-image:url('photos/06-galerie/paysages/dji_fly_20250731_180934_84_1753978197685_photo_optimized.JPG');">
+      <div class="galerie-item-info"><div class="galerie-item-category">Paysages</div><div class="galerie-item-title">En hauteur</div></div>
+    </div>
+    <div class="galerie-item reveal" data-category="Paysages" data-title="Survol" style="background-image:url('photos/06-galerie/paysages/dji_fly_20250731_180934_84_1753978197685_photo_optimized2.JPG');">
+      <div class="galerie-item-info"><div class="galerie-item-category">Paysages</div><div class="galerie-item-title">Survol</div></div>
+    </div>
+    <div class="galerie-item reveal" data-category="Paysages" data-title="Grand angle" style="background-image:url('photos/06-galerie/paysages/dji_fly_20250802_110630_99_1754125631393_photo_optimized.JPG');">
+      <div class="galerie-item-info"><div class="galerie-item-category">Paysages</div><div class="galerie-item-title">Grand angle</div></div>
+    </div>
+    <div class="galerie-item reveal" data-category="Paysages" data-title="Immensité" style="background-image:url('photos/06-galerie/paysages/dji_fly_20250802_110642_100_1754125637953_photo_optimized.JPG');">
+      <div class="galerie-item-info"><div class="galerie-item-category">Paysages</div><div class="galerie-item-title">Immensité</div></div>
+    </div>
+    <div class="galerie-item reveal" data-category="Paysages" data-title="Coucher de soleil" style="background-image:url('photos/06-galerie/paysages/dji_fly_20250803_202102_124_1754245304206_photo_optimized.JPG');">
+      <div class="galerie-item-info"><div class="galerie-item-category">Paysages</div><div class="galerie-item-title">Coucher de soleil</div></div>
+    </div>
+    <div class="galerie-item reveal" data-category="Paysages" data-title="Exploration" style="background-image:url('photos/06-galerie/paysages/dji_fly_20250809_142802_142_1754742643454_photo_optimized.JPG');">
+      <div class="galerie-item-info"><div class="galerie-item-category">Paysages</div><div class="galerie-item-title">Exploration</div></div>
+    </div>
+    <div class="galerie-item reveal" data-category="Paysages" data-title="Au loin" style="background-image:url('photos/06-galerie/paysages/IMG_2863.JPG');">
+      <div class="galerie-item-info"><div class="galerie-item-category">Paysages</div><div class="galerie-item-title">Au loin</div></div>
+    </div>
+    <div class="galerie-item reveal" data-category="Vie Étudiante" data-title="Sur le terrain" style="background-image:url('photos/02-mystudentlife/vie-etudiante/IMG_3095.JPG');">
+      <div class="galerie-item-info"><div class="galerie-item-category">Vie Étudiante</div><div class="galerie-item-title">Sur le terrain</div></div>
+    </div>
+    <div class="galerie-item reveal" data-category="Vie Étudiante" data-title="Ensemble" style="background-image:url('photos/02-mystudentlife/vie-etudiante/IMG_3115.JPG');">
+      <div class="galerie-item-info"><div class="galerie-item-category">Vie Étudiante</div><div class="galerie-item-title">Ensemble</div></div>
+    </div>
+    <div class="galerie-item reveal" data-category="Portraits" data-title="Expression" style="background-image:url('photos/02-mystudentlife/portraits/IMG_8272.jpg');">
+      <div class="galerie-item-info"><div class="galerie-item-category">Portraits</div><div class="galerie-item-title">Expression</div></div>
+    </div>
+    <div class="galerie-item reveal" data-category="Paysages" data-title="Panorama" style="background-image:url('photos/06-galerie/paysages/IMG_2892.JPG');">
+      <div class="galerie-item-info"><div class="galerie-item-category">Paysages</div><div class="galerie-item-title">Panorama</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 8 — VISION ===== -->
+<section id="vision">
+  <div class="section-label reveal">Ma Vision</div>
+  <h2 class="reveal delay-1">Utiliser le marketing pour <em style="font-style:italic;color:var(--accent)">connecter</em> et faire grandir.</h2>
+  <p class="vision-desc reveal delay-2">
+    Je veux utiliser le marketing pour aider, connecter et faire grandir
+    des projets humains. Chaque stratégie doit servir une histoire vraie.
+  </p>
+  <div class="values-grid">
+    <div class="value-card reveal delay-1">
+      <span class="value-number">01</span>
+      <span class="value-name">Authenticité</span>
+      <span class="value-desc">Rester vrai dans chaque projet</span>
+    </div>
+    <div class="value-card reveal delay-2">
+      <span class="value-number">02</span>
+      <span class="value-name">Créativité</span>
+      <span class="value-desc">Imaginer avant de reproduire</span>
+    </div>
+    <div class="value-card reveal delay-3">
+      <span class="value-number">03</span>
+      <span class="value-name">Dépassement</span>
+      <span class="value-desc">Repousser ses limites chaque jour</span>
+    </div>
+    <div class="value-card reveal delay-4">
+      <span class="value-number">04</span>
+      <span class="value-name">Collectif</span>
+      <span class="value-desc">Grandir ensemble, toujours</span>
+    </div>
+    <div class="value-card reveal delay-5">
+      <span class="value-number">05</span>
+      <span class="value-name">Action</span>
+      <span class="value-desc">Faire plutôt qu'attendre</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 9 — CONTACT ===== -->
+<section id="conclusion">
+  <h2 class="reveal">Je suis encore au début de l'histoire.</h2>
+  <div class="conclusion-second reveal delay-2">Mais l'histoire a déjà commencé.</div>
+
+  <div class="contact-grid reveal delay-3">
+    <a href="mailto:nathanlepretre59@gmail.com" class="contact-card">
+      <div class="contact-icon">&#9993;</div>
+      <div>
+        <div class="contact-card-label">Email Personnel</div>
+        <div class="contact-card-value">nathanlepretre59@gmail.com</div>
+      </div>
+    </a>
+    <a href="mailto:nexboost.pro@gmail.com" class="contact-card">
+      <div class="contact-icon">&#9993;</div>
+      <div>
+        <div class="contact-card-label">Email Professionnel</div>
+        <div class="contact-card-value">nexboost.pro@gmail.com</div>
+      </div>
+    </a>
+    <a href="tel:+33788845343" class="contact-card">
+      <div class="contact-icon">&#9742;</div>
+      <div>
+        <div class="contact-card-label">Téléphone</div>
+        <div class="contact-card-value">07 88 84 53 43</div>
+      </div>
+    </a>
+  </div>
+
+  <div class="cta-row reveal delay-4">
+    <a href="https://nexboost.fr" target="_blank" rel="noopener" class="cta-btn primary">Nexboost.fr</a>
+    <a href="https://www.linkedin.com/in/nathan-lepretre-780446290/" target="_blank" rel="noopener" class="cta-btn secondary">LinkedIn</a>
+  </div>
+
+  <div class="social-row reveal delay-5">
+    <a href="https://www.linkedin.com/in/nathan-lepretre-780446290/" target="_blank" rel="noopener" class="social-link">LinkedIn</a>
+    <a href="https://nexboost.fr" target="_blank" rel="noopener" class="social-link">Nexboost</a>
+    <a href="mailto:nathanlepretre59@gmail.com" class="social-link">Email</a>
+  </div>
+
+  <div class="footer-credit">&copy; 2025 Nathan Leprêtre — Tous droits réservés</div>
+</section>
+
+<script>
+(function() {
+  'use strict';
+
+  // === CURSOR ===
+  const cursor = document.getElementById('cursor');
+  const cursorDot = document.getElementById('cursorDot');
+  let mx = 0, my = 0, cx = 0, cy = 0, dx = 0, dy = 0;
+
+  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+
+  function animCursor() {
+    cx += (mx - cx) * 0.1;
+    cy += (my - cy) * 0.1;
+    dx += (mx - dx) * 0.22;
+    dy += (my - dy) * 0.22;
+    cursor.style.left = cx + 'px';
+    cursor.style.top = cy + 'px';
+    cursorDot.style.left = dx + 'px';
+    cursorDot.style.top = dy + 'px';
+    requestAnimationFrame(animCursor);
+  }
+  animCursor();
+
+  document.querySelectorAll('a, button, .cta-btn, .value-card, .galerie-item, .msl-gallery-item, .contact-card, .pitch-card').forEach(el => {
+    el.addEventListener('mouseenter', () => cursor.classList.add('hovering'));
+    el.addEventListener('mouseleave', () => cursor.classList.remove('hovering'));
+  });
+
+  // === PROGRESS BAR ===
+  const progressBar = document.getElementById('progressBar');
+
+  // === SECTIONS ===
+  const sections = document.querySelectorAll('section');
+  const navDots = document.querySelectorAll('.nav-dot');
+  const sectionCounter = document.getElementById('sectionCounter');
+  const journeyFill = document.getElementById('journeyFill');
+  const journeyDots = document.querySelectorAll('.journey-line-dot');
+
+  function updateScroll() {
+    const scrollY = window.scrollY;
+    const docH = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = docH > 0 ? scrollY / docH : 0;
+
+    // Progress bar
+    progressBar.style.width = (pct * 100) + '%';
+
+    // Journey line fill
+    journeyFill.style.height = (pct * 100) + '%';
+
+    // Active section
+    let current = 0;
+    sections.forEach((s, i) => {
+      if (s.getBoundingClientRect().top <= window.innerHeight * 0.45) current = i;
+    });
+
+    navDots.forEach((d, i) => d.classList.toggle('active', i === current));
+    sectionCounter.querySelector('.current').textContent = String(current + 1).padStart(2, '0');
+
+    // Journey dots
+    journeyDots.forEach((dot, i) => {
+      dot.classList.toggle('active', i <= current);
+    });
+
+    // Parallax
+    document.querySelectorAll('.parallax-image').forEach(el => {
+      const spd = parseFloat(el.dataset.speed) || 0.04;
+      const r = el.getBoundingClientRect();
+      el.style.transform = `translateY(${(r.top - window.innerHeight / 2) * spd}px)`;
+    });
+
+    // Gallery scroll removed — now using grid layout
+  }
+
+  // Nav dots click
+  navDots.forEach(d => {
+    d.addEventListener('click', () => {
+      const t = document.getElementById(d.dataset.section);
+      if (t) t.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+
+  // === REVEAL ===
+  const revealObs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.12, rootMargin: '0px 0px -50px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+  // === HERO WORD REVEAL ===
+  const heroTitle = document.getElementById('heroTitle');
+  function wrapWords(el) {
+    let result = '', wi = 0;
+    el.childNodes.forEach(node => {
+      if (node.nodeType === 3) {
+        node.textContent.split(/(\s+)/).forEach(w => {
+          if (w.trim()) {
+            result += `<span class="reveal-word" style="transition-delay:${Math.min(wi * 0.055, 1.6)}s">${w}</span>`;
+            wi++;
+          } else { result += w; }
+        });
+      } else if (node.nodeType === 1) {
+        if (node.tagName === 'BR') { result += '<br>'; }
+        else {
+          const tag = node.tagName.toLowerCase();
+          node.textContent.split(/(\s+)/).forEach(w => {
+            if (w.trim()) {
+              result += `<${tag}><span class="reveal-word" style="transition-delay:${Math.min(wi * 0.055, 1.6)}s">${w}</span></${tag}>`;
+              wi++;
+            } else { result += w; }
+          });
+        }
+      }
+    });
+    el.innerHTML = result;
+  }
+  wrapWords(heroTitle);
+
+  setTimeout(() => {
+    document.querySelectorAll('#heroTitle .reveal-word').forEach(w => w.classList.add('visible'));
+    document.querySelectorAll('#hero .reveal').forEach(el => el.classList.add('visible'));
+  }, 350);
+
+  // === LIGHTBOX ===
+  const lightbox = document.getElementById('lightbox');
+  const lbContent = document.getElementById('lightboxContent');
+  const lbCategory = document.getElementById('lightboxCategory');
+  const lbTitle = document.getElementById('lightboxTitle');
+  const galerieItems = document.querySelectorAll('.galerie-item');
+  let lbIndex = 0;
+
+  function openLightbox(i) {
+    lbIndex = i;
+    const item = galerieItems[i];
+    lbCategory.textContent = item.dataset.category;
+    lbTitle.textContent = item.dataset.title;
+    lbContent.style.background = getComputedStyle(item).background;
+    lightbox.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    lightbox.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  function navLightbox(dir) {
+    lbIndex = (lbIndex + dir + galerieItems.length) % galerieItems.length;
+    openLightbox(lbIndex);
+  }
+
+  galerieItems.forEach((item, i) => {
+    item.addEventListener('click', () => openLightbox(i));
+  });
+  document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+  document.getElementById('lightboxPrev').addEventListener('click', () => navLightbox(-1));
+  document.getElementById('lightboxNext').addEventListener('click', () => navLightbox(1));
+  lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', e => {
+    if (!lightbox.classList.contains('active')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') navLightbox(-1);
+    if (e.key === 'ArrowRight') navLightbox(1);
+  });
+
+  // === SCROLL ===
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(() => { updateScroll(); ticking = false; });
+      ticking = true;
+    }
+  }, { passive: true });
+
+  // Section fade-in
+  const secObs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.style.opacity = '1'; });
+  }, { threshold: 0.04 });
+
+  sections.forEach(s => {
+    if (s.id !== 'hero' && s.id !== 'galerie') {
+      s.style.opacity = '0';
+      s.style.transition = 'opacity 0.9s ease';
+      secObs.observe(s);
+    }
+  });
+
+  updateScroll();
+})();
+</script>
+</body>
+</html>

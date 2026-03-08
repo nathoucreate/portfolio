@@ -1,0 +1,7 @@
+GALERIE — "VIE ÉTUDIANTE"
+=========================
+Dépose ici 2 photos de la vie étudiante.
+Elles apparaîtront dans la galerie horizontale défilante.
+
+Format recommandé : vertical (portrait), minimum 800x1100px
+Renomme-les : photo1.jpg et photo2.jpg

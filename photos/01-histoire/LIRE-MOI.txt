@@ -1,0 +1,7 @@
+SECTION "MON HISTOIRE"
+======================
+Dépose ici 1 photo de toi (portrait ou photo lifestyle).
+Elle apparaîtra en grand à droite du texte de ton histoire.
+
+Format recommandé : vertical (portrait), minimum 800x1200px
+Renomme-la : photo.jpg

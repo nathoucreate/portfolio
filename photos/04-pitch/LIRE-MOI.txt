@@ -1,0 +1,7 @@
+SECTION "CONCOURS DE PITCH"
+===========================
+Dépose ici 1 photo du concours de pitch (toi sur scène, le jury, le prix, etc.).
+Elle apparaîtra au-dessus de la carte du jury.
+
+Format recommandé : horizontal, minimum 800x500px
+Renomme-la : photo.jpg
