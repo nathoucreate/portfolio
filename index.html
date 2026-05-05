@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nathan Leprêtre — De la Curiosité à l'Impact</title>
+<title>Nathan Leprêtre — Étudiant, Entrepreneur, Créatif</title>
 <meta name="description" content="Portfolio de Nathan Leprêtre — étudiant entrepreneur, créateur de Nexboost, photographe et passionné de marketing digital.">
 <meta name="author" content="Nathan Leprêtre">
 <meta property="og:title" content="Nathan Leprêtre — Portfolio">
 <meta property="og:description" content="Étudiant, entrepreneur et créatif en construction. Découvrez mon parcours.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://nathanlepretre.fr">
-<meta name="theme-color" content="#0a0a12">
+<meta name="theme-color" content="#0b0b0f">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,42 +19,19 @@
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
-  --bg: #0a0a12;
-  --bg-subtle: #0e0e18;
-  --fg: #f0ede8;
-  --fg-dim: rgba(240,237,232,0.5);
+  --bg: #0b0b0f;
+  --fg: #ede9e3;
+  --fg-dim: rgba(237,233,227,0.5);
+  --accent: #c9a227;
+  --accent-soft: rgba(201,162,39,0.15);
+  --accent-glow: rgba(201,162,39,0.2);
   --serif: 'Cormorant Garamond', Georgia, serif;
   --sans: 'Syne', system-ui, sans-serif;
-  --radius: 12px;
+  --radius: 8px;
   --transition: cubic-bezier(0.16,1,0.3,1);
-
-  --ch1: #4361ee;
-  --ch1-glow: rgba(67,97,238,0.25);
-  --ch2: #f59e0b;
-  --ch2-glow: rgba(245,158,11,0.25);
-  --ch3: #06d6a0;
-  --ch3-glow: rgba(6,214,160,0.25);
-  --ch4: #ef6461;
-  --ch4-glow: rgba(239,100,97,0.25);
-  --ch5: #a855f7;
-  --ch5-glow: rgba(168,85,247,0.25);
-  --ch6: #10b981;
-  --ch6-glow: rgba(16,185,129,0.25);
-  --ch7: #94a3b8;
-  --ch7-glow: rgba(148,163,184,0.15);
-  --ch8: #ec4899;
-  --ch8-glow: rgba(236,72,153,0.25);
-  --ch9: #f97316;
-  --ch9-glow: rgba(249,115,22,0.25);
-
-  --active-color: var(--ch1);
-  --active-glow: var(--ch1-glow);
-
-  --rainbow: linear-gradient(180deg, var(--ch1), var(--ch2), var(--ch3), var(--ch4), var(--ch5), var(--ch6), var(--ch8), var(--ch9));
-  --rainbow-h: linear-gradient(90deg, var(--ch1), var(--ch2), var(--ch3), var(--ch4), var(--ch5), var(--ch6), var(--ch8), var(--ch9));
 }
 
-html { scroll-behavior: smooth; scrollbar-width: thin; scrollbar-color: var(--ch5) var(--bg); }
+html { scroll-behavior: smooth; scrollbar-width: thin; scrollbar-color: var(--accent) var(--bg); }
 
 body {
   background: var(--bg);
@@ -69,69 +46,45 @@ body {
 a { color: inherit; text-decoration: none; cursor: none; }
 img { display: block; max-width: 100%; }
 
-/* === CUSTOM CURSOR === */
+/* === CURSOR === */
 .cursor {
   position: fixed; top: 0; left: 0;
-  width: 24px; height: 24px;
-  border: 1.5px solid var(--active-color);
+  width: 22px; height: 22px;
+  border: 1.5px solid var(--accent);
   border-radius: 50%;
   pointer-events: none; z-index: 10000;
-  transition: width 0.35s var(--transition), height 0.35s var(--transition), border-color 0.5s, background 0.3s, box-shadow 0.3s;
+  transition: width 0.35s var(--transition), height 0.35s var(--transition), background 0.3s, box-shadow 0.3s;
   transform: translate(-50%, -50%);
   mix-blend-mode: difference;
 }
 .cursor.hovering {
-  width: 60px; height: 60px;
-  background: rgba(255,255,255,0.06);
-  box-shadow: 0 0 30px var(--active-glow);
+  width: 56px; height: 56px;
+  background: rgba(201,162,39,0.08);
+  box-shadow: 0 0 30px var(--accent-glow);
 }
 .cursor-dot {
   position: fixed; top: 0; left: 0;
   width: 5px; height: 5px;
-  background: var(--active-color);
+  background: var(--accent);
   border-radius: 50%;
   pointer-events: none; z-index: 10001;
   transform: translate(-50%, -50%);
-  transition: background 0.5s;
-  box-shadow: 0 0 10px var(--active-glow);
+  box-shadow: 0 0 8px var(--accent-glow);
 }
 
 /* === PROGRESS BAR === */
 .progress-bar {
   position: fixed; top: 0; left: 0;
-  height: 3px;
-  background: var(--rainbow-h);
-  background-size: 200% 100%;
+  height: 2px;
+  background: var(--accent);
   width: 0%; z-index: 9999;
-  animation: shimmer 3s linear infinite;
-}
-@keyframes shimmer { 0% { background-position: 0% 0; } 100% { background-position: 200% 0; } }
-
-/* === FLOATING PARTICLES === */
-.particles {
-  position: fixed; inset: 0;
-  pointer-events: none; z-index: 1;
-  overflow: hidden;
-}
-.particle {
-  position: absolute;
-  width: 3px; height: 3px;
-  border-radius: 50%;
-  opacity: 0;
-  animation: particleFloat 12s infinite ease-in-out;
-}
-@keyframes particleFloat {
-  0% { opacity: 0; transform: translateY(100vh) scale(0); }
-  10% { opacity: 0.6; }
-  90% { opacity: 0.6; }
-  100% { opacity: 0; transform: translateY(-20vh) scale(1.2); }
 }
 
 /* === GRAIN === */
 .grain {
   position: fixed; inset: 0;
   pointer-events: none; z-index: 9998;
-  opacity: 0.018;
+  opacity: 0.02;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   background-size: 150px;
   animation: grainShift 0.4s steps(3) infinite;
@@ -142,12 +95,12 @@ img { display: block; max-width: 100%; }
   66% { transform: translate(3px,-3px); }
 }
 
-/* === JOURNEY LINE (RAINBOW) === */
+/* === JOURNEY LINE === */
 .journey-line {
   position: fixed;
   left: 50px;
   top: 0;
-  width: 2px;
+  width: 1px;
   height: 100vh;
   z-index: 90;
   pointer-events: none;
@@ -155,51 +108,48 @@ img { display: block; max-width: 100%; }
 .journey-line-bg {
   position: absolute;
   inset: 0;
-  background: rgba(255,255,255,0.04);
-  border-radius: 2px;
+  background: rgba(201,162,39,0.06);
 }
 .journey-line-fill {
   position: absolute;
   top: 0; left: 0;
   width: 100%;
   height: 0%;
-  background: var(--rainbow);
-  border-radius: 2px;
-  box-shadow: 0 0 12px var(--active-glow), 0 0 30px rgba(255,255,255,0.05);
+  background: var(--accent);
   transition: height 0.15s linear;
 }
 .journey-line-dot {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  width: 12px; height: 12px;
+  width: 10px; height: 10px;
   border-radius: 50%;
   background: var(--bg);
-  border: 2px solid rgba(255,255,255,0.1);
+  border: 1.5px solid rgba(201,162,39,0.15);
   transition: border-color 0.5s, box-shadow 0.5s, background 0.5s;
   z-index: 2;
 }
 .journey-line-dot.active {
-  border-color: var(--active-color);
-  background: var(--active-color);
-  box-shadow: 0 0 16px var(--active-glow), 0 0 40px var(--active-glow);
+  border-color: var(--accent);
+  background: var(--accent);
+  box-shadow: 0 0 12px var(--accent-glow);
 }
 .journey-line-dot::after {
   content: attr(data-label);
   position: absolute;
-  left: 22px;
+  left: 20px;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 10px;
+  font-size: 9px;
   letter-spacing: 2.5px;
   text-transform: uppercase;
   color: var(--fg-dim);
   white-space: nowrap;
   opacity: 0;
-  transition: opacity 0.4s, color 0.4s;
+  transition: opacity 0.4s;
   font-family: var(--sans);
 }
-.journey-line-dot.active::after { opacity: 1; color: var(--active-color); }
+.journey-line-dot.active::after { opacity: 1; color: var(--accent); }
 
 /* === SECTION COUNTER === */
 .section-counter {
@@ -211,8 +161,7 @@ img { display: block; max-width: 100%; }
 .section-counter .current {
   font-weight: 700; font-size: 32px;
   display: block; line-height: 1;
-  color: var(--active-color);
-  transition: color 0.6s;
+  color: var(--accent);
 }
 
 /* === NAV DOTS === */
@@ -222,74 +171,62 @@ img { display: block; max-width: 100%; }
   display: flex; flex-direction: column; gap: 18px;
 }
 .nav-dot {
-  width: 10px; height: 10px;
+  width: 8px; height: 8px;
   border-radius: 50%;
-  border: 1.5px solid rgba(255,255,255,0.12);
+  border: 1px solid rgba(237,233,227,0.12);
   background: transparent;
   cursor: none;
   transition: all 0.4s var(--transition);
   position: relative;
 }
 .nav-dot.active {
-  background: var(--active-color);
-  border-color: var(--active-color);
-  transform: scale(1.4);
-  box-shadow: 0 0 14px var(--active-glow);
+  background: var(--accent);
+  border-color: var(--accent);
+  transform: scale(1.5);
+  box-shadow: 0 0 10px var(--accent-glow);
 }
 .nav-dot::after {
   content: attr(data-label);
-  position: absolute; right: 24px; top: 50%;
+  position: absolute; right: 22px; top: 50%;
   transform: translateY(-50%);
-  font-size: 10px; letter-spacing: 2px;
+  font-size: 9px; letter-spacing: 2px;
   text-transform: uppercase; color: var(--fg-dim);
   white-space: nowrap; opacity: 0;
   transition: opacity 0.3s; pointer-events: none;
 }
 .nav-dot:hover::after { opacity: 1; }
 
-/* === CHAPTER BADGE === */
-.chapter-badge {
-  display: inline-flex;
+/* === CHAPTER LABEL === */
+.chapter-label {
+  display: flex;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 36px;
+  gap: 16px;
+  margin-bottom: 40px;
   font-family: var(--sans);
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 5px;
   text-transform: uppercase;
+  color: var(--accent);
 }
-.chapter-badge .chapter-num {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px; height: 36px;
-  border-radius: 50%;
-  border: 1.5px solid currentColor;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0;
-}
-.chapter-badge .chapter-name {
-  opacity: 0.7;
-  font-style: italic;
-  font-family: var(--serif);
-  font-size: 14px;
-  letter-spacing: 1px;
+.chapter-label::before {
+  content: '';
+  width: 40px; height: 1px;
+  background: var(--accent);
 }
 
-/* === REVEAL ANIMATIONS === */
+/* === REVEAL === */
 .reveal {
   opacity: 0;
-  transform: translateY(50px);
-  transition: opacity 0.85s var(--transition), transform 0.85s var(--transition);
+  transform: translateY(40px);
+  transition: opacity 0.9s var(--transition), transform 0.9s var(--transition);
 }
 .reveal.visible { opacity: 1; transform: translateY(0); }
 
 .reveal-word {
   display: inline-block; opacity: 0;
-  transform: translateY(35px) rotateX(12deg);
-  transition: opacity 0.55s var(--transition), transform 0.55s var(--transition);
+  transform: translateY(30px) rotateX(10deg);
+  transition: opacity 0.6s var(--transition), transform 0.6s var(--transition);
 }
 .reveal-word.visible { opacity: 1; transform: translateY(0) rotateX(0); }
 
@@ -310,23 +247,6 @@ section {
   padding: 140px 100px 140px 120px;
 }
 
-/* Section color orbs */
-section::before {
-  content: '';
-  position: absolute; inset: 0;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 1.2s ease;
-}
-section.in-view::before { opacity: 1; }
-
-.gradient-text {
-  background: var(--rainbow-h);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
 /* === KEY PHRASE === */
 .key-phrase {
   font-family: var(--serif);
@@ -334,20 +254,19 @@ section.in-view::before { opacity: 1; }
   font-weight: 400; font-style: italic;
   line-height: 1.5;
   margin-top: 40px; padding-left: 24px;
-  border-left: 3px solid var(--active-color);
+  border-left: 2px solid var(--accent);
   color: var(--fg);
-  transition: border-color 0.6s;
 }
 
 /* === BIG DECORATIVE === */
 .section-big-number {
   position: absolute; right: 6vw; top: 50%;
   transform: translateY(-50%);
-  font-family: var(--serif); font-size: 20vw;
+  font-family: var(--serif); font-size: 22vw;
   font-weight: 300; line-height: 1;
   pointer-events: none; user-select: none;
-  -webkit-text-fill-color: transparent;
-  -webkit-text-stroke: 1px rgba(255,255,255,0.03);
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(201,162,39,0.04);
 }
 
 /* ============================== */
@@ -365,47 +284,29 @@ section.in-view::before { opacity: 1; }
   content: '';
   position: absolute; inset: 0;
   background:
-    radial-gradient(ellipse at 70% 20%, rgba(67,97,238,0.15) 0%, transparent 50%),
-    radial-gradient(ellipse at 20% 80%, rgba(67,97,238,0.08) 0%, transparent 45%),
-    radial-gradient(ellipse at 85% 75%, rgba(168,85,247,0.06) 0%, transparent 40%);
+    radial-gradient(ellipse at 65% 25%, rgba(201,162,39,0.06) 0%, transparent 55%),
+    radial-gradient(ellipse at 25% 75%, rgba(201,162,39,0.03) 0%, transparent 50%);
   pointer-events: none;
-  opacity: 1;
 }
 .hero-orb {
   position: absolute;
   border-radius: 50%;
-  filter: blur(100px);
+  filter: blur(120px);
   pointer-events: none;
-  animation: orbPulse 8s ease-in-out infinite;
-}
-@keyframes orbPulse {
-  0%, 100% { opacity: 0.4; transform: scale(1); }
-  50% { opacity: 0.7; transform: scale(1.1); }
+  opacity: 0.4;
 }
 .hero-orb-1 {
-  width: 500px; height: 500px;
-  top: -15%; right: -5%;
-  background: radial-gradient(circle, rgba(67,97,238,0.2), transparent 70%);
+  width: 600px; height: 600px;
+  top: -20%; right: -10%;
+  background: radial-gradient(circle, rgba(201,162,39,0.08), transparent 70%);
 }
-.hero-orb-2 {
-  width: 300px; height: 300px;
-  bottom: 10%; left: 5%;
-  background: radial-gradient(circle, rgba(168,85,247,0.12), transparent 70%);
-  animation-delay: 3s;
-}
-.hero-orb-3 {
-  width: 200px; height: 200px;
-  top: 40%; right: 25%;
-  background: radial-gradient(circle, rgba(6,214,160,0.08), transparent 70%);
-  animation-delay: 5s;
-}
+.hero-orb-2, .hero-orb-3 { display: none; }
 
 .hero-overline {
-  font-size: 12px; font-weight: 600;
+  font-size: 11px; font-weight: 600;
   letter-spacing: 6px; text-transform: uppercase;
   margin-bottom: 48px;
-  color: var(--ch1);
-  position: relative;
+  color: var(--accent);
 }
 
 .hero-title {
@@ -417,33 +318,19 @@ section.in-view::before { opacity: 1; }
 }
 .hero-title em {
   font-style: italic;
-  background: linear-gradient(135deg, var(--ch1), var(--ch5));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--accent);
 }
 
 .hero-line {
-  width: 80px; height: 3px;
-  background: linear-gradient(90deg, var(--ch1), var(--ch5));
+  width: 60px; height: 2px;
+  background: var(--accent);
   margin: 48px 0 32px;
-  border-radius: 3px;
 }
 
 .hero-subtitle {
   font-size: clamp(14px, 1.5vw, 19px);
   font-weight: 400; color: var(--fg-dim);
   letter-spacing: 1px; max-width: 520px;
-}
-
-.hero-narrative {
-  margin-top: 48px;
-  font-family: var(--serif);
-  font-size: 16px;
-  font-style: italic;
-  color: var(--ch1);
-  letter-spacing: 2px;
-  opacity: 0.7;
 }
 
 .scroll-indicator {
@@ -455,7 +342,7 @@ section.in-view::before { opacity: 1; }
   letter-spacing: 4px; text-transform: uppercase;
   animation: scrollPulse 2.5s ease-in-out infinite;
 }
-.scroll-indicator svg { width: 20px; height: 20px; stroke: var(--ch1); }
+.scroll-indicator svg { width: 20px; height: 20px; stroke: var(--accent); }
 @keyframes scrollPulse {
   0%, 100% { opacity: 0.3; transform: translateX(-50%) translateY(0); }
   50% { opacity: 1; transform: translateX(-50%) translateY(10px); }
@@ -470,12 +357,6 @@ section.in-view::before { opacity: 1; }
   grid-template-columns: 1fr 1fr;
   gap: 80px; align-items: center;
 }
-#histoire::before {
-  background:
-    radial-gradient(ellipse at 30% 50%, rgba(245,158,11,0.1) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 30%, rgba(245,158,11,0.06) 0%, transparent 40%);
-  opacity: 1;
-}
 .histoire-text h2 {
   font-family: var(--serif);
   font-size: clamp(30px, 3.8vw, 56px);
@@ -484,7 +365,7 @@ section.in-view::before { opacity: 1; }
 }
 .histoire-text h2 em {
   font-style: italic;
-  color: var(--ch2);
+  color: var(--accent);
 }
 .histoire-text p {
   font-size: 16px; font-weight: 400;
@@ -498,7 +379,6 @@ section.in-view::before { opacity: 1; }
   background-color: #1a1816;
   background-size: cover;
   background-position: center;
-  box-shadow: 0 20px 60px rgba(245,158,11,0.1);
 }
 
 /* ============================== */
@@ -508,12 +388,6 @@ section.in-view::before { opacity: 1; }
   flex-direction: column;
   padding: 160px 10vw 160px 120px;
   align-items: flex-start;
-}
-#mystudentlife::before {
-  background:
-    radial-gradient(ellipse at 60% 40%, rgba(6,214,160,0.1) 0%, transparent 50%),
-    radial-gradient(ellipse at 20% 80%, rgba(6,214,160,0.06) 0%, transparent 40%);
-  opacity: 1;
 }
 .msl-header {
   display: grid;
@@ -526,7 +400,7 @@ section.in-view::before { opacity: 1; }
   font-size: clamp(34px, 4.2vw, 64px);
   font-weight: 300; line-height: 1.12;
 }
-.msl-header h2 span { color: var(--ch3); }
+.msl-header h2 span { color: var(--accent); }
 .msl-info { padding-top: 12px; }
 .msl-info p {
   font-size: 16px; font-weight: 400;
@@ -542,7 +416,7 @@ section.in-view::before { opacity: 1; }
   font-family: var(--serif);
   font-size: 52px; font-weight: 300;
   line-height: 1;
-  color: var(--ch3);
+  color: var(--accent);
 }
 .stat-label {
   font-size: 11px; letter-spacing: 2.5px;
@@ -564,12 +438,12 @@ section.in-view::before { opacity: 1; }
 }
 .msl-gallery-item:hover {
   transform: scale(1.03) translateY(-4px);
-  box-shadow: 0 20px 60px var(--ch3-glow);
+  box-shadow: 0 20px 60px rgba(201,162,39,0.1);
 }
 .msl-gallery-item::before {
   content: '';
   position: absolute; inset: 0;
-  background: linear-gradient(to bottom, transparent 40%, rgba(10,10,18,0.85));
+  background: linear-gradient(to bottom, transparent 40%, rgba(11,11,15,0.85));
   z-index: 1;
 }
 .msl-gallery-item::after {
@@ -594,7 +468,7 @@ section.in-view::before { opacity: 1; }
 }
 .section-photo:hover {
   transform: scale(1.02);
-  box-shadow: 0 16px 50px var(--ch4-glow);
+  box-shadow: 0 16px 50px rgba(201,162,39,0.08);
 }
 .section-photo.tall { height: 500px; }
 
@@ -605,12 +479,6 @@ section.in-view::before { opacity: 1; }
   align-items: center;
   padding: 160px 10vw 160px 120px;
 }
-#agence::before {
-  background:
-    radial-gradient(ellipse at 40% 60%, rgba(239,100,97,0.12) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 20%, rgba(239,100,97,0.06) 0%, transparent 40%);
-  opacity: 1;
-}
 .agence-content { position: relative; }
 .agence-logos {
   display: flex;
@@ -620,14 +488,9 @@ section.in-view::before { opacity: 1; }
   gap: 0;
   width: 100%;
   height: 500px;
-  background: rgba(239,100,97,0.03);
-  border: 1px solid rgba(239,100,97,0.1);
+  background: rgba(201,162,39,0.02);
+  border: 1px solid rgba(201,162,39,0.08);
   border-radius: var(--radius);
-  transition: border-color 0.4s, box-shadow 0.4s;
-}
-.agence-logos:hover {
-  border-color: rgba(239,100,97,0.25);
-  box-shadow: 0 20px 60px rgba(239,100,97,0.08);
 }
 .agence-logo-item {
   width: 95%;
@@ -644,14 +507,14 @@ section.in-view::before { opacity: 1; }
 .agence-logo-divider {
   width: 60px;
   height: 1px;
-  background: rgba(239,100,97,0.3);
+  background: rgba(201,162,39,0.2);
   margin: 20px 0;
 }
 .agence-date {
   font-size: 13px; font-weight: 600;
   letter-spacing: 6px;
   margin-bottom: 48px;
-  color: var(--ch4);
+  color: var(--accent);
 }
 #agence h2 {
   font-family: var(--serif);
@@ -661,7 +524,7 @@ section.in-view::before { opacity: 1; }
 }
 #agence h2 em {
   font-style: italic;
-  color: var(--ch4);
+  color: var(--accent);
 }
 .agence-desc {
   font-size: 16px; font-weight: 400;
@@ -679,8 +542,8 @@ section.in-view::before { opacity: 1; }
   content: '\201C';
   position: absolute; left: -45px; top: -24px;
   font-size: 90px;
-  color: var(--ch4);
-  opacity: 0.4;
+  color: var(--accent);
+  opacity: 0.3;
 }
 
 /* ============================== */
@@ -692,12 +555,6 @@ section.in-view::before { opacity: 1; }
   grid-template-columns: 1fr 1fr;
   gap: 100px; align-items: center;
 }
-#pitch::before {
-  background:
-    radial-gradient(ellipse at 50% 50%, rgba(168,85,247,0.12) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 80%, rgba(168,85,247,0.06) 0%, transparent 40%);
-  opacity: 1;
-}
 .pitch-left h2 {
   font-family: var(--serif);
   font-size: clamp(30px, 3.8vw, 56px);
@@ -706,7 +563,7 @@ section.in-view::before { opacity: 1; }
 }
 .pitch-left h2 em {
   font-style: italic;
-  color: var(--ch5);
+  color: var(--accent);
 }
 .pitch-left p {
   font-size: 16px; font-weight: 400;
@@ -714,21 +571,20 @@ section.in-view::before { opacity: 1; }
   margin-bottom: 20px;
 }
 .pitch-card {
-  background: rgba(168,85,247,0.04);
-  border: 1px solid rgba(168,85,247,0.15);
+  background: rgba(201,162,39,0.03);
+  border: 1px solid rgba(201,162,39,0.1);
   border-radius: var(--radius);
   padding: 48px;
-  backdrop-filter: blur(10px);
   transition: border-color 0.4s, box-shadow 0.4s;
 }
 .pitch-card:hover {
-  border-color: rgba(168,85,247,0.4);
-  box-shadow: 0 16px 60px rgba(168,85,247,0.12);
+  border-color: rgba(201,162,39,0.25);
+  box-shadow: 0 16px 60px rgba(201,162,39,0.08);
 }
 .pitch-card h3 {
   font-family: var(--serif);
   font-size: 24px; font-weight: 400;
-  margin-bottom: 28px; color: var(--ch5);
+  margin-bottom: 28px; color: var(--accent);
 }
 .pitch-jury { list-style: none; display: flex; flex-direction: column; gap: 16px; }
 .pitch-jury li {
@@ -739,18 +595,18 @@ section.in-view::before { opacity: 1; }
 .pitch-jury li::before {
   content: ''; position: absolute;
   left: 0; top: 8px;
-  width: 8px; height: 8px;
+  width: 6px; height: 6px;
   border-radius: 50%;
-  background: var(--ch5);
+  background: var(--accent);
 }
 .pitch-result {
   margin-top: 36px; padding-top: 28px;
-  border-top: 1px solid rgba(168,85,247,0.2);
+  border-top: 1px solid rgba(201,162,39,0.12);
 }
 .pitch-result span {
   font-family: var(--serif);
   font-size: 18px; font-style: italic;
-  color: var(--ch5);
+  color: var(--accent);
 }
 
 /* ============================== */
@@ -764,15 +620,9 @@ section.in-view::before { opacity: 1; }
   padding: 160px 10vw 160px 120px;
   overflow: hidden;
 }
-#eloquence::before {
-  background:
-    radial-gradient(ellipse at 30% 50%, rgba(16,185,129,0.12) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 70%, rgba(16,185,129,0.06) 0%, transparent 40%);
-  opacity: 1;
-}
 .eloquence-bg {
   position: absolute; inset: 0;
-  background: linear-gradient(180deg, var(--bg) 0%, #0a1210 50%, var(--bg) 100%);
+  background: linear-gradient(180deg, var(--bg) 0%, #0d0c09 50%, var(--bg) 100%);
   pointer-events: none;
 }
 .eloquence-content { position: relative; z-index: 2; }
@@ -782,7 +632,6 @@ section.in-view::before { opacity: 1; }
   background-size: cover;
   background-position: center;
   position: relative; z-index: 2;
-  box-shadow: 0 20px 60px rgba(16,185,129,0.1);
 }
 
 #eloquence h2 {
@@ -797,7 +646,7 @@ section.in-view::before { opacity: 1; }
   font-weight: 300; font-style: italic;
   margin-bottom: 36px;
   line-height: 1.3;
-  color: var(--ch6);
+  color: var(--accent);
 }
 #eloquence p {
   font-size: 16px; font-weight: 400;
@@ -812,11 +661,6 @@ section.in-view::before { opacity: 1; }
   min-height: auto; padding: 140px 10vw 140px 120px;
   flex-direction: column;
   align-items: stretch;
-}
-#galerie::before {
-  background:
-    radial-gradient(ellipse at 50% 30%, rgba(148,163,184,0.06) 0%, transparent 50%);
-  opacity: 1;
 }
 .galerie-header {
   margin-bottom: 60px;
@@ -843,13 +687,13 @@ section.in-view::before { opacity: 1; }
 }
 .galerie-item:hover {
   transform: scale(1.03);
-  box-shadow: 0 20px 60px rgba(255,255,255,0.08);
+  box-shadow: 0 20px 60px rgba(201,162,39,0.1);
   z-index: 2;
 }
 .galerie-item::before {
   content: '';
   position: absolute; inset: 0;
-  background: linear-gradient(to bottom, transparent 40%, rgba(10,10,18,0.85));
+  background: linear-gradient(to bottom, transparent 40%, rgba(11,11,15,0.85));
   z-index: 1;
   opacity: 0;
   transition: opacity 0.4s;
@@ -869,11 +713,8 @@ section.in-view::before { opacity: 1; }
   font-size: 10px; letter-spacing: 4px;
   text-transform: uppercase;
   margin-bottom: 8px;
+  color: var(--accent);
   font-weight: 600;
-  background: var(--rainbow-h);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
 }
 .galerie-item-title {
   font-family: var(--serif);
@@ -886,7 +727,7 @@ section.in-view::before { opacity: 1; }
 /* Lightbox */
 .lightbox {
   position: fixed; inset: 0;
-  background: rgba(10,10,18,0.95);
+  background: rgba(11,11,15,0.95);
   z-index: 10002;
   display: flex; align-items: center; justify-content: center;
   opacity: 0; pointer-events: none;
@@ -901,13 +742,13 @@ section.in-view::before { opacity: 1; }
   position: relative; overflow: hidden;
   transform: scale(0.9);
   transition: transform 0.5s var(--transition);
-  background: linear-gradient(135deg, #1a1816, #0d0c0b);
+  background: #1a1816;
 }
 .lightbox.active .lightbox-content { transform: scale(1); }
 .lightbox-close {
   position: absolute; top: 24px; right: 24px;
   width: 48px; height: 48px;
-  border: 1px solid rgba(255,255,255,0.2);
+  border: 1px solid rgba(237,233,227,0.2);
   border-radius: 50%; background: transparent;
   color: var(--fg); font-size: 20px;
   cursor: none; z-index: 3;
@@ -915,8 +756,8 @@ section.in-view::before { opacity: 1; }
   transition: border-color 0.3s, background 0.3s;
 }
 .lightbox-close:hover {
-  border-color: var(--ch5);
-  background: rgba(168,85,247,0.1);
+  border-color: var(--accent);
+  background: var(--accent-soft);
 }
 .lightbox-info {
   position: absolute; bottom: 40px; left: 40px; z-index: 3;
@@ -927,7 +768,7 @@ section.in-view::before { opacity: 1; }
   position: absolute; top: 50%;
   transform: translateY(-50%);
   width: 52px; height: 52px;
-  border: 1px solid rgba(255,255,255,0.15);
+  border: 1px solid rgba(237,233,227,0.15);
   border-radius: 50%; background: transparent;
   color: var(--fg); font-size: 18px;
   cursor: none; z-index: 3;
@@ -935,8 +776,8 @@ section.in-view::before { opacity: 1; }
   transition: border-color 0.3s, background 0.3s;
 }
 .lightbox-nav:hover {
-  border-color: var(--ch5);
-  background: rgba(168,85,247,0.1);
+  border-color: var(--accent);
+  background: var(--accent-soft);
 }
 .lightbox-prev { left: 24px; }
 .lightbox-next { right: 24px; }
@@ -949,13 +790,6 @@ section.in-view::before { opacity: 1; }
   padding: 160px 10vw;
   align-items: center; text-align: center;
 }
-#vision::before {
-  background:
-    radial-gradient(ellipse at 30% 40%, rgba(67,97,238,0.08) 0%, transparent 40%),
-    radial-gradient(ellipse at 70% 60%, rgba(236,72,153,0.08) 0%, transparent 40%),
-    radial-gradient(ellipse at 50% 80%, rgba(6,214,160,0.06) 0%, transparent 35%);
-  opacity: 1;
-}
 #vision h2 {
   font-family: var(--serif);
   font-size: clamp(30px, 3.8vw, 56px);
@@ -964,10 +798,7 @@ section.in-view::before { opacity: 1; }
 }
 #vision h2 em {
   font-style: italic;
-  background: var(--rainbow-h);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--accent);
 }
 .vision-desc {
   font-size: 17px; font-weight: 400;
@@ -980,29 +811,23 @@ section.in-view::before { opacity: 1; }
   gap: 20px; width: 100%; max-width: 1000px;
 }
 .value-card {
-  background: rgba(255,255,255,0.02);
-  border: 1px solid rgba(255,255,255,0.06);
+  background: rgba(201,162,39,0.02);
+  border: 1px solid rgba(201,162,39,0.08);
   border-radius: var(--radius);
   padding: 44px 20px;
   text-align: center;
-  transition: border-color 0.4s, transform 0.5s var(--transition), box-shadow 0.5s, background 0.4s;
+  transition: border-color 0.4s, transform 0.5s var(--transition), box-shadow 0.5s;
 }
-.value-card:nth-child(1) { --card-color: var(--ch1); }
-.value-card:nth-child(2) { --card-color: var(--ch2); }
-.value-card:nth-child(3) { --card-color: var(--ch4); }
-.value-card:nth-child(4) { --card-color: var(--ch3); }
-.value-card:nth-child(5) { --card-color: var(--ch5); }
 .value-card:hover {
-  border-color: var(--card-color);
+  border-color: rgba(201,162,39,0.3);
   transform: translateY(-8px);
-  box-shadow: 0 20px 50px color-mix(in srgb, var(--card-color) 20%, transparent);
-  background: color-mix(in srgb, var(--card-color) 5%, transparent);
+  box-shadow: 0 20px 50px rgba(201,162,39,0.08);
 }
 .value-number {
   font-family: var(--sans);
   font-size: 13px; font-weight: 700;
   letter-spacing: 2px;
-  color: var(--card-color);
+  color: var(--accent);
   margin-bottom: 16px;
   display: block;
 }
@@ -1032,11 +857,11 @@ section.in-view::before { opacity: 1; }
   min-height: 100vh;
 }
 #conclusion::before {
+  content: '';
+  position: absolute; inset: 0;
   background:
-    radial-gradient(ellipse at 40% 40%, rgba(249,115,22,0.1) 0%, transparent 50%),
-    radial-gradient(ellipse at 70% 70%, rgba(239,100,97,0.08) 0%, transparent 45%),
-    radial-gradient(ellipse at 30% 80%, rgba(245,158,11,0.06) 0%, transparent 40%);
-  opacity: 1;
+    radial-gradient(ellipse at 50% 50%, rgba(201,162,39,0.04) 0%, transparent 55%);
+  pointer-events: none;
 }
 #conclusion h2 {
   font-family: var(--serif);
@@ -1051,10 +876,7 @@ section.in-view::before { opacity: 1; }
   font-weight: 300; font-style: italic;
   margin-bottom: 72px;
   position: relative;
-  background: linear-gradient(90deg, var(--ch9), var(--ch4));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--accent);
 }
 
 /* Contact Cards */
@@ -1067,8 +889,8 @@ section.in-view::before { opacity: 1; }
   position: relative;
 }
 .contact-card {
-  background: rgba(249,115,22,0.03);
-  border: 1px solid rgba(249,115,22,0.1);
+  background: rgba(201,162,39,0.02);
+  border: 1px solid rgba(201,162,39,0.08);
   border-radius: var(--radius);
   padding: 32px 24px;
   text-align: center;
@@ -1077,14 +899,14 @@ section.in-view::before { opacity: 1; }
   align-items: center; gap: 12px;
 }
 .contact-card:hover {
-  border-color: rgba(249,115,22,0.35);
+  border-color: rgba(201,162,39,0.3);
   transform: translateY(-6px);
-  box-shadow: 0 16px 50px rgba(249,115,22,0.12);
+  box-shadow: 0 16px 50px rgba(201,162,39,0.1);
 }
 .contact-icon {
   width: 44px; height: 44px;
   border-radius: 50%;
-  background: rgba(249,115,22,0.1);
+  background: var(--accent-soft);
   display: flex; align-items: center; justify-content: center;
   font-size: 18px;
   flex-shrink: 0;
@@ -1117,23 +939,22 @@ section.in-view::before { opacity: 1; }
   overflow: hidden;
 }
 .cta-btn.primary {
-  background: var(--active-color);
+  background: var(--accent);
   color: var(--bg);
   border: none;
-  transition: background 0.6s, transform 0.4s var(--transition), box-shadow 0.4s;
 }
 .cta-btn.primary:hover {
   transform: translateY(-3px);
-  box-shadow: 0 12px 36px var(--active-glow);
+  box-shadow: 0 12px 36px var(--accent-glow);
 }
 .cta-btn.secondary {
   background: transparent;
-  border: 1.5px solid rgba(255,255,255,0.15);
+  border: 1.5px solid rgba(201,162,39,0.25);
   color: var(--fg);
 }
 .cta-btn.secondary:hover {
-  border-color: var(--active-color);
-  background: var(--active-glow);
+  border-color: var(--accent);
+  background: var(--accent-soft);
   transform: translateY(-3px);
 }
 
@@ -1150,8 +971,8 @@ section.in-view::before { opacity: 1; }
 .social-link::after {
   content: '';
   position: absolute; bottom: -4px; left: 0;
-  width: 0; height: 2px;
-  background: var(--rainbow-h);
+  width: 0; height: 1px;
+  background: var(--accent);
   transition: width 0.4s var(--transition);
 }
 .social-link:hover { color: var(--fg); }
@@ -1160,7 +981,7 @@ section.in-view::before { opacity: 1; }
 .footer-credit {
   position: absolute; bottom: 28px;
   font-size: 11px; letter-spacing: 2px;
-  color: rgba(255,255,255,0.15);
+  color: rgba(237,233,227,0.15);
 }
 
 /* ============================== */
@@ -1172,7 +993,7 @@ section.in-view::before { opacity: 1; }
   top: 0; left: 0; right: 0;
   z-index: 200;
   padding: 16px 20px;
-  background: rgba(10,10,18,0.9);
+  background: rgba(11,11,15,0.92);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   justify-content: space-between;
@@ -1209,7 +1030,7 @@ section.in-view::before { opacity: 1; }
 .mobile-menu {
   position: fixed;
   inset: 0;
-  background: rgba(10,10,18,0.97);
+  background: rgba(11,11,15,0.97);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   z-index: 199;
@@ -1231,7 +1052,6 @@ section.in-view::before { opacity: 1; }
   font-size: 28px;
   font-weight: 400;
   color: var(--fg);
-  transition: color 0.3s;
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.4s, transform 0.4s var(--transition), color 0.3s;
@@ -1249,7 +1069,7 @@ section.in-view::before { opacity: 1; }
 .mobile-menu.open a:nth-child(7) { transition-delay: 0.35s; }
 .mobile-menu.open a:nth-child(8) { transition-delay: 0.4s; }
 .mobile-menu.open a:nth-child(9) { transition-delay: 0.45s; }
-.mobile-menu a:hover { color: var(--active-color); }
+.mobile-menu a:hover { color: var(--accent); }
 
 /* ============================== */
 /*       RESPONSIVE               */
@@ -1277,7 +1097,6 @@ section.in-view::before { opacity: 1; }
   .journey-line { display: none; }
   .cursor, .cursor-dot { display: none; }
   .grain { display: none; }
-  .particles { display: none; }
   body { cursor: auto; }
   a, button { cursor: pointer; }
 
@@ -1298,11 +1117,8 @@ section.in-view::before { opacity: 1; }
   .hero-orb { display: none; }
   .section-big-number { display: none; }
   .scroll-indicator { bottom: 28px; }
-  .hero-narrative { font-size: 14px; margin-top: 32px; }
 
-  .chapter-badge { margin-bottom: 24px; }
-  .chapter-badge .chapter-num { width: 30px; height: 30px; font-size: 11px; }
-  .chapter-badge .chapter-name { font-size: 12px; }
+  .chapter-label { margin-bottom: 28px; font-size: 10px; letter-spacing: 4px; }
 
   #histoire {
     grid-template-columns: 1fr;
@@ -1420,9 +1236,6 @@ section.in-view::before { opacity: 1; }
 <!-- Progress Bar -->
 <div class="progress-bar" id="progressBar"></div>
 
-<!-- Particles -->
-<div class="particles" id="particles"></div>
-
 <!-- Grain -->
 <div class="grain"></div>
 
@@ -1434,30 +1247,30 @@ section.in-view::before { opacity: 1; }
   </button>
 </nav>
 <div class="mobile-menu" id="mobileMenu">
-  <a href="#hero">L'Éveil</a>
-  <a href="#histoire">Les Racines</a>
-  <a href="#mystudentlife">La Créativité</a>
-  <a href="#agence">L'Audace</a>
-  <a href="#pitch">La Conviction</a>
-  <a href="#eloquence">La Voix</a>
-  <a href="#galerie">L'Œil</a>
-  <a href="#vision">Le Futur</a>
-  <a href="#conclusion">La Suite</a>
+  <a href="#hero">Accueil</a>
+  <a href="#histoire">Mon Histoire</a>
+  <a href="#mystudentlife">MyStudentLife</a>
+  <a href="#agence">L'Agence</a>
+  <a href="#pitch">Concours de Pitch</a>
+  <a href="#eloquence">Éloquence</a>
+  <a href="#galerie">Galerie</a>
+  <a href="#vision">Ma Vision</a>
+  <a href="#conclusion">Contact</a>
 </div>
 
 <!-- Journey Line -->
 <div class="journey-line" id="journeyLine">
   <div class="journey-line-bg"></div>
   <div class="journey-line-fill" id="journeyFill"></div>
-  <div class="journey-line-dot" data-label="L'Éveil" style="top:5.5%"></div>
-  <div class="journey-line-dot" data-label="Les Racines" style="top:16.6%"></div>
-  <div class="journey-line-dot" data-label="La Créativité" style="top:27.7%"></div>
-  <div class="journey-line-dot" data-label="L'Audace" style="top:38.8%"></div>
-  <div class="journey-line-dot" data-label="La Conviction" style="top:50%"></div>
-  <div class="journey-line-dot" data-label="La Voix" style="top:61.1%"></div>
-  <div class="journey-line-dot" data-label="L'Œil" style="top:72.2%"></div>
-  <div class="journey-line-dot" data-label="Le Futur" style="top:83.3%"></div>
-  <div class="journey-line-dot" data-label="La Suite" style="top:94.4%"></div>
+  <div class="journey-line-dot" data-label="Accueil" style="top:5.5%"></div>
+  <div class="journey-line-dot" data-label="Histoire" style="top:16.6%"></div>
+  <div class="journey-line-dot" data-label="Photo" style="top:27.7%"></div>
+  <div class="journey-line-dot" data-label="Agence" style="top:38.8%"></div>
+  <div class="journey-line-dot" data-label="Pitch" style="top:50%"></div>
+  <div class="journey-line-dot" data-label="Éloquence" style="top:61.1%"></div>
+  <div class="journey-line-dot" data-label="Galerie" style="top:72.2%"></div>
+  <div class="journey-line-dot" data-label="Vision" style="top:83.3%"></div>
+  <div class="journey-line-dot" data-label="Contact" style="top:94.4%"></div>
 </div>
 
 <!-- Section Counter -->
@@ -1468,15 +1281,15 @@ section.in-view::before { opacity: 1; }
 
 <!-- Nav Dots -->
 <nav class="nav-dots" id="navDots">
-  <button class="nav-dot active" data-section="hero" data-label="L'Éveil" aria-label="L'Éveil"></button>
-  <button class="nav-dot" data-section="histoire" data-label="Les Racines" aria-label="Les Racines"></button>
-  <button class="nav-dot" data-section="mystudentlife" data-label="La Créativité" aria-label="La Créativité"></button>
-  <button class="nav-dot" data-section="agence" data-label="L'Audace" aria-label="L'Audace"></button>
-  <button class="nav-dot" data-section="pitch" data-label="La Conviction" aria-label="La Conviction"></button>
-  <button class="nav-dot" data-section="eloquence" data-label="La Voix" aria-label="La Voix"></button>
-  <button class="nav-dot" data-section="galerie" data-label="L'Œil" aria-label="L'Œil"></button>
-  <button class="nav-dot" data-section="vision" data-label="Le Futur" aria-label="Le Futur"></button>
-  <button class="nav-dot" data-section="conclusion" data-label="La Suite" aria-label="La Suite"></button>
+  <button class="nav-dot active" data-section="hero" data-label="Accueil" aria-label="Accueil"></button>
+  <button class="nav-dot" data-section="histoire" data-label="Histoire" aria-label="Histoire"></button>
+  <button class="nav-dot" data-section="mystudentlife" data-label="Photo" aria-label="Photo"></button>
+  <button class="nav-dot" data-section="agence" data-label="Agence" aria-label="Agence"></button>
+  <button class="nav-dot" data-section="pitch" data-label="Pitch" aria-label="Pitch"></button>
+  <button class="nav-dot" data-section="eloquence" data-label="Éloquence" aria-label="Éloquence"></button>
+  <button class="nav-dot" data-section="galerie" data-label="Galerie" aria-label="Galerie"></button>
+  <button class="nav-dot" data-section="vision" data-label="Vision" aria-label="Vision"></button>
+  <button class="nav-dot" data-section="conclusion" data-label="Contact" aria-label="Contact"></button>
 </nav>
 
 <!-- Lightbox -->
@@ -1495,15 +1308,9 @@ section.in-view::before { opacity: 1; }
 <!-- ===== SECTION 1 — HERO ===== -->
 <section id="hero">
   <div class="hero-orb hero-orb-1"></div>
-  <div class="hero-orb hero-orb-2"></div>
-  <div class="hero-orb hero-orb-3"></div>
   <div class="section-big-number" aria-hidden="true">N</div>
 
-  <div class="chapter-badge reveal delay-1" style="color:var(--ch1)">
-    <span class="chapter-num">1</span>
-    <span>L'Éveil</span>
-    <span class="chapter-name">— De la curiosité à l'impact</span>
-  </div>
+  <div class="hero-overline reveal delay-1">Nathan Leprêtre — Portfolio</div>
   <h1 class="hero-title" id="heroTitle">
     Je ne me contente pas d'étudier le <em>marketing</em>.<br>
     Je le vis, je le crée, je l'<em>expérimente</em>.
@@ -1512,7 +1319,6 @@ section.in-view::before { opacity: 1; }
   <p class="hero-subtitle reveal delay-6">
     Étudiant, entrepreneur et créatif en construction.
   </p>
-  <div class="hero-narrative reveal delay-7">De la curiosité à l'impact — en 9 chapitres.</div>
   <div class="scroll-indicator">
     <span>Découvrir</span>
     <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5">
@@ -1524,10 +1330,7 @@ section.in-view::before { opacity: 1; }
 <!-- ===== SECTION 2 — HISTOIRE ===== -->
 <section id="histoire">
   <div class="histoire-text">
-    <div class="chapter-badge reveal" style="color:var(--ch2)">
-      <span class="chapter-num">2</span>
-      <span>Les Racines</span>
-    </div>
+    <div class="chapter-label reveal">Mon Histoire</div>
     <h2 class="reveal delay-1">Un étudiant qui sait que la <em>théorie</em> ne suffit pas.</h2>
     <p class="reveal delay-2">
       Très tôt, j'ai compris que le marketing, ce n'est pas seulement des stratégies et des chiffres.
@@ -1543,7 +1346,7 @@ section.in-view::before { opacity: 1; }
       je leur ai redonné vie en soignant leur image — photos, descriptions, mise en scène —
       et j'ai généré 3 000 € de chiffre d'affaires. Ma première vraie leçon de marketing appliqué.
     </p>
-    <div class="key-phrase reveal delay-5" style="border-color:var(--ch2)">
+    <div class="key-phrase reveal delay-5">
       Tout ce que je fais repose sur une idée simple&nbsp;: progresser chaque jour.
     </div>
   </div>
@@ -1554,10 +1357,7 @@ section.in-view::before { opacity: 1; }
 <section id="mystudentlife">
   <div class="msl-header">
     <div>
-      <div class="chapter-badge reveal" style="color:var(--ch3)">
-        <span class="chapter-num">3</span>
-        <span>La Créativité</span>
-      </div>
+      <div class="chapter-label reveal">Association</div>
       <h2 class="reveal delay-1">
         <span>MyStudentLife</span> Photo<br>
         Président
@@ -1576,15 +1376,15 @@ section.in-view::before { opacity: 1; }
       </p>
       <div class="stats-row reveal delay-4">
         <div class="stat">
-          <div class="stat-number" style="white-space:nowrap;color:var(--ch3)">5000&nbsp;€</div>
+          <div class="stat-number" style="white-space:nowrap;">5000&nbsp;€</div>
           <div class="stat-label">De subventions</div>
         </div>
         <div class="stat">
-          <div class="stat-number" style="color:var(--ch3)">3</div>
+          <div class="stat-number">3</div>
           <div class="stat-label">Collaborateurs</div>
         </div>
         <div class="stat">
-          <div class="stat-number" style="color:var(--ch3)">2</div>
+          <div class="stat-number">2</div>
           <div class="stat-label">Jours d'expo</div>
         </div>
       </div>
@@ -1595,7 +1395,7 @@ section.in-view::before { opacity: 1; }
     <div class="msl-gallery-item reveal delay-3" data-label="Vie Étudiante" style="background:url('photos/02-mystudentlife/vie-etudiante/IMG_3115.JPG') center/cover;"></div>
     <div class="msl-gallery-item reveal delay-4" data-label="Exposition" style="background:url('photos/02-mystudentlife/portraits/IMG_8272.jpg') center/cover;"></div>
   </div>
-  <div class="key-phrase reveal delay-5" style="margin-top:60px;border-color:var(--ch3)">
+  <div class="key-phrase reveal delay-5" style="margin-top:60px;">
     Créer des images, c'est raconter ce que les mots ne montrent pas.
   </div>
 </section>
@@ -1603,10 +1403,7 @@ section.in-view::before { opacity: 1; }
 <!-- ===== SECTION 4 — AGENCE ===== -->
 <section id="agence">
   <div class="agence-content">
-    <div class="chapter-badge reveal" style="color:var(--ch4)">
-      <span class="chapter-num">4</span>
-      <span>L'Audace</span>
-    </div>
+    <div class="chapter-label reveal">Entrepreneuriat</div>
     <div class="agence-date reveal delay-1">Août 2025</div>
     <h2 class="reveal delay-2">Naissance d'une<br><em>agence digitale</em></h2>
     <p class="agence-desc reveal delay-3">
@@ -1623,7 +1420,7 @@ section.in-view::before { opacity: 1; }
     <div class="agence-quote reveal delay-4">
       Entreprendre, pour moi, c'est apprendre plus vite que les autres.
     </div>
-    <a href="https://nexboost.fr" target="_blank" rel="noopener" class="cta-btn primary reveal delay-5" style="margin-top:40px;display:inline-flex;background:var(--ch4);">Découvrir Nexboost.fr &rarr;</a>
+    <a href="https://nexboost.fr" target="_blank" rel="noopener" class="cta-btn primary reveal delay-5" style="margin-top:40px;display:inline-flex;">Découvrir Nexboost.fr &rarr;</a>
   </div>
   <div class="agence-logos reveal delay-3">
     <div class="agence-logo-item" style="background-image:url('photos/03-agence/logo-nexboost.svg');"></div>
@@ -1635,10 +1432,7 @@ section.in-view::before { opacity: 1; }
 <!-- ===== SECTION 5 — PITCH ===== -->
 <section id="pitch">
   <div class="pitch-left">
-    <div class="chapter-badge reveal" style="color:var(--ch5)">
-      <span class="chapter-num">5</span>
-      <span>La Conviction</span>
-    </div>
+    <div class="chapter-label reveal">Décembre 2025</div>
     <h2 class="reveal delay-1">Victoire au concours de <em>pitch</em></h2>
     <p class="reveal delay-2">
       Le 13 décembre, j'ai remporté un concours de pitch entrepreneurial.
@@ -1671,10 +1465,7 @@ section.in-view::before { opacity: 1; }
 <section id="eloquence">
   <div class="eloquence-bg"></div>
   <div class="eloquence-content">
-    <div class="chapter-badge reveal" style="color:var(--ch6)">
-      <span class="chapter-num">6</span>
-      <span>La Voix</span>
-    </div>
+    <div class="chapter-label reveal">Moment Clé</div>
     <h2 class="reveal delay-1">Finale d'éloquence<br>Théâtre Le Phénix, Valenciennes</h2>
     <div class="eloquence-subject reveal delay-2">
       « Peut-on être soi-même parmi les autres ? »
@@ -1684,7 +1475,7 @@ section.in-view::before { opacity: 1; }
       Un moment de vérité, où chaque mot porte le poids d'une conviction.
       L'art de parler, c'est d'abord l'art de se connaître.
     </p>
-    <div class="key-phrase reveal delay-4" style="border-color:var(--ch6)">
+    <div class="key-phrase reveal delay-4">
       Apprendre à parler, c'est apprendre à se connaître.
     </div>
   </div>
@@ -1694,10 +1485,7 @@ section.in-view::before { opacity: 1; }
 <!-- ===== SECTION 7 — GALERIE ===== -->
 <section id="galerie">
   <div class="galerie-header">
-    <div class="chapter-badge reveal" style="color:var(--ch7)">
-      <span class="chapter-num">7</span>
-      <span>L'Œil</span>
-    </div>
+    <div class="chapter-label reveal">Photographie</div>
     <h2 class="reveal delay-1">Galerie</h2>
   </div>
   <div class="galerie-grid">
@@ -1778,10 +1566,7 @@ section.in-view::before { opacity: 1; }
 
 <!-- ===== SECTION 8 — VISION ===== -->
 <section id="vision">
-  <div class="chapter-badge reveal" style="color:var(--ch8)">
-    <span class="chapter-num">8</span>
-    <span>Le Futur</span>
-  </div>
+  <div class="chapter-label reveal">Ma Vision</div>
   <h2 class="reveal delay-1">Utiliser le marketing pour <em>connecter</em> et faire grandir.</h2>
   <p class="vision-desc reveal delay-2">
     Je veux utiliser le marketing pour aider, connecter et faire grandir
@@ -1818,11 +1603,7 @@ section.in-view::before { opacity: 1; }
 
 <!-- ===== SECTION 9 — CONTACT ===== -->
 <section id="conclusion">
-  <div class="chapter-badge reveal" style="color:var(--ch9)">
-    <span class="chapter-num">9</span>
-    <span>La Suite</span>
-  </div>
-  <h2 class="reveal delay-1">Je suis encore au début de l'histoire.</h2>
+  <h2 class="reveal">Je suis encore au début de l'histoire.</h2>
   <div class="conclusion-second reveal delay-2">Mais l'histoire a déjà commencé.</div>
 
   <div class="contact-grid reveal delay-3">
@@ -1850,7 +1631,7 @@ section.in-view::before { opacity: 1; }
   </div>
 
   <div class="cta-row reveal delay-4">
-    <a href="https://nexboost.fr" target="_blank" rel="noopener" class="cta-btn primary" style="background:var(--ch9)">Nexboost.fr</a>
+    <a href="https://nexboost.fr" target="_blank" rel="noopener" class="cta-btn primary">Nexboost.fr</a>
     <a href="https://www.linkedin.com/in/nathan-lepretre-780446290/" target="_blank" rel="noopener" class="cta-btn secondary">LinkedIn</a>
   </div>
 
@@ -1866,31 +1647,6 @@ section.in-view::before { opacity: 1; }
 <script>
 (function() {
   'use strict';
-
-  const CHAPTER_COLORS = [
-    { color: '#4361ee', glow: 'rgba(67,97,238,0.25)' },
-    { color: '#f59e0b', glow: 'rgba(245,158,11,0.25)' },
-    { color: '#06d6a0', glow: 'rgba(6,214,160,0.25)' },
-    { color: '#ef6461', glow: 'rgba(239,100,97,0.25)' },
-    { color: '#a855f7', glow: 'rgba(168,85,247,0.25)' },
-    { color: '#10b981', glow: 'rgba(16,185,129,0.25)' },
-    { color: '#94a3b8', glow: 'rgba(148,163,184,0.15)' },
-    { color: '#ec4899', glow: 'rgba(236,72,153,0.25)' },
-    { color: '#f97316', glow: 'rgba(249,115,22,0.25)' }
-  ];
-
-  // === PARTICLES ===
-  const particlesContainer = document.getElementById('particles');
-  const particleColors = ['#4361ee','#f59e0b','#06d6a0','#ef6461','#a855f7','#10b981','#ec4899','#f97316'];
-  for (let i = 0; i < 30; i++) {
-    const p = document.createElement('div');
-    p.className = 'particle';
-    p.style.left = Math.random() * 100 + '%';
-    p.style.background = particleColors[Math.floor(Math.random() * particleColors.length)];
-    p.style.animationDelay = (Math.random() * 12) + 's';
-    p.style.animationDuration = (8 + Math.random() * 8) + 's';
-    particlesContainer.appendChild(p);
-  }
 
   // === CURSOR ===
   const cursor = document.getElementById('cursor');
@@ -1927,16 +1683,6 @@ section.in-view::before { opacity: 1; }
   const journeyFill = document.getElementById('journeyFill');
   const journeyDots = document.querySelectorAll('.journey-line-dot');
 
-  let currentSection = 0;
-
-  function setActiveColor(index) {
-    if (index === currentSection) return;
-    currentSection = index;
-    const ch = CHAPTER_COLORS[index] || CHAPTER_COLORS[0];
-    document.documentElement.style.setProperty('--active-color', ch.color);
-    document.documentElement.style.setProperty('--active-glow', ch.glow);
-  }
-
   function updateScroll() {
     const scrollY = window.scrollY;
     const docH = document.documentElement.scrollHeight - window.innerHeight;
@@ -1949,8 +1695,6 @@ section.in-view::before { opacity: 1; }
     sections.forEach((s, i) => {
       if (s.getBoundingClientRect().top <= window.innerHeight * 0.45) current = i;
     });
-
-    setActiveColor(current);
 
     navDots.forEach((d, i) => d.classList.toggle('active', i === current));
     sectionCounter.querySelector('.current').textContent = String(current + 1).padStart(2, '0');
@@ -1976,7 +1720,7 @@ section.in-view::before { opacity: 1; }
   // === REVEAL ===
   const revealObs = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-  }, { threshold: 0.12, rootMargin: '0px 0px -50px 0px' });
+  }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
 
   document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 
@@ -2065,12 +1809,7 @@ section.in-view::before { opacity: 1; }
 
   // Section fade-in
   const secObs = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.style.opacity = '1';
-        e.target.classList.add('in-view');
-      }
-    });
+    entries.forEach(e => { if (e.isIntersecting) e.target.style.opacity = '1'; });
   }, { threshold: 0.04 });
 
   sections.forEach(s => {
