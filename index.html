@@ -549,6 +549,72 @@ section {
 /* ============================== */
 /*    SECTION 5 — PITCH           */
 /* ============================== */
+/* === SECTION — STAGE AU VIETNAM === */
+#vietnam {
+  padding: 160px 10vw 160px 120px;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 100px; align-items: center;
+}
+.vietnam-left h2 {
+  font-family: var(--serif);
+  font-size: clamp(30px, 3.8vw, 56px);
+  font-weight: 300; line-height: 1.2;
+  margin-bottom: 32px;
+}
+.vietnam-left h2 em { font-style: italic; color: var(--accent); }
+.vietnam-left p {
+  font-size: 16px; font-weight: 400;
+  color: var(--fg-dim); line-height: 1.9;
+  margin-bottom: 20px;
+}
+.vietnam-stats {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 16px; margin-bottom: 24px;
+}
+.vietnam-stat {
+  text-align: center;
+  background: rgba(201,162,39,0.03);
+  border: 1px solid rgba(201,162,39,0.1);
+  border-radius: var(--radius);
+  padding: 22px 12px;
+}
+.vietnam-stat strong {
+  display: block;
+  font-family: var(--serif);
+  font-size: 30px; font-weight: 400;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+.vietnam-stat span { font-size: 12px; color: var(--fg-dim); letter-spacing: 0.04em; }
+.vietnam-card {
+  background: rgba(201,162,39,0.03);
+  border: 1px solid rgba(201,162,39,0.1);
+  border-radius: var(--radius);
+  padding: 48px;
+  transition: border-color 0.4s, box-shadow 0.4s;
+}
+.vietnam-card:hover {
+  border-color: rgba(201,162,39,0.25);
+  box-shadow: 0 16px 60px rgba(201,162,39,0.08);
+}
+.vietnam-card h3 {
+  font-family: var(--serif);
+  font-size: 22px; font-weight: 400;
+  margin-bottom: 22px;
+}
+.vietnam-card ul { list-style: none; }
+.vietnam-card ul li {
+  position: relative;
+  padding: 10px 0 10px 26px;
+  font-size: 15px; color: var(--fg-dim); line-height: 1.7;
+}
+.vietnam-card ul li::before {
+  content: '—';
+  position: absolute; left: 0;
+  color: var(--accent);
+}
+
 #pitch {
   padding: 160px 10vw 160px 120px;
   display: grid;
@@ -1082,6 +1148,7 @@ section {
   .msl-gallery { grid-template-columns: 1fr 1fr; }
   #agence { grid-template-columns: 1fr; gap: 50px; }
   #pitch { grid-template-columns: 1fr; gap: 60px; }
+  #vietnam { grid-template-columns: 1fr; gap: 60px; }
   .values-grid { grid-template-columns: repeat(3, 1fr); }
   .galerie-grid { grid-template-columns: repeat(3, 1fr); }
   #eloquence { grid-template-columns: 1fr; gap: 50px; }
@@ -1160,6 +1227,15 @@ section {
   .pitch-left h2 { font-size: clamp(24px, 6vw, 36px); }
   .pitch-left p { font-size: 15px; }
   .pitch-card { padding: 28px 20px; }
+  #vietnam {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 80px 20px;
+  }
+  .vietnam-left h2 { font-size: clamp(24px, 6vw, 36px); }
+  .vietnam-left p { font-size: 15px; }
+  .vietnam-card { padding: 28px 20px; }
+  .vietnam-stats { gap: 10px; }
   .pitch-card h3 { font-size: 20px; }
   .section-photo { height: 220px !important; }
 
@@ -1370,6 +1446,149 @@ section {
   .diploma-feature { max-width: 480px; margin: 0 auto; }
 }
 </style>
+<style>
+/* ═══════════ EXPÉRIENCE — ouverture, or, magnétisme ═══════════ */
+
+/* — ouverture cinématique — */
+.xp-loader {
+  position: fixed; inset: 0; z-index: 20000;
+  background: var(--bg);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 26px;
+  transition: transform 0.9s cubic-bezier(0.76, 0, 0.24, 1);
+}
+.xp-loader.done { transform: translateY(-100%); }
+.xp-loader.off { display: none; }
+.xp-loader-mono {
+  font-family: var(--serif); font-size: 84px; font-weight: 300;
+  color: var(--accent); line-height: 1;
+  opacity: 0; transform: scale(0.7);
+  animation: xpMono 1s 0.15s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.xp-loader-name {
+  font-size: 12px; letter-spacing: 0.6em; text-transform: uppercase;
+  color: rgba(240,238,230,0.55); padding-left: 0.6em;
+  opacity: 0; animation: xpFade 0.8s 0.55s forwards;
+}
+.xp-loader-bar {
+  width: 150px; height: 1px; background: rgba(201,162,39,0.15);
+  overflow: hidden; opacity: 0; animation: xpFade 0.4s 0.4s forwards;
+}
+.xp-loader-bar span {
+  display: block; height: 100%; width: 0;
+  background: var(--accent);
+  animation: xpBar 1.15s 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+@keyframes xpMono { to { opacity: 1; transform: scale(1); } }
+@keyframes xpFade { to { opacity: 1; } }
+@keyframes xpBar { to { width: 100%; } }
+
+/* — poussière d'or (canvas) — */
+#goldDust {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  pointer-events: none; z-index: 1;
+}
+
+/* — halo doré qui suit la souris — */
+.xp-glow {
+  position: fixed; top: 0; left: 0;
+  width: 560px; height: 560px;
+  margin: -280px 0 0 -280px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201,162,39,0.07), transparent 65%);
+  pointer-events: none; z-index: 1;
+  will-change: transform;
+}
+
+/* — titre héro : révélation mot à mot — */
+.xp-w { display: inline-block; overflow: hidden; vertical-align: bottom; }
+.xp-wi { display: inline-block; transform: translateY(112%); }
+.xp-ready .xp-wi { transition: transform 0.85s cubic-bezier(0.22, 1, 0.36, 1); }
+.xp-ready .xp-w.in .xp-wi { transform: translateY(0); }
+
+/* — sous-titre machine à écrire — */
+.xp-caret {
+  display: inline-block; width: 1px; height: 1em;
+  background: var(--accent); vertical-align: -0.12em;
+  margin-left: 3px;
+  animation: xpCaret 1s steps(1) infinite;
+}
+@keyframes xpCaret { 50% { opacity: 0; } }
+
+/* — tilt 3D des cartes — */
+.xp-tilt { transform-style: preserve-3d; will-change: transform; transition: transform 0.35s ease; }
+
+/* — ombres : profondeur en couches (noir proche + or lointain) — */
+.section-photo, .eloquence-photo, .histoire-image {
+  box-shadow:
+    0 6px 22px rgba(0, 0, 0, 0.45),
+    0 28px 80px rgba(0, 0, 0, 0.55),
+    0 48px 140px rgba(201, 162, 39, 0.08);
+  border-radius: var(--radius);
+}
+.pitch-card, .vietnam-card, .vietnam-stat, .agence-quote {
+  box-shadow:
+    0 2px 10px rgba(0, 0, 0, 0.35),
+    0 18px 50px rgba(0, 0, 0, 0.4);
+}
+.pitch-card:hover, .vietnam-card:hover {
+  box-shadow:
+    0 2px 10px rgba(0, 0, 0, 0.35),
+    0 24px 60px rgba(0, 0, 0, 0.45),
+    0 40px 110px rgba(201, 162, 39, 0.14);
+}
+.hero-cv { box-shadow: 0 10px 36px rgba(201, 162, 39, 0.22); }
+.hero-title em, h2 em { text-shadow: 0 0 30px rgba(201, 162, 39, 0.35); }
+.key-phrase { text-shadow: 0 0 24px rgba(201, 162, 39, 0.18); }
+
+/* — formes flottantes : anneaux, gouttes d'or, losanges — */
+.xp-shape { position: absolute; pointer-events: none; z-index: 0; }
+.xp-ring {
+  border: 1px solid rgba(201, 162, 39, 0.16);
+  border-radius: 50%;
+  animation: xpSpin 46s linear infinite;
+}
+.xp-ring::before {
+  content: '';
+  position: absolute;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  top: -4px; left: 50%;
+  box-shadow: 0 0 16px rgba(201, 162, 39, 0.9);
+}
+.xp-blob {
+  background: radial-gradient(circle at 35% 35%, rgba(201, 162, 39, 0.10), transparent 65%);
+  filter: blur(26px);
+  border-radius: 42% 58% 55% 45% / 52% 45% 60% 48%;
+  animation: xpMorph 16s ease-in-out infinite alternate;
+}
+.xp-diamond {
+  border: 1px solid rgba(201, 162, 39, 0.45);
+  animation: xpFloatD 8s ease-in-out infinite alternate;
+  box-shadow: 0 0 18px rgba(201, 162, 39, 0.15);
+}
+@keyframes xpSpin { to { transform: rotate(360deg); } }
+@keyframes xpMorph {
+  0% { border-radius: 42% 58% 55% 45% / 52% 45% 60% 48%; transform: translateY(0) scale(1); }
+  100% { border-radius: 58% 42% 45% 60% / 45% 58% 48% 55%; transform: translateY(26px) scale(1.08); }
+}
+@keyframes xpFloatD {
+  from { transform: rotate(45deg) translateY(-12px); }
+  to { transform: rotate(45deg) translateY(14px); }
+}
+
+@media (max-width: 900px) {
+  .xp-glow { display: none; }
+  .xp-shape { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .xp-loader { display: none !important; }
+  .xp-glow, #goldDust, .xp-shape { display: none !important; }
+  .xp-wi { transform: none !important; transition: none !important; }
+}
+</style>
 </head>
 <body>
 
@@ -1381,6 +1600,15 @@ section {
 <div class="progress-bar" id="progressBar"></div>
 
 <!-- Grain -->
+<!-- Ouverture cinématique -->
+<div class="xp-loader" id="xpLoader" aria-hidden="true">
+  <div class="xp-loader-mono">N</div>
+  <div class="xp-loader-bar"><span></span></div>
+  <div class="xp-loader-name">Nathan Leprêtre</div>
+</div>
+<!-- Halo doré qui suit la souris -->
+<div class="xp-glow" id="xpGlow" aria-hidden="true"></div>
+
 <div class="grain"></div>
 
 <!-- Mobile Nav -->
@@ -1397,6 +1625,7 @@ section {
   <a href="#agence">L'Agence</a>
   <a href="#pitch">Concours de Pitch</a>
   <a href="#eloquence">Éloquence</a>
+  <a href="#vietnam">Stage au Vietnam</a>
   <a href="#galerie">Galerie</a>
   <a href="#vision">Ma Vision</a>
   <a href="#conclusion">Contact</a>
@@ -1407,20 +1636,21 @@ section {
   <div class="journey-line-bg"></div>
   <div class="journey-line-fill" id="journeyFill"></div>
   <div class="journey-line-dot" data-label="Accueil" style="top:5.5%"></div>
-  <div class="journey-line-dot" data-label="Histoire" style="top:16.6%"></div>
-  <div class="journey-line-dot" data-label="Photo" style="top:27.7%"></div>
-  <div class="journey-line-dot" data-label="Agence" style="top:38.8%"></div>
-  <div class="journey-line-dot" data-label="Pitch" style="top:50%"></div>
-  <div class="journey-line-dot" data-label="Éloquence" style="top:61.1%"></div>
-  <div class="journey-line-dot" data-label="Galerie" style="top:72.2%"></div>
-  <div class="journey-line-dot" data-label="Vision" style="top:83.3%"></div>
+  <div class="journey-line-dot" data-label="Histoire" style="top:15.4%"></div>
+  <div class="journey-line-dot" data-label="Photo" style="top:25.3%"></div>
+  <div class="journey-line-dot" data-label="Agence" style="top:35.2%"></div>
+  <div class="journey-line-dot" data-label="Pitch" style="top:45%"></div>
+  <div class="journey-line-dot" data-label="Éloquence" style="top:54.9%"></div>
+  <div class="journey-line-dot" data-label="Vietnam" style="top:64.8%"></div>
+  <div class="journey-line-dot" data-label="Galerie" style="top:74.6%"></div>
+  <div class="journey-line-dot" data-label="Vision" style="top:84.5%"></div>
   <div class="journey-line-dot" data-label="Contact" style="top:94.4%"></div>
 </div>
 
 <!-- Section Counter -->
 <div class="section-counter" id="sectionCounter">
   <span class="current">01</span>
-  <span>/ 10</span>
+  <span>/ 11</span>
 </div>
 
 <!-- Nav Dots -->
@@ -1431,6 +1661,7 @@ section {
   <button class="nav-dot" data-section="agence" data-label="Agence" aria-label="Agence"></button>
   <button class="nav-dot" data-section="pitch" data-label="Pitch" aria-label="Pitch"></button>
   <button class="nav-dot" data-section="eloquence" data-label="Éloquence" aria-label="Éloquence"></button>
+  <button class="nav-dot" data-section="vietnam" data-label="Vietnam" aria-label="Stage au Vietnam"></button>
   <button class="nav-dot" data-section="galerie" data-label="Galerie" aria-label="Galerie"></button>
   <button class="nav-dot" data-section="parcours" data-label="Diplômes" aria-label="Diplômes"></button>
   <button class="nav-dot" data-section="vision" data-label="Vision" aria-label="Vision"></button>
@@ -1459,6 +1690,7 @@ section {
 <!-- ===== SECTION 1 — HERO ===== -->
 <section id="hero">
   <div class="hero-orb hero-orb-1"></div>
+  <canvas id="goldDust" aria-hidden="true"></canvas>
   <div class="section-big-number" aria-hidden="true">N</div>
 
   <div class="hero-overline reveal delay-1">Nathan Leprêtre — Portfolio</div>
@@ -1634,6 +1866,47 @@ section {
     </div>
   </div>
   <div class="eloquence-photo reveal delay-3" style="background-image:url('photos/05-eloquence/IMG_9930.JPG');"></div>
+</section>
+
+<!-- ===== SECTION — STAGE AU VIETNAM ===== -->
+<section id="vietnam">
+  <div class="vietnam-left">
+    <div class="chapter-label reveal">Expérience internationale</div>
+    <div class="agence-date reveal delay-1">Mars — Avril 2026 · Hanoï, Vietnam</div>
+    <h2 class="reveal delay-2">Deux mois de stage<br>au <em>Vietnam</em></h2>
+    <p class="reveal delay-3">
+      Huit semaines d'immersion à l'Université des Technologies des Transports
+      de Hanoï, entre le Training Department et le club média. Ma mission :
+      raconter l'université en vidéo — TikToks, interviews, regards croisés
+      entre étudiants français, vietnamiens et laotiens.
+    </p>
+    <p class="reveal delay-4">
+      Une expérience riche en découvertes : créer du contenu pour un public
+      international, apprendre Photoshop auprès des étudiants du club média,
+      tourner en studio professionnel, comparer les méthodes d'enseignement
+      françaises et vietnamiennes. Et surtout, découvrir qu'avec de la curiosité
+      et de la bienveillance, la barrière de la langue n'en est plus une.
+    </p>
+    <div class="key-phrase reveal delay-5">
+      C'est en changeant de monde qu'on apprend à regarder le sien.
+    </div>
+  </div>
+  <div class="vietnam-right">
+    <div class="vietnam-stats reveal delay-2">
+      <div class="vietnam-stat"><strong>8</strong><span>semaines d'immersion</span></div>
+      <div class="vietnam-stat"><strong>2</strong><span>départements accompagnés</span></div>
+      <div class="vietnam-stat"><strong>3</strong><span>cultures au quotidien</span></div>
+    </div>
+    <div class="vietnam-card reveal delay-3">
+      <h3>Ce que le Vietnam m'a appris</h3>
+      <ul>
+        <li>Créer et monter des contenus vidéo en autonomie, de l'idée à la publication</li>
+        <li>Monter en compétence sur le terrain : studio, drone, suite Adobe, Photoshop</li>
+        <li>Communiquer au-delà de la langue, en s'appuyant sur l'IA quand il le faut</li>
+        <li>M'adapter à d'autres méthodes de travail et d'enseignement</li>
+      </ul>
+    </div>
+  </div>
 </section>
 
 <!-- ===== SECTION 7 — GALERIE ===== -->
@@ -2088,6 +2361,224 @@ section {
     docViewer.addEventListener('click', e => { if (e.target === docViewer || e.target === docViewerImg) closeDoc(); });
     docClose && docClose.addEventListener('click', closeDoc);
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDoc(); });
+  }
+})();
+</script>
+<script>
+/* ═══════════ EXPÉRIENCE — moteur ═══════════ */
+(function() {
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const fine = matchMedia('(pointer: fine)').matches;
+
+  /* — 1. Ouverture cinématique (une fois par session) — */
+  const loader = document.getElementById('xpLoader');
+  const seen = sessionStorage.getItem('xp-seen');
+  let introDelay = 0;
+  if (loader) {
+    if (reduced || seen) {
+      loader.classList.add('off');
+    } else {
+      introDelay = 1750;
+      sessionStorage.setItem('xp-seen', '1');
+      document.body.style.overflow = 'hidden';
+      setTimeout(() => {
+        loader.classList.add('done');
+        document.body.style.overflow = '';
+        setTimeout(() => loader.classList.add('off'), 950);
+      }, introDelay);
+    }
+  }
+
+  /* — 2. Titre héro : révélation mot à mot — */
+  const heroTitle = document.getElementById('heroTitle');
+  if (heroTitle && !reduced) {
+    const walk = node => {
+      [...node.childNodes].forEach(child => {
+        if (child.nodeType === 3) {
+          const frag = document.createDocumentFragment();
+          child.textContent.split(/(\s+)/).forEach(part => {
+            if (!part) return;
+            if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(part)); return; }
+            const w = document.createElement('span'); w.className = 'xp-w';
+            const wi = document.createElement('span'); wi.className = 'xp-wi';
+            wi.textContent = part;
+            w.appendChild(wi); frag.appendChild(w);
+          });
+          node.replaceChild(frag, child);
+        } else if (child.nodeType === 1 && child.tagName !== 'BR') {
+          walk(child);
+        }
+      });
+    };
+    walk(heroTitle);
+    heroTitle.classList.add('xp-ready');
+    const words = heroTitle.querySelectorAll('.xp-w');
+    setTimeout(() => {
+      words.forEach((w, i) => setTimeout(() => w.classList.add('in'), i * 55));
+    }, introDelay ? introDelay + 300 : 150);
+  }
+
+  /* — 3. Sous-titre : machine à écrire — */
+  const sub = document.querySelector('.hero-subtitle');
+  if (sub && !reduced) {
+    const phrases = [
+      'Étudiant, entrepreneur et créatif en construction.',
+      'Fondateur de NexBoost, agence digitale.',
+      'Vidéaste, photographe, conteur d’histoires.',
+      'Orateur — finaliste d’éloquence.',
+      'Curieux du monde, de Valenciennes à Hanoï.'
+    ];
+    let pi = 0, ci = 0, del = false;
+    const caret = document.createElement('span'); caret.className = 'xp-caret';
+    const start = () => {
+      sub.textContent = '';
+      sub.appendChild(caret);
+      const tick = () => {
+        const p = phrases[pi];
+        ci += del ? -1 : 1;
+        sub.childNodes[0].nodeValue !== undefined && sub.firstChild !== caret
+          ? sub.firstChild.nodeValue = p.slice(0, ci)
+          : sub.insertBefore(document.createTextNode(p.slice(0, ci)), caret);
+        let wait = del ? 22 : 46;
+        if (!del && ci === p.length) { del = true; wait = 2600; }
+        else if (del && ci === 0) { del = false; pi = (pi + 1) % phrases.length; wait = 350; }
+        setTimeout(tick, wait);
+      };
+      tick();
+    };
+    setTimeout(start, introDelay + 900);
+  }
+
+  /* — 4. Poussière d'or dans le héros — */
+  const canvas = document.getElementById('goldDust');
+  if (canvas && !reduced) {
+    const ctx = canvas.getContext('2d');
+    const hero = document.getElementById('hero');
+    let W, H, parts = [], mx = 0.5, my = 0.5, burst = [];
+    const N = innerWidth < 700 ? 26 : 60;
+    const size = () => {
+      W = canvas.width = hero.offsetWidth;
+      H = canvas.height = hero.offsetHeight;
+    };
+    size(); addEventListener('resize', size);
+    for (let i = 0; i < N; i++) parts.push({
+      x: Math.random() * 1, y: Math.random() * 1,
+      r: 0.6 + Math.random() * 1.7,
+      vy: 0.00012 + Math.random() * 0.00032,
+      vx: (Math.random() - 0.5) * 0.00012,
+      tw: Math.random() * Math.PI * 2,
+      ts: 0.008 + Math.random() * 0.02,
+      depth: 0.4 + Math.random() * 0.6
+    });
+    if (fine) hero.addEventListener('mousemove', e => {
+      const r = hero.getBoundingClientRect();
+      mx = (e.clientX - r.left) / r.width; my = (e.clientY - r.top) / r.height;
+    });
+    /* petit plaisir : un clic dans le héros fait éclater la poussière */
+    hero.addEventListener('click', e => {
+      const r = hero.getBoundingClientRect();
+      for (let i = 0; i < 26; i++) {
+        const a = Math.random() * Math.PI * 2, sp = 1 + Math.random() * 3.4;
+        burst.push({ x: e.clientX - r.left, y: e.clientY - r.top,
+          vx: Math.cos(a) * sp, vy: Math.sin(a) * sp - 1.1,
+          life: 1, r: 0.8 + Math.random() * 1.8 });
+      }
+    });
+    const draw = () => {
+      ctx.clearRect(0, 0, W, H);
+      parts.forEach(p => {
+        p.y -= p.vy; p.x += p.vx; p.tw += p.ts;
+        if (p.y < -0.02) { p.y = 1.02; p.x = Math.random(); }
+        if (p.x < -0.02) p.x = 1.02; if (p.x > 1.02) p.x = -0.02;
+        const ox = (mx - 0.5) * 24 * p.depth, oy = (my - 0.5) * 16 * p.depth;
+        const a = 0.14 + 0.4 * Math.abs(Math.sin(p.tw)) * p.depth;
+        ctx.beginPath();
+        ctx.arc(p.x * W + ox, p.y * H + oy, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(201,162,39,' + a.toFixed(3) + ')';
+        ctx.fill();
+      });
+      burst = burst.filter(b => b.life > 0);
+      burst.forEach(b => {
+        b.x += b.vx; b.y += b.vy; b.vy += 0.05; b.life -= 0.016;
+        ctx.beginPath();
+        ctx.arc(b.x, b.y, b.r * b.life, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(212,180,80,' + (b.life * 0.85).toFixed(3) + ')';
+        ctx.fill();
+      });
+      requestAnimationFrame(draw);
+    };
+    draw();
+  }
+
+  /* — 5. Halo doré qui suit la souris — */
+  const glow = document.getElementById('xpGlow');
+  if (glow && fine && !reduced) {
+    let gx = innerWidth / 2, gy = innerHeight / 2, tx = gx, ty = gy;
+    addEventListener('mousemove', e => { tx = e.clientX; ty = e.clientY; });
+    const lerp = () => {
+      gx += (tx - gx) * 0.08; gy += (ty - gy) * 0.08;
+      glow.style.transform = 'translate(' + gx + 'px,' + gy + 'px)';
+      requestAnimationFrame(lerp);
+    };
+    lerp();
+  } else if (glow) { glow.style.display = 'none'; }
+
+  /* — 6. Boutons magnétiques — */
+  if (fine && !reduced) {
+    document.querySelectorAll('.hero-cv, .cta-btn').forEach(el => {
+      el.style.transition = 'transform 0.25s cubic-bezier(0.22, 1, 0.36, 1)';
+      el.addEventListener('mousemove', e => {
+        const r = el.getBoundingClientRect();
+        const dx = e.clientX - (r.left + r.width / 2);
+        const dy = e.clientY - (r.top + r.height / 2);
+        el.style.transform = 'translate(' + dx * 0.18 + 'px,' + dy * 0.3 + 'px)';
+      });
+      el.addEventListener('mouseleave', () => { el.style.transform = ''; });
+    });
+  }
+
+  /* — 7. Tilt 3D sur les cartes — */
+  if (fine && !reduced) {
+    document.querySelectorAll('.pitch-card, .vietnam-card, .vietnam-stat').forEach(el => {
+      el.classList.add('xp-tilt');
+      const MAX = 7;
+      el.addEventListener('mousemove', e => {
+        const r = el.getBoundingClientRect();
+        const px = (e.clientX - r.left) / r.width;
+        const py = (e.clientY - r.top) / r.height;
+        el.style.transform = 'perspective(800px) rotateX(' + (-(py - 0.5) * 2 * MAX).toFixed(2) +
+          'deg) rotateY(' + ((px - 0.5) * 2 * MAX).toFixed(2) + 'deg) translateZ(6px)';
+      });
+      el.addEventListener('mouseleave', () => { el.style.transform = ''; });
+    });
+  }
+
+  /* — 8. Formes flottantes disséminées dans les sections — */
+  if (!reduced) {
+    const shapes = [
+      ['#hero',       'xp-ring',    { width: '460px', height: '460px', top: '10%', right: '-120px' }],
+      ['#hero',       'xp-diamond', { width: '22px', height: '22px', bottom: '24%', left: '7%' }],
+      ['#histoire',   'xp-blob',    { width: '420px', height: '420px', top: '-70px', left: '-110px' }],
+      ['#mystudentlife', 'xp-diamond', { width: '18px', height: '18px', top: '16%', right: '9%' }],
+      ['#agence',     'xp-ring',    { width: '280px', height: '280px', bottom: '8%', right: '5%' }],
+      ['#pitch',      'xp-blob',    { width: '380px', height: '380px', bottom: '-70px', right: '-90px' }],
+      ['#eloquence',  'xp-diamond', { width: '20px', height: '20px', top: '18%', right: '11%' }],
+      ['#vietnam',    'xp-ring',    { width: '360px', height: '360px', top: '-80px', right: '-100px', animationDuration: '38s' }],
+      ['#vietnam',    'xp-blob',    { width: '320px', height: '320px', bottom: '-50px', left: '-80px' }],
+      ['#galerie',    'xp-blob',    { width: '360px', height: '360px', top: '-60px', right: '-110px' }],
+      ['#parcours',   'xp-diamond', { width: '16px', height: '16px', bottom: '14%', left: '10%' }],
+      ['#vision',     'xp-ring',    { width: '320px', height: '320px', top: '12%', left: '-140px', animationDuration: '52s' }],
+      ['#conclusion', 'xp-blob',    { width: '440px', height: '440px', bottom: '-90px', left: '30%' }]
+    ];
+    shapes.forEach(([sel, cls, style]) => {
+      const host = document.querySelector(sel);
+      if (!host) return;
+      const el = document.createElement('div');
+      el.className = 'xp-shape ' + cls;
+      el.setAttribute('aria-hidden', 'true');
+      Object.assign(el.style, style);
+      host.prepend(el);
+    });
   }
 })();
 </script>
