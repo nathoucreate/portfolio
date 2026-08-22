@@ -22,9 +22,9 @@
   --bg: #0b0b0f;
   --fg: #ede9e3;
   --fg-dim: rgba(237,233,227,0.5);
-  --accent: #c9a227;
-  --accent-soft: rgba(201,162,39,0.15);
-  --accent-glow: rgba(201,162,39,0.2);
+  --accent: #6366f1;
+  --accent-soft: rgba(99, 102, 241,0.15);
+  --accent-glow: rgba(99, 102, 241,0.2);
   --serif: 'Cormorant Garamond', Georgia, serif;
   --sans: 'Syne', system-ui, sans-serif;
   --radius: 8px;
@@ -59,7 +59,7 @@ img { display: block; max-width: 100%; }
 }
 .cursor.hovering {
   width: 56px; height: 56px;
-  background: rgba(201,162,39,0.08);
+  background: rgba(99, 102, 241,0.08);
   box-shadow: 0 0 30px var(--accent-glow);
 }
 .cursor-dot {
@@ -108,7 +108,7 @@ img { display: block; max-width: 100%; }
 .journey-line-bg {
   position: absolute;
   inset: 0;
-  background: rgba(201,162,39,0.06);
+  background: rgba(99, 102, 241,0.06);
 }
 .journey-line-fill {
   position: absolute;
@@ -125,7 +125,7 @@ img { display: block; max-width: 100%; }
   width: 10px; height: 10px;
   border-radius: 50%;
   background: var(--bg);
-  border: 1.5px solid rgba(201,162,39,0.15);
+  border: 1.5px solid rgba(99, 102, 241,0.15);
   transition: border-color 0.5s, box-shadow 0.5s, background 0.5s;
   z-index: 2;
 }
@@ -266,7 +266,7 @@ section {
   font-weight: 300; line-height: 1;
   pointer-events: none; user-select: none;
   color: transparent;
-  -webkit-text-stroke: 1px rgba(201,162,39,0.04);
+  -webkit-text-stroke: 1px rgba(99, 102, 241,0.04);
 }
 
 /* ============================== */
@@ -284,8 +284,8 @@ section {
   content: '';
   position: absolute; inset: 0;
   background:
-    radial-gradient(ellipse at 65% 25%, rgba(201,162,39,0.06) 0%, transparent 55%),
-    radial-gradient(ellipse at 25% 75%, rgba(201,162,39,0.03) 0%, transparent 50%);
+    radial-gradient(ellipse at 65% 25%, rgba(99, 102, 241,0.06) 0%, transparent 55%),
+    radial-gradient(ellipse at 25% 75%, rgba(99, 102, 241,0.03) 0%, transparent 50%);
   pointer-events: none;
 }
 .hero-orb {
@@ -298,7 +298,7 @@ section {
 .hero-orb-1 {
   width: 600px; height: 600px;
   top: -20%; right: -10%;
-  background: radial-gradient(circle, rgba(201,162,39,0.08), transparent 70%);
+  background: radial-gradient(circle, rgba(99, 102, 241,0.08), transparent 70%);
 }
 .hero-orb-2, .hero-orb-3 { display: none; }
 
@@ -376,7 +376,7 @@ section {
   width: 100%; height: 480px;
   border-radius: var(--radius);
   position: relative; overflow: hidden;
-  background-color: #1a1816;
+  background-color: #16161f;
   background-size: cover;
   background-position: center;
 }
@@ -438,7 +438,7 @@ section {
 }
 .msl-gallery-item:hover {
   transform: scale(1.03) translateY(-4px);
-  box-shadow: 0 20px 60px rgba(201,162,39,0.1);
+  box-shadow: 0 20px 60px rgba(99, 102, 241,0.1);
 }
 .msl-gallery-item::before {
   content: '';
@@ -468,7 +468,7 @@ section {
 }
 .section-photo:hover {
   transform: scale(1.02);
-  box-shadow: 0 16px 50px rgba(201,162,39,0.08);
+  box-shadow: 0 16px 50px rgba(99, 102, 241,0.08);
 }
 .section-photo.tall { height: 500px; }
 
@@ -488,8 +488,8 @@ section {
   gap: 0;
   width: 100%;
   height: 500px;
-  background: rgba(201,162,39,0.02);
-  border: 1px solid rgba(201,162,39,0.08);
+  background: rgba(99, 102, 241,0.02);
+  border: 1px solid rgba(99, 102, 241,0.08);
   border-radius: var(--radius);
 }
 .agence-logo-item {
@@ -507,7 +507,7 @@ section {
 .agence-logo-divider {
   width: 60px;
   height: 1px;
-  background: rgba(201,162,39,0.2);
+  background: rgba(99, 102, 241,0.2);
   margin: 20px 0;
 }
 .agence-date {
@@ -574,8 +574,8 @@ section {
 }
 .vietnam-stat {
   text-align: center;
-  background: rgba(201,162,39,0.03);
-  border: 1px solid rgba(201,162,39,0.1);
+  background: rgba(99, 102, 241,0.03);
+  border: 1px solid rgba(99, 102, 241,0.1);
   border-radius: var(--radius);
   padding: 22px 12px;
 }
@@ -588,15 +588,15 @@ section {
 }
 .vietnam-stat span { font-size: 12px; color: var(--fg-dim); letter-spacing: 0.04em; }
 .vietnam-card {
-  background: rgba(201,162,39,0.03);
-  border: 1px solid rgba(201,162,39,0.1);
+  background: rgba(99, 102, 241,0.03);
+  border: 1px solid rgba(99, 102, 241,0.1);
   border-radius: var(--radius);
   padding: 48px;
   transition: border-color 0.4s, box-shadow 0.4s;
 }
 .vietnam-card:hover {
-  border-color: rgba(201,162,39,0.25);
-  box-shadow: 0 16px 60px rgba(201,162,39,0.08);
+  border-color: rgba(99, 102, 241,0.25);
+  box-shadow: 0 16px 60px rgba(99, 102, 241,0.08);
 }
 .vietnam-card h3 {
   font-family: var(--serif);
@@ -637,15 +637,15 @@ section {
   margin-bottom: 20px;
 }
 .pitch-card {
-  background: rgba(201,162,39,0.03);
-  border: 1px solid rgba(201,162,39,0.1);
+  background: rgba(99, 102, 241,0.03);
+  border: 1px solid rgba(99, 102, 241,0.1);
   border-radius: var(--radius);
   padding: 48px;
   transition: border-color 0.4s, box-shadow 0.4s;
 }
 .pitch-card:hover {
-  border-color: rgba(201,162,39,0.25);
-  box-shadow: 0 16px 60px rgba(201,162,39,0.08);
+  border-color: rgba(99, 102, 241,0.25);
+  box-shadow: 0 16px 60px rgba(99, 102, 241,0.08);
 }
 .pitch-card h3 {
   font-family: var(--serif);
@@ -667,7 +667,7 @@ section {
 }
 .pitch-result {
   margin-top: 36px; padding-top: 28px;
-  border-top: 1px solid rgba(201,162,39,0.12);
+  border-top: 1px solid rgba(99, 102, 241,0.12);
 }
 .pitch-result span {
   font-family: var(--serif);
@@ -688,7 +688,7 @@ section {
 }
 .eloquence-bg {
   position: absolute; inset: 0;
-  background: linear-gradient(180deg, var(--bg) 0%, #0d0c09 50%, var(--bg) 100%);
+  background: linear-gradient(180deg, var(--bg) 0%, #0a0a10 50%, var(--bg) 100%);
   pointer-events: none;
 }
 .eloquence-content { position: relative; z-index: 2; }
@@ -753,7 +753,7 @@ section {
 }
 .galerie-item:hover {
   transform: scale(1.03);
-  box-shadow: 0 20px 60px rgba(201,162,39,0.1);
+  box-shadow: 0 20px 60px rgba(99, 102, 241,0.1);
   z-index: 2;
 }
 .galerie-item::before {
@@ -808,7 +808,7 @@ section {
   position: relative; overflow: hidden;
   transform: scale(0.9);
   transition: transform 0.5s var(--transition);
-  background: #1a1816;
+  background: #16161f;
 }
 .lightbox.active .lightbox-content { transform: scale(1); }
 .lightbox-close {
@@ -877,17 +877,17 @@ section {
   gap: 20px; width: 100%; max-width: 1000px;
 }
 .value-card {
-  background: rgba(201,162,39,0.02);
-  border: 1px solid rgba(201,162,39,0.08);
+  background: rgba(99, 102, 241,0.02);
+  border: 1px solid rgba(99, 102, 241,0.08);
   border-radius: var(--radius);
   padding: 44px 20px;
   text-align: center;
   transition: border-color 0.4s, transform 0.5s var(--transition), box-shadow 0.5s;
 }
 .value-card:hover {
-  border-color: rgba(201,162,39,0.3);
+  border-color: rgba(99, 102, 241,0.3);
   transform: translateY(-8px);
-  box-shadow: 0 20px 50px rgba(201,162,39,0.08);
+  box-shadow: 0 20px 50px rgba(99, 102, 241,0.08);
 }
 .value-number {
   font-family: var(--sans);
@@ -926,7 +926,7 @@ section {
   content: '';
   position: absolute; inset: 0;
   background:
-    radial-gradient(ellipse at 50% 50%, rgba(201,162,39,0.04) 0%, transparent 55%);
+    radial-gradient(ellipse at 50% 50%, rgba(99, 102, 241,0.04) 0%, transparent 55%);
   pointer-events: none;
 }
 #conclusion h2 {
@@ -955,8 +955,8 @@ section {
   position: relative;
 }
 .contact-card {
-  background: rgba(201,162,39,0.02);
-  border: 1px solid rgba(201,162,39,0.08);
+  background: rgba(99, 102, 241,0.02);
+  border: 1px solid rgba(99, 102, 241,0.08);
   border-radius: var(--radius);
   padding: 32px 24px;
   text-align: center;
@@ -965,9 +965,9 @@ section {
   align-items: center; gap: 12px;
 }
 .contact-card:hover {
-  border-color: rgba(201,162,39,0.3);
+  border-color: rgba(99, 102, 241,0.3);
   transform: translateY(-6px);
-  box-shadow: 0 16px 50px rgba(201,162,39,0.1);
+  box-shadow: 0 16px 50px rgba(99, 102, 241,0.1);
 }
 .contact-icon {
   width: 44px; height: 44px;
@@ -1015,7 +1015,7 @@ section {
 }
 .cta-btn.secondary {
   background: transparent;
-  border: 1.5px solid rgba(201,162,39,0.25);
+  border: 1.5px solid rgba(99, 102, 241,0.25);
   color: var(--fg);
 }
 .cta-btn.secondary:hover {
@@ -1326,7 +1326,7 @@ section {
     0 2px 6px rgba(0,0,0,0.4),
     0 22px 50px rgba(0,0,0,0.55),
     0 40px 90px rgba(0,0,0,0.45),
-    inset 0 0 0 1px rgba(201,162,39,0.18);
+    inset 0 0 0 1px rgba(99, 102, 241,0.18);
   background: #0f0f14;
 }
 .diploma-feature-inner img {
@@ -1343,14 +1343,14 @@ section {
   box-shadow:
     0 4px 10px rgba(0,0,0,0.45),
     0 30px 70px rgba(0,0,0,0.6),
-    0 60px 120px rgba(201,162,39,0.12),
-    inset 0 0 0 1px rgba(201,162,39,0.35);
+    0 60px 120px rgba(99, 102, 241,0.12),
+    inset 0 0 0 1px rgba(99, 102, 241,0.35);
 }
 .diploma-feature-tag {
   position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%) translateZ(40px);
   font-family: var(--sans); font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
   color: var(--fg); background: rgba(11,11,15,0.7); backdrop-filter: blur(8px);
-  padding: 8px 16px; border-radius: 30px; border: 1px solid rgba(201,162,39,0.3);
+  padding: 8px 16px; border-radius: 30px; border: 1px solid rgba(99, 102, 241,0.3);
   opacity: 0; transition: opacity 0.4s ease;
 }
 .diploma-feature:hover .diploma-feature-tag { opacity: 1; }
@@ -1373,8 +1373,8 @@ section {
 }
 .diploma-card:hover {
   transform: translateY(-6px);
-  border-color: rgba(201,162,39,0.4);
-  box-shadow: 0 24px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(201,162,39,0.15);
+  border-color: rgba(99, 102, 241,0.4);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(99, 102, 241,0.15);
 }
 .diploma-card-year {
   font-family: var(--sans); font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
@@ -1383,7 +1383,7 @@ section {
 .diploma-card-title { font-family: var(--serif); font-size: 24px; color: var(--fg); line-height: 1.2; }
 .diploma-card-meta { font-size: 14px; color: var(--fg-dim); margin-top: 6px; }
 .diploma-card-school { font-size: 13px; color: rgba(237,233,227,0.35); margin-top: 4px; }
-.diploma-card.vietnam { background: linear-gradient(150deg, rgba(201,162,39,0.12), rgba(201,162,39,0.02)); border-color: rgba(201,162,39,0.25); }
+.diploma-card.vietnam { background: linear-gradient(150deg, rgba(99, 102, 241,0.12), rgba(99, 102, 241,0.02)); border-color: rgba(99, 102, 241,0.25); }
 
 /* — Bloc téléchargement CV — */
 .cv-block { display: flex; align-items: center; gap: 16px; margin-top: 10px; flex-wrap: wrap; }
@@ -1407,7 +1407,7 @@ section {
 @keyframes cvBounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(3px); } }
 .cv-view {
   font-family: var(--sans); font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
-  color: var(--fg-dim); border-bottom: 1px solid rgba(201,162,39,0.3); padding-bottom: 3px; cursor: none;
+  color: var(--fg-dim); border-bottom: 1px solid rgba(99, 102, 241,0.3); padding-bottom: 3px; cursor: none;
   transition: color 0.3s;
 }
 .cv-view:hover { color: var(--accent); }
@@ -1416,7 +1416,7 @@ section {
 .hero-cv {
   display: inline-flex; align-items: center; gap: 10px; margin-top: 30px;
   padding: 13px 26px; border-radius: 50px; cursor: none;
-  border: 1.5px solid rgba(201,162,39,0.3); color: var(--fg);
+  border: 1.5px solid rgba(99, 102, 241,0.3); color: var(--fg);
   font-family: var(--sans); font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
   transition: all 0.4s var(--transition);
 }
@@ -1437,7 +1437,7 @@ section {
 .doc-viewer.active img { transform: scale(1); }
 .doc-viewer-close {
   position: absolute; top: 24px; right: 28px; width: 46px; height: 46px; border-radius: 50%;
-  border: 1px solid rgba(201,162,39,0.3); background: rgba(11,11,15,0.6); color: var(--fg);
+  border: 1px solid rgba(99, 102, 241,0.3); background: rgba(11,11,15,0.6); color: var(--fg);
   font-size: 22px; cursor: none; display: flex; align-items: center; justify-content: center;
 }
 
@@ -1445,6 +1445,17 @@ section {
   .parcours-layout { grid-template-columns: 1fr; gap: 32px; }
   .diploma-feature { max-width: 480px; margin: 0 auto; }
 }
+
+/* Bouton vers la collection Corse — mis en avant, aux couleurs NexBoost */
+.btn-corse{display:inline-flex;align-items:center;gap:12px;margin-top:26px;padding:15px 26px;
+  border-radius:100px;background:var(--accent);color:#fff;font-family:var(--sans);
+  font-size:0.92rem;font-weight:600;letter-spacing:.01em;text-decoration:none;
+  box-shadow:0 8px 30px rgba(99,102,241,.28);transition:transform .3s cubic-bezier(.16,1,.3,1),
+  box-shadow .3s,background .3s}
+.btn-corse:hover{transform:translateY(-2px);background:#5457e5;
+  box-shadow:0 12px 38px rgba(99,102,241,.42)}
+.btn-corse svg{width:18px;height:18px;transition:transform .3s cubic-bezier(.16,1,.3,1)}
+.btn-corse:hover svg{transform:translateX(4px)}
 </style>
 <style>
 /* ═══════════ EXPÉRIENCE — ouverture, or, magnétisme ═══════════ */
@@ -1471,7 +1482,7 @@ section {
   opacity: 0; animation: xpFade 0.8s 0.55s forwards;
 }
 .xp-loader-bar {
-  width: 150px; height: 1px; background: rgba(201,162,39,0.15);
+  width: 150px; height: 1px; background: rgba(99, 102, 241,0.15);
   overflow: hidden; opacity: 0; animation: xpFade 0.4s 0.4s forwards;
 }
 .xp-loader-bar span {
@@ -1496,7 +1507,7 @@ section {
   width: 560px; height: 560px;
   margin: -280px 0 0 -280px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(201,162,39,0.07), transparent 65%);
+  background: radial-gradient(circle, rgba(99, 102, 241,0.07), transparent 65%);
   pointer-events: none; z-index: 1;
   will-change: transform;
 }
@@ -1524,7 +1535,7 @@ section {
   box-shadow:
     0 6px 22px rgba(0, 0, 0, 0.45),
     0 28px 80px rgba(0, 0, 0, 0.55),
-    0 48px 140px rgba(201, 162, 39, 0.08);
+    0 48px 140px rgba(99, 102, 241, 0.08);
   border-radius: var(--radius);
 }
 .pitch-card, .vietnam-card, .vietnam-stat, .agence-quote {
@@ -1536,16 +1547,23 @@ section {
   box-shadow:
     0 2px 10px rgba(0, 0, 0, 0.35),
     0 24px 60px rgba(0, 0, 0, 0.45),
-    0 40px 110px rgba(201, 162, 39, 0.14);
+    0 40px 110px rgba(99, 102, 241, 0.14);
 }
-.hero-cv { box-shadow: 0 10px 36px rgba(201, 162, 39, 0.22); }
-.hero-title em, h2 em { text-shadow: 0 0 30px rgba(201, 162, 39, 0.35); }
-.key-phrase { text-shadow: 0 0 24px rgba(201, 162, 39, 0.18); }
+.hero-cv { box-shadow: 0 10px 36px rgba(99, 102, 241, 0.22); }
+.hero-title em, h2 em { text-shadow: 0 0 30px rgba(99, 102, 241, 0.35); }
+.key-phrase { text-shadow: 0 0 24px rgba(99, 102, 241, 0.18); }
 
 /* — formes flottantes : anneaux, gouttes d'or, losanges — */
 .xp-shape { position: absolute; pointer-events: none; z-index: 0; }
+
+/* Les formes décoratives (.xp-blob, .xp-ring…) sont injectées en JS dans les
+   sections avec des décalages négatifs : elles poussaient la page 110 px
+   au-delà de l'écran. `clip` et non `hidden` — hidden créerait un conteneur
+   de défilement, et ces formes doivent pouvoir déborder vers le haut. */
+section { overflow-x: clip; }
+@supports (overflow: clip) { html, body { overflow-x: clip; } }
 .xp-ring {
-  border: 1px solid rgba(201, 162, 39, 0.16);
+  border: 1px solid rgba(99, 102, 241, 0.16);
   border-radius: 50%;
   animation: xpSpin 46s linear infinite;
 }
@@ -1556,18 +1574,18 @@ section {
   border-radius: 50%;
   background: var(--accent);
   top: -4px; left: 50%;
-  box-shadow: 0 0 16px rgba(201, 162, 39, 0.9);
+  box-shadow: 0 0 16px rgba(99, 102, 241, 0.9);
 }
 .xp-blob {
-  background: radial-gradient(circle at 35% 35%, rgba(201, 162, 39, 0.10), transparent 65%);
+  background: radial-gradient(circle at 35% 35%, rgba(99, 102, 241, 0.10), transparent 65%);
   filter: blur(26px);
   border-radius: 42% 58% 55% 45% / 52% 45% 60% 48%;
   animation: xpMorph 16s ease-in-out infinite alternate;
 }
 .xp-diamond {
-  border: 1px solid rgba(201, 162, 39, 0.45);
+  border: 1px solid rgba(99, 102, 241, 0.45);
   animation: xpFloatD 8s ease-in-out infinite alternate;
-  box-shadow: 0 0 18px rgba(201, 162, 39, 0.15);
+  box-shadow: 0 0 18px rgba(99, 102, 241, 0.15);
 }
 @keyframes xpSpin { to { transform: rotate(360deg); } }
 @keyframes xpMorph {
@@ -1627,6 +1645,7 @@ section {
   <a href="#eloquence">Éloquence</a>
   <a href="#vietnam">Stage au Vietnam</a>
   <a href="#galerie">Galerie</a>
+  <a href="corse.html">Corse — vues aériennes</a>
   <a href="#vision">Ma Vision</a>
   <a href="#conclusion">Contact</a>
 </div>
@@ -1736,7 +1755,7 @@ section {
       Tout ce que je fais repose sur une idée simple&nbsp;: progresser chaque jour.
     </div>
   </div>
-  <div class="histoire-image reveal delay-3 parallax-image" data-speed="0.04" style="background:url('photos/01-histoire/IMG_1.PNG') center/cover;"></div>
+  <div class="histoire-image reveal delay-3 parallax-image" data-speed="0.04" style="background:url('photos/01-histoire/IMG_1.webp') center/cover;"></div>
 </section>
 
 <!-- ===== SECTION 3 — MYSTUDENTLIFE ===== -->
@@ -1777,9 +1796,9 @@ section {
     </div>
   </div>
   <div class="msl-gallery">
-    <div class="msl-gallery-item reveal delay-2" data-label="Vernissage — Oct. 2025" style="background:url('photos/02-mystudentlife/vernissage/IMG_8294.jpg') center/cover;"></div>
-    <div class="msl-gallery-item reveal delay-3" data-label="Vie Étudiante" style="background:url('photos/02-mystudentlife/vie-etudiante/IMG_3115.JPG') center/cover;"></div>
-    <div class="msl-gallery-item reveal delay-4" data-label="Exposition" style="background:url('photos/02-mystudentlife/portraits/IMG_8272.jpg') center/cover;"></div>
+    <div class="msl-gallery-item reveal delay-2" data-label="Vernissage — Oct. 2025" style="background:url('photos/02-mystudentlife/vernissage/IMG_8294.webp') center/cover;"></div>
+    <div class="msl-gallery-item reveal delay-3" data-label="Vie Étudiante" style="background:url('photos/02-mystudentlife/vie-etudiante/IMG_3115.webp') center/cover;"></div>
+    <div class="msl-gallery-item reveal delay-4" data-label="Exposition" style="background:url('photos/02-mystudentlife/portraits/IMG_8272.webp') center/cover;"></div>
   </div>
   <div class="key-phrase reveal delay-5" style="margin-top:60px;">
     Créer des images, c'est raconter ce que les mots ne montrent pas.
@@ -1811,7 +1830,7 @@ section {
   <div class="agence-logos reveal delay-3">
     <div class="agence-logo-item" style="background-image:url('photos/03-agence/logo-nexboost.svg');"></div>
     <div class="agence-logo-divider"></div>
-    <div class="agence-logo-item pepite" style="background-image:url('photos/03-agence/logo-pepite.png');"></div>
+    <div class="agence-logo-item pepite" style="background-image:url('photos/03-agence/logo-pepite.webp');"></div>
   </div>
 </section>
 
@@ -1831,7 +1850,7 @@ section {
     </p>
   </div>
   <div class="pitch-right">
-    <div class="section-photo reveal delay-2" style="height:280px;margin-bottom:24px;background:url('photos/04-pitch/IMG_3643.JPG') center/cover;"></div>
+    <div class="section-photo reveal delay-2" style="height:280px;margin-bottom:24px;background:url('photos/04-pitch/IMG_3643.webp') center/cover;"></div>
     <div class="pitch-card reveal delay-3">
       <h3>Devant un jury d'exception</h3>
       <ul class="pitch-jury">
@@ -1865,7 +1884,7 @@ section {
       Apprendre à parler, c'est apprendre à se connaître.
     </div>
   </div>
-  <div class="eloquence-photo reveal delay-3" style="background-image:url('photos/05-eloquence/IMG_9930.JPG');"></div>
+  <div class="eloquence-photo reveal delay-3" style="background-image:url('photos/05-eloquence/IMG_9930.webp');"></div>
 </section>
 
 <!-- ===== SECTION — STAGE AU VIETNAM ===== -->
@@ -1914,78 +1933,88 @@ section {
   <div class="galerie-header">
     <div class="chapter-label reveal">Photographie</div>
     <h2 class="reveal delay-1">Galerie</h2>
+    <p class="reveal delay-2" style="margin-top:18px;color:var(--fg-dim);max-width:52ch">
+      Une collection de dix-sept vues aériennes prises au drone en Corse du Sud est présentée
+      à part, et chaque image y est disponible en tirage.
+    </p>
+    <a class="btn-corse reveal delay-2" href="corse.html">
+      <span>Voir la collection Corse &amp; commander un tirage</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+           stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
   </div>
   <div class="galerie-grid">
-    <div class="galerie-item reveal" data-category="Vie Étudiante" data-title="Entre les cours" style="background-image:url('photos/06-galerie/vie-etudiante/IMG_3149.JPG');">
+    <div class="galerie-item reveal" data-category="Vie Étudiante" data-title="Entre les cours" style="background-image:url('photos/06-galerie/vie-etudiante/IMG_3149.webp');">
       <div class="galerie-item-info"><div class="galerie-item-category">Vie Étudiante</div><div class="galerie-item-title">Entre les cours</div></div>
     </div>
-    <div class="galerie-item reveal" data-category="Sport" data-title="Terrain de handball" style="background-image:url('photos/06-galerie/sport/IMG_7880.jpg');">
+    <div class="galerie-item reveal" data-category="Sport" data-title="Terrain de handball" style="background-image:url('photos/06-galerie/sport/IMG_7880.webp');">
       <div class="galerie-item-info"><div class="galerie-item-category">Sport</div><div class="galerie-item-title">Terrain de handball</div></div>
     </div>
-    <div class="galerie-item reveal" data-category="Portraits" data-title="Regards" style="background-image:url('photos/06-galerie/portraits/IMG_3439.JPG');">
+    <div class="galerie-item reveal" data-category="Portraits" data-title="Regards" style="background-image:url('photos/06-galerie/portraits/IMG_3439.webp');">
       <div class="galerie-item-info"><div class="galerie-item-category">Portraits</div><div class="galerie-item-title">Regards</div></div>
     </div>
-    <div class="galerie-item reveal" data-category="Paysages" data-title="Horizon" style="background-image:url('photos/06-galerie/paysages/IMG_2701.JPG');">
+    <div class="galerie-item reveal" data-category="Paysages" data-title="Horizon" style="background-image:url('photos/06-galerie/paysages/IMG_2701.webp');">
       <div class="galerie-item-info"><div class="galerie-item-category">Paysages</div><div class="galerie-item-title">Horizon</div></div>
     </div>
-    <div class="galerie-item reveal" data-category="Instants de Vie" data-title="Le quotidien" style="background-image:url('photos/06-galerie/instants-de-vie/IMG_4308.JPG');">
+    <div class="galerie-item reveal" data-category="Instants de Vie" data-title="Le quotidien" style="background-image:url('photos/06-galerie/instants-de-vie/IMG_4308.webp');">
       <div class="galerie-item-info"><div class="galerie-item-category">Instants de Vie</div><div class="galerie-item-title">Le quotidien</div></div>
     </div>
-    <div class="galerie-item reveal" data-category="Paysages" data-title="Lumière" style="background-image:url('photos/06-galerie/paysages/IMG_2836.JPG');">
+    <div class="galerie-item reveal" data-category="Paysages" data-title="Lumière" style="background-image:url('photos/06-galerie/paysages/IMG_2836.webp');">
       <div class="galerie-item-info"><div class="galerie-item-category">Paysages</div><div class="galerie-item-title">Lumière</div></div>
     </div>
     <div class="galerie-item reveal" data-category="Sport" data-title="Dépassement" style="background-image:url('photos/06-galerie/sport/IMG_7881.WEBP');">
       <div class="galerie-item-info"><div class="galerie-item-category">Sport</div><div class="galerie-item-title">Dépassement</div></div>
     </div>
-    <div class="galerie-item reveal" data-category="Portraits" data-title="Lumière naturelle" style="background-image:url('photos/06-galerie/portraits/IMG_4144.JPG');">
+    <div class="galerie-item reveal" data-category="Portraits" data-title="Lumière naturelle" style="background-image:url('photos/06-galerie/portraits/IMG_4144.webp');">
       <div class="galerie-item-info"><div class="galerie-item-category">Portraits</div><div class="galerie-item-title">Lumière naturelle</div></div>
     </div>
-    <div class="galerie-item reveal" data-category="Paysages" data-title="Vue aérienne" style="background-image:url('photos/06-galerie/paysages/DJI_0181.JPG');">
+    <div class="galerie-item reveal" data-category="Paysages" data-title="Vue aérienne" style="background-image:url('photos/06-galerie/paysages/DJI_0181.webp');">
       <div class="galerie-item-info"><div class="galerie-item-category">Paysages</div><div class="galerie-item-title">Vue aérienne</div></div>
     </div>
-    <div class="galerie-item reveal" data-category="Paysages" data-title="Évasion" style="background-image:url('photos/06-galerie/paysages/IMG_2918.jpg');">
+    <div class="galerie-item reveal" data-category="Paysages" data-title="Évasion" style="background-image:url('photos/06-galerie/paysages/IMG_2918.webp');">
       <div class="galerie-item-info"><div class="galerie-item-category">Paysages</div><div class="galerie-item-title">Évasion</div></div>
     </div>
-    <div class="galerie-item reveal" data-category="Paysages" data-title="Perspective" style="background-image:url('photos/06-galerie/paysages/IMG_2892.JPG');">
+    <div class="galerie-item reveal" data-category="Paysages" data-title="Perspective" style="background-image:url('photos/06-galerie/paysages/IMG_2892.webp');">
       <div class="galerie-item-info"><div class="galerie-item-category">Paysages</div><div class="galerie-item-title">Perspective</div></div>
     </div>
-    <div class="galerie-item reveal" data-category="Paysages" data-title="Altitude" style="background-image:url('photos/06-galerie/paysages/dji_fly_20250730_140308_54_1753882287078_photo_optimized.JPG');">
+    <div class="galerie-item reveal" data-category="Paysages" data-title="Altitude" style="background-image:url('photos/06-galerie/paysages/dji_fly_20250730_140308_54_1753882287078_photo_optimized.webp');">
       <div class="galerie-item-info"><div class="galerie-item-category">Paysages</div><div class="galerie-item-title">Altitude</div></div>
     </div>
-    <div class="galerie-item reveal" data-category="Paysages" data-title="Crépuscule" style="background-image:url('photos/06-galerie/paysages/dji_fly_20250731_180542_76_1753977954816_photo_optimized.JPG');">
+    <div class="galerie-item reveal" data-category="Paysages" data-title="Crépuscule" style="background-image:url('photos/06-galerie/paysages/dji_fly_20250731_180542_76_1753977954816_photo_optimized.webp');">
       <div class="galerie-item-info"><div class="galerie-item-category">Paysages</div><div class="galerie-item-title">Crépuscule</div></div>
     </div>
-    <div class="galerie-item reveal" data-category="Paysages" data-title="En hauteur" style="background-image:url('photos/06-galerie/paysages/dji_fly_20250731_180934_84_1753978197685_photo_optimized.JPG');">
+    <div class="galerie-item reveal" data-category="Paysages" data-title="En hauteur" style="background-image:url('photos/06-galerie/paysages/dji_fly_20250731_180934_84_1753978197685_photo_optimized.webp');">
       <div class="galerie-item-info"><div class="galerie-item-category">Paysages</div><div class="galerie-item-title">En hauteur</div></div>
     </div>
-    <div class="galerie-item reveal" data-category="Paysages" data-title="Survol" style="background-image:url('photos/06-galerie/paysages/dji_fly_20250731_180934_84_1753978197685_photo_optimized2.JPG');">
+    <div class="galerie-item reveal" data-category="Paysages" data-title="Survol" style="background-image:url('photos/06-galerie/paysages/dji_fly_20250731_180934_84_1753978197685_photo_optimized2.webp');">
       <div class="galerie-item-info"><div class="galerie-item-category">Paysages</div><div class="galerie-item-title">Survol</div></div>
     </div>
-    <div class="galerie-item reveal" data-category="Paysages" data-title="Grand angle" style="background-image:url('photos/06-galerie/paysages/dji_fly_20250802_110630_99_1754125631393_photo_optimized.JPG');">
+    <div class="galerie-item reveal" data-category="Paysages" data-title="Grand angle" style="background-image:url('photos/06-galerie/paysages/dji_fly_20250802_110630_99_1754125631393_photo_optimized.webp');">
       <div class="galerie-item-info"><div class="galerie-item-category">Paysages</div><div class="galerie-item-title">Grand angle</div></div>
     </div>
-    <div class="galerie-item reveal" data-category="Paysages" data-title="Immensité" style="background-image:url('photos/06-galerie/paysages/dji_fly_20250802_110642_100_1754125637953_photo_optimized.JPG');">
+    <div class="galerie-item reveal" data-category="Paysages" data-title="Immensité" style="background-image:url('photos/06-galerie/paysages/dji_fly_20250802_110642_100_1754125637953_photo_optimized.webp');">
       <div class="galerie-item-info"><div class="galerie-item-category">Paysages</div><div class="galerie-item-title">Immensité</div></div>
     </div>
-    <div class="galerie-item reveal" data-category="Paysages" data-title="Coucher de soleil" style="background-image:url('photos/06-galerie/paysages/dji_fly_20250803_202102_124_1754245304206_photo_optimized.JPG');">
+    <div class="galerie-item reveal" data-category="Paysages" data-title="Coucher de soleil" style="background-image:url('photos/06-galerie/paysages/dji_fly_20250803_202102_124_1754245304206_photo_optimized.webp');">
       <div class="galerie-item-info"><div class="galerie-item-category">Paysages</div><div class="galerie-item-title">Coucher de soleil</div></div>
     </div>
-    <div class="galerie-item reveal" data-category="Paysages" data-title="Exploration" style="background-image:url('photos/06-galerie/paysages/dji_fly_20250809_142802_142_1754742643454_photo_optimized.JPG');">
+    <div class="galerie-item reveal" data-category="Paysages" data-title="Exploration" style="background-image:url('photos/06-galerie/paysages/dji_fly_20250809_142802_142_1754742643454_photo_optimized.webp');">
       <div class="galerie-item-info"><div class="galerie-item-category">Paysages</div><div class="galerie-item-title">Exploration</div></div>
     </div>
-    <div class="galerie-item reveal" data-category="Paysages" data-title="Au loin" style="background-image:url('photos/06-galerie/paysages/IMG_2863.JPG');">
+    <div class="galerie-item reveal" data-category="Paysages" data-title="Au loin" style="background-image:url('photos/06-galerie/paysages/IMG_2863.webp');">
       <div class="galerie-item-info"><div class="galerie-item-category">Paysages</div><div class="galerie-item-title">Au loin</div></div>
     </div>
-    <div class="galerie-item reveal" data-category="Vie Étudiante" data-title="Sur le terrain" style="background-image:url('photos/02-mystudentlife/vie-etudiante/IMG_3095.JPG');">
+    <div class="galerie-item reveal" data-category="Vie Étudiante" data-title="Sur le terrain" style="background-image:url('photos/02-mystudentlife/vie-etudiante/IMG_3095.webp');">
       <div class="galerie-item-info"><div class="galerie-item-category">Vie Étudiante</div><div class="galerie-item-title">Sur le terrain</div></div>
     </div>
-    <div class="galerie-item reveal" data-category="Vie Étudiante" data-title="Ensemble" style="background-image:url('photos/02-mystudentlife/vie-etudiante/IMG_3115.JPG');">
+    <div class="galerie-item reveal" data-category="Vie Étudiante" data-title="Ensemble" style="background-image:url('photos/02-mystudentlife/vie-etudiante/IMG_3115.webp');">
       <div class="galerie-item-info"><div class="galerie-item-category">Vie Étudiante</div><div class="galerie-item-title">Ensemble</div></div>
     </div>
-    <div class="galerie-item reveal" data-category="Portraits" data-title="Expression" style="background-image:url('photos/02-mystudentlife/portraits/IMG_8272.jpg');">
+    <div class="galerie-item reveal" data-category="Portraits" data-title="Expression" style="background-image:url('photos/02-mystudentlife/portraits/IMG_8272.webp');">
       <div class="galerie-item-info"><div class="galerie-item-category">Portraits</div><div class="galerie-item-title">Expression</div></div>
     </div>
-    <div class="galerie-item reveal" data-category="Paysages" data-title="Panorama" style="background-image:url('photos/06-galerie/paysages/IMG_2892.JPG');">
+    <div class="galerie-item reveal" data-category="Paysages" data-title="Panorama" style="background-image:url('photos/06-galerie/paysages/IMG_2892.webp');">
       <div class="galerie-item-info"><div class="galerie-item-category">Paysages</div><div class="galerie-item-title">Panorama</div></div>
     </div>
   </div>
@@ -2494,7 +2523,7 @@ section {
         const a = 0.14 + 0.4 * Math.abs(Math.sin(p.tw)) * p.depth;
         ctx.beginPath();
         ctx.arc(p.x * W + ox, p.y * H + oy, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(201,162,39,' + a.toFixed(3) + ')';
+        ctx.fillStyle = 'rgba(99, 102, 241,' + a.toFixed(3) + ')';
         ctx.fill();
       });
       burst = burst.filter(b => b.life > 0);

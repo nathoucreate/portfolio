@@ -1,0 +1,130 @@
+[
+ {
+  "n": "01",
+  "titre": "Îlot des Cerbicale",
+  "lieu": "Bocca dell’Oro",
+  "date": "2026-08-10",
+  "portrait": false,
+  "src": "DJI_0417"
+ },
+ {
+  "n": "02",
+  "titre": "Un caillou en pleine mer",
+  "lieu": "Bonifacio",
+  "date": "2026-08-15",
+  "portrait": true,
+  "src": "DJI_0444"
+ },
+ {
+  "n": "03",
+  "titre": "Le jardin sous-marin",
+  "lieu": "Bocca dell’Oro",
+  "date": "2026-08-10",
+  "portrait": false,
+  "src": "DJI_0424"
+ },
+ {
+  "n": "04",
+  "titre": "Le promontoire",
+  "lieu": "Bonifacio",
+  "date": "2026-08-15",
+  "portrait": true,
+  "src": "DJI_0452"
+ },
+ {
+  "n": "05",
+  "titre": "Les falaises de Bonifacio",
+  "lieu": "Bonifacio",
+  "date": "2026-08-15",
+  "portrait": false,
+  "src": "DJI_0442"
+ },
+ {
+  "n": "06",
+  "titre": "Turquoise à la verticale",
+  "lieu": "Porto-Vecchio",
+  "date": "2026-08-07",
+  "portrait": false,
+  "src": "DJI_0373"
+ },
+ {
+  "n": "07",
+  "titre": "Le sentier des roches",
+  "lieu": "Bocca dell’Oro",
+  "date": "2026-08-10",
+  "portrait": true,
+  "src": "DJI_0425"
+ },
+ {
+  "n": "08",
+  "titre": "Sous les falaises",
+  "lieu": "Bonifacio",
+  "date": "2026-08-15",
+  "portrait": false,
+  "src": "DJI_0446"
+ },
+ {
+  "n": "09",
+  "titre": "Rochers affleurants",
+  "lieu": "Santa Giulia",
+  "date": "2026-08-08",
+  "portrait": true,
+  "src": "DJI_0387"
+ },
+ {
+  "n": "10",
+  "titre": "Les chemins de sable",
+  "lieu": "Bonifacio",
+  "date": "2026-08-15",
+  "portrait": true,
+  "src": "DJI_0451"
+ },
+ {
+  "n": "11",
+  "titre": "Le rocher de Pertusato",
+  "lieu": "Bonifacio",
+  "date": "2026-08-15",
+  "portrait": false,
+  "src": "DJI_0440"
+ },
+ {
+  "n": "12",
+  "titre": "La dune",
+  "lieu": "Bonifacio",
+  "date": "2026-08-15",
+  "portrait": false,
+  "src": "DJI_0450"
+ },
+ {
+  "n": "13",
+  "titre": "L’écume",
+  "lieu": "Bonifacio",
+  "date": "2026-08-16",
+  "portrait": true,
+  "src": "DJI_0463"
+ },
+ {
+  "n": "14",
+  "titre": "L’île et le catamaran",
+  "lieu": "Bocca dell’Oro",
+  "date": "2026-08-10",
+  "portrait": true,
+  "src": "DJI_0422"
+ },
+ {
+  "n": "15",
+  "titre": "La grande baie",
+  "lieu": "Santa Giulia",
+  "date": "2026-08-08",
+  "portrait": false,
+  "src": "DJI_0384"
+ },
+ {
+  "n": "16",
+  "titre": "Au bord",
+  "lieu": "Bonifacio",
+  "date": "2026-08-16",
+  "portrait": true,
+  "src": "DJI_0464"
+ }
+]

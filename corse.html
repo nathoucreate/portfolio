@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Corse du Sud — Photographie aérienne · Nathan Leprêtre</title>
+<meta name="description" content="Seize vues aériennes de Corse du Sud prises au drone — Bonifacio, Santa Giulia, Porto-Vecchio, Sperone. Tirages disponibles à la commande.">
+<meta name="author" content="Nathan Leprêtre">
+<meta property="og:title" content="Corse du Sud — Photographie aérienne">
+<meta property="og:description" content="Seize vues aériennes de Corse du Sud. Tirages disponibles.">
+<meta property="og:image" content="https://nathanlepretre.fr/photos/corse/01.webp">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#060609">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  /* Charte NexBoost — cette page est faite pour être reliée depuis nexboost.fr */
+  --bg:#060609; --bg2:#0b0b12; --panel:#10101a; --line:rgba(255,255,255,.08);
+  --fg:#f1f0ee; --fg2:#a2a2b8; --fg3:#6e6e88;
+  --accent:#6366f1; --accent2:#818cf8; --accent-soft:rgba(99,102,241,.14);
+  --sans:'Inter',system-ui,-apple-system,sans-serif;
+  --disp:'Space Grotesk',sans-serif;
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:16px;
+  line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:clip}
+h1,h2,h3,.disp{font-family:var(--disp);letter-spacing:-.02em}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+::selection{background:var(--accent);color:#fff}
+
+/* ── Barre ── */
+.bar{position:fixed;inset:0 0 auto 0;z-index:60;display:flex;align-items:center;gap:16px;
+  padding:16px 28px;transition:background .4s var(--ease),backdrop-filter .4s var(--ease)}
+.bar.scrolled{background:rgba(6,6,9,.82);backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line)}
+.bar .logo{width:118px;flex-shrink:0}
+.bar .sep{width:1px;height:20px;background:var(--line)}
+.bar .lien{font-size:13px;color:var(--fg2);font-weight:500;transition:color .2s}
+.bar .lien:hover{color:var(--fg)}
+.bar .cta{margin-left:auto;background:var(--accent);color:#fff;font-size:13px;font-weight:600;
+  padding:9px 17px;border-radius:100px;border:none;cursor:pointer;transition:.2s var(--ease)}
+.bar .cta:hover{background:#5457e5;transform:translateY(-1px)}
+
+/* ── Ouverture ── */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;overflow:clip}
+.hero-fond{position:absolute;inset:-8% 0;background-size:cover;background-position:center;
+  will-change:transform}
+.hero::after{content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(6,6,9,.72) 0%,rgba(6,6,9,.16) 34%,rgba(6,6,9,.88) 76%,rgba(6,6,9,.97) 100%),
+             radial-gradient(80% 55% at 22% 88%,rgba(6,6,9,.55),transparent 70%)}
+.hero-txt{position:relative;z-index:2;padding:0 28px 76px;max-width:1180px;margin:0 auto;width:100%}
+.oeil{font-family:var(--disp);font-size:11.5px;font-weight:700;letter-spacing:.32em;
+  text-transform:uppercase;color:var(--accent2);margin-bottom:18px;
+  text-shadow:0 1px 12px rgba(6,6,9,.95),0 0 34px rgba(6,6,9,.8)}
+.hero h1{font-size:clamp(2.9rem,9vw,6.4rem);font-weight:700;line-height:.94}
+.hero h1 em{font-style:normal;color:var(--accent2);display:block}
+.hero p{margin-top:22px;max-width:47ch;color:var(--fg2);font-size:clamp(1rem,1.6vw,1.15rem)}
+.hero-chiffres{display:flex;gap:34px;margin-top:34px;flex-wrap:wrap}
+.hero-chiffres div{font-size:12.5px;color:var(--fg3)}
+.hero-chiffres b{display:block;font-family:var(--disp);font-size:26px;color:var(--fg);font-weight:700}
+.fleche{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);z-index:3;
+  width:22px;height:34px;border:1.5px solid rgba(255,255,255,.32);border-radius:12px}
+.fleche::after{content:'';position:absolute;top:7px;left:50%;width:3px;height:7px;border-radius:2px;
+  background:var(--accent2);transform:translateX(-50%);animation:roule 1.9s var(--ease) infinite}
+@keyframes roule{0%{opacity:0;transform:translate(-50%,0)}
+  35%{opacity:1}100%{opacity:0;transform:translate(-50%,13px)}}
+
+/* ── Sections ── */
+.section{max-width:1180px;margin:0 auto;padding:104px 28px}
+.tete{margin-bottom:44px;max-width:60ch}
+.tete h2{font-size:clamp(1.9rem,3.6vw,2.8rem);font-weight:700;line-height:1.08}
+.tete p{margin-top:16px;color:var(--fg2)}
+
+/* ── Galerie ── */
+/* Mosaïque en colonnes plutôt qu'en grille : avec des verticales et des
+   horizontales mélangées, une grille à 12 colonnes laisse forcément des trous
+   (4 + 6 = 10). Les colonnes, elles, se remplissent toutes seules. */
+.ouverture{position:relative;overflow:hidden;border-radius:16px;cursor:zoom-in;
+  aspect-ratio:21/9;margin-bottom:14px;background:var(--panel)}
+.grille{column-count:3;column-gap:14px}
+.vue{position:relative;overflow:hidden;border-radius:14px;cursor:zoom-in;background:var(--panel);
+  break-inside:avoid;margin-bottom:14px;display:block}
+.vue img,.ouverture img{width:100%;height:100%;object-fit:cover;
+  transition:transform 1.05s var(--ease),filter .5s var(--ease);filter:saturate(.94)}
+.vue img{height:auto}
+.ouverture:hover img{transform:scale(1.04)}
+.vue:hover img{transform:scale(1.055);filter:saturate(1.06)}
+.vue .voile,.ouverture .voile{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;
+  padding:18px;background:linear-gradient(0deg,rgba(6,6,9,.86) 0%,rgba(6,6,9,.12) 46%,transparent 68%);
+  opacity:0;transition:opacity .35s var(--ease)}
+.vue:hover .voile,.vue:focus-visible .voile,.ouverture:hover .voile{opacity:1}
+.vue .t,.ouverture .t{font-family:var(--disp);font-size:16px;font-weight:600}
+.vue .l,.ouverture .l{font-size:12px;color:var(--fg2);margin-top:2px}
+.vue .acheter,.ouverture .acheter{position:absolute;top:14px;right:14px;background:rgba(6,6,9,.62);
+  backdrop-filter:blur(8px);border:1px solid var(--line);color:var(--fg);font-size:11.5px;
+  font-weight:600;padding:7px 13px;border-radius:100px;cursor:pointer;opacity:0;
+  transform:translateY(-6px);transition:.3s var(--ease)}
+.vue:hover .acheter,.ouverture:hover .acheter{opacity:1;transform:none}
+.vue .acheter:hover,.ouverture .acheter:hover{background:var(--accent);border-color:var(--accent)}
+@media(max-width:900px){
+  .grille{column-count:2}
+  .vue .acheter{opacity:1;transform:none}
+  .vue .voile{opacity:1}
+}
+@media(max-width:560px){ .grille{column-count:1} .ouverture{aspect-ratio:4/3} }
+
+/* ── Révélation ── */
+.rev{opacity:0;transform:translateY(26px);transition:opacity .85s var(--ease),transform .85s var(--ease)}
+.rev.vu{opacity:1;transform:none}
+
+/* ── Tirages ── */
+.tirages{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.offres{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+.offre{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:26px 24px;
+  transition:.28s var(--ease);position:relative}
+.offre:hover{transform:translateY(-4px);border-color:rgba(99,102,241,.42)}
+.offre.reco{border-color:var(--accent)}
+.offre .badge{position:absolute;top:-10px;left:24px;background:var(--accent);color:#fff;
+  font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 11px;
+  border-radius:100px}
+.offre h3{font-size:19px;font-weight:700}
+.offre .fmt{font-size:12.5px;color:var(--fg3);margin-top:3px}
+.offre .px{font-family:var(--disp);font-size:34px;font-weight:700;color:var(--accent2);margin:16px 0 4px}
+.offre ul{list-style:none;margin-top:14px;display:grid;gap:8px}
+.offre li{font-size:13px;color:var(--fg2);padding-left:19px;position:relative}
+.offre li::before{content:'';position:absolute;left:0;top:8px;width:8px;height:8px;
+  border-radius:50%;background:var(--accent);opacity:.7}
+.offre button{margin-top:20px;width:100%;background:transparent;border:1px solid var(--line);
+  color:var(--fg);font-size:13.5px;font-weight:600;padding:11px;border-radius:100px;cursor:pointer;
+  transition:.22s var(--ease);font-family:var(--sans)}
+.offre button:hover,.offre.reco button{background:var(--accent);border-color:var(--accent);color:#fff}
+
+/* ── Pied ── */
+footer{padding:64px 28px;text-align:center;color:var(--fg3);font-size:13.5px}
+footer .liens{display:flex;gap:22px;justify-content:center;margin-bottom:22px;flex-wrap:wrap}
+footer .liens a{color:var(--fg2);transition:color .2s}
+footer .liens a:hover{color:var(--accent2)}
+
+/* ── Visionneuse ── */
+/* La feuille du navigateur impose color:canvastext sur <dialog> : sans cette
+   ligne, le titre ressort en sombre sur fond sombre. */
+dialog{border:none;padding:0;background:transparent;color:var(--fg);max-width:100vw;
+  max-height:100vh;width:100%;height:100%;margin:auto}
+dialog::backdrop{background:rgba(6,6,9,.94);backdrop-filter:blur(6px)}
+.vis{display:grid;grid-template-rows:1fr auto;height:100%;padding:22px;position:relative}
+.vis-img{display:flex;align-items:center;justify-content:center;min-height:0}
+.vis-img img{max-width:100%;max-height:100%;object-fit:contain;border-radius:10px}
+.vis-bas{display:flex;align-items:center;gap:18px;padding-top:18px;flex-wrap:wrap}
+.vis-bas .t{font-family:var(--disp);font-size:17px;font-weight:600}
+.vis-bas .l{font-size:12.5px;color:var(--fg2)}
+.vis-bas .cmd{margin-left:auto;background:var(--accent);color:#fff;border:none;font-size:13.5px;
+  font-weight:600;padding:11px 20px;border-radius:100px;cursor:pointer;font-family:var(--sans)}
+.vis .nav{position:absolute;top:50%;transform:translateY(-50%);background:rgba(6,6,9,.62);
+  backdrop-filter:blur(8px);border:1px solid var(--line);color:var(--fg);width:46px;height:46px;
+  border-radius:50%;cursor:pointer;font-size:19px;transition:.2s;z-index:5}
+.vis .nav:hover{background:var(--accent);border-color:var(--accent)}
+.vis .prec{left:20px}.vis .suiv{right:20px}
+.vis .fermer{position:absolute;top:20px;right:20px;background:rgba(6,6,9,.62);
+  backdrop-filter:blur(8px);border:1px solid var(--line);color:var(--fg);width:40px;height:40px;
+  border-radius:50%;cursor:pointer;font-size:17px;z-index:5}
+@media(max-width:700px){.vis .nav{display:none}}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001ms!important;transition-duration:.001ms!important}
+  .rev{opacity:1;transform:none}
+  .hero-fond{transform:none!important}
+}
+</style>
+</head>
+<body>
+
+<div class="bar" id="bar">
+  <svg class="logo" viewBox="54.8 220.1 390.5 59.7" xmlns="http://www.w3.org/2000/svg" aria-label="NexBoost"><g fill="#818cf8">
+    <path d="M76.2,257.99v19.01h-19.44v-54.87h0l26.57,19.66h0v-18.79h19.44l.07,54.87h0l-26.64-19.87h0Z"/>
+    <path d="M108.6,223h38.09v17.28h-20.02l14.91,9.36h0l-14.98,10.08h20.09v17.28h-38.09v-54h0Z"/>
+    <path d="M163.32,250l-15.55-27h21.24l4.32,8.64h0l4.32-8.64h21.24l-15.55,27h0l15.55,27h-21.24l-4.32-8.64h0l-4.32,8.64h-21.24l15.55-27h0Z"/>
+    <path d="M201.4,223h23.62c9,0,16.63,6.91,16.63,14.11,0,5.11-2.88,9.58-6.41,12.1h0c4.68,2.38,8.64,6.19,8.64,12.6,0,7.34-7.13,15.19-19.3,15.19h-23.19v-54h.01,0ZM225.74,240.93c0-2.23-1.44-3.89-3.31-3.89h-1.58v7.78h1.58c1.87,0,3.31-1.66,3.31-3.89h0ZM225.74,259.07c0-2.23-1.44-3.89-3.31-3.89h-1.58v7.78h1.58c1.87,0,3.31-1.66,3.31-3.89h0Z"/>
+    <path d="M302.49,250c0-14.62,12.38-27.72,28.01-27.72s28.01,13.1,28.01,27.72-12.46,27.72-28.01,27.72-28.01-13.11-28.01-27.72h0ZM338.78,250.46c.19-4.77-2.63-8.65-7.07-9.24-5.21-.69-9.56,3.71-9.48,8.96.08,4.69,3.11,8.37,7.69,8.66s8.66-3.63,8.86-8.38Z"/>
+    <path d="M373.7,258.35l-13.75-19.59h0c9.72-10.15,22.97-15.99,37.73-16.13h0l2.16,17.86h0c-3.24-.29-11.09.65-13.32,2.66l14.83,21.1h0c-8.28,8.5-19.87,14.11-37.3,13.25l-4.32-18.22h0c3.82.43,10.51.94,13.97-.94h0Z"/>
+    <path d="M413.01,240.28h-10.8v-17.28h41.04v17.28h-10.8v36.72h-19.44v-36.72h0Z"/>
+    <path d="M272.76,222.28c-15.63,0-28.01,13.1-28.01,27.72s12.46,27.72,28.01,27.72,28.01-13.1,28.01-27.72-12.38-27.72-28.01-27.72ZM268.02,272.55l5.12-20.47-9.15.07,13.38-24.69h0c-.52,6.31-1.05,12.61-1.57,18.92h9.11l-16.89,26.17Z"/></g></svg>
+  <div class="sep"></div>
+  <a class="lien" href="index.html">Portfolio</a>
+  <a class="lien" href="#galerie">Galerie</a>
+  <a class="lien" href="#tirages">Tirages</a>
+  <button class="cta" onclick="document.getElementById('tirages').scrollIntoView()">Commander un tirage</button>
+</div>
+
+<header class="hero">
+  <div class="hero-fond" id="heroFond" style="background-image:url('photos/corse/01.webp')"></div>
+  <div class="hero-txt">
+    <div class="oeil">Corse du Sud · Août 2026</div>
+    <h1>Vu d’en haut,<em>tout change.</em></h1>
+    <p>Dix jours entre Porto-Vecchio et Bonifacio, un drone, et cette lumière
+       qu’on ne trouve qu’ici. Seize images choisies sur quatre-vingt-douze.</p>
+    <div class="hero-chiffres">
+      <div><b>16</b>photographies</div>
+      <div><b>6</b>journées de vol</div>
+      <div><b>4K</b>définition d’origine</div>
+    </div>
+  </div>
+  <div class="fleche" aria-hidden="true"></div>
+</header>
+
+<main>
+  <section class="section" id="galerie">
+    <div class="tete rev">
+      <h2>La collection</h2>
+      <p>Chaque image est disponible en tirage. Cliquez pour l’agrandir, ou commandez directement
+         le format qui vous convient.</p>
+    </div>
+    <div id="ouverture"></div>
+    <div class="grille" id="grille"></div>
+  </section>
+
+  <section class="tirages" id="tirages">
+    <div class="section">
+      <div class="tete rev">
+        <h2>Commander un tirage</h2>
+        <p>Impression sur papier photo mat 250 g, encres pigmentaires. Le filigrane n’apparaît
+           évidemment pas sur les tirages. Comptez une dizaine de jours.</p>
+      </div>
+      <div class="offres">
+        <div class="offre rev">
+          <h3>A4</h3><div class="fmt">21 × 29,7 cm</div>
+          <div class="px">39 €</div>
+          <ul><li>Papier mat 250 g</li><li>Sans cadre</li><li>Signé au dos</li></ul>
+          <button onclick="commander('A4')">Commander</button>
+        </div>
+        <div class="offre reco rev">
+          <span class="badge">Le plus choisi</span>
+          <h3>A3</h3><div class="fmt">29,7 × 42 cm</div>
+          <div class="px">69 €</div>
+          <ul><li>Papier mat 250 g</li><li>Sans cadre</li><li>Signé et numéroté</li></ul>
+          <button onclick="commander('A3')">Commander</button>
+        </div>
+        <div class="offre rev">
+          <h3>A2</h3><div class="fmt">42 × 59,4 cm</div>
+          <div class="px">119 €</div>
+          <ul><li>Papier mat 250 g</li><li>Sans cadre</li><li>Signé et numéroté</li></ul>
+          <button onclick="commander('A2')">Commander</button>
+        </div>
+        <div class="offre rev">
+          <h3>Sur mesure</h3><div class="fmt">Grand format, encadrement, aluminium…</div>
+          <div class="px">Sur devis</div>
+          <ul><li>Format libre</li><li>Encadrement au choix</li><li>Usage professionnel possible</li></ul>
+          <button onclick="commander('sur mesure')">En parler</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="liens">
+    <a href="index.html">Portfolio</a>
+    <a href="https://nexboost.fr">NexBoost</a>
+    <a href="mailto:nathan.lepretre@nexboost.fr">nathan.lepretre@nexboost.fr</a>
+  </div>
+  <div>Photographies © Nathan Leprêtre — Corse du Sud, août 2026.<br>
+    Toute reproduction sans autorisation est interdite.</div>
+</footer>
+
+<dialog id="vis">
+  <div class="vis">
+    <button class="fermer" onclick="document.getElementById('vis').close()" aria-label="Fermer">✕</button>
+    <button class="nav prec" onclick="glisser(-1)" aria-label="Précédente">‹</button>
+    <button class="nav suiv" onclick="glisser(1)" aria-label="Suivante">›</button>
+    <div class="vis-img"><img id="visImg" alt=""></div>
+    <div class="vis-bas">
+      <div><div class="t" id="visT"></div><div class="l" id="visL"></div></div>
+      <button class="cmd" id="visCmd">Commander ce tirage</button>
+    </div>
+  </div>
+</dialog>
+
+<script>
+const MAIL = 'nathan.lepretre@nexboost.fr';
+let PHOTOS = [], ACTUEL = 0;
+
+const esc = s => String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+const quand = d => new Date(d).toLocaleDateString('fr-FR',
+  {day:'numeric', month:'long', year:'numeric'});
+
+function figure(p, i, classe){
+  return `<figure class="${classe} rev" tabindex="0" onclick="ouvrir(${i})"
+        onkeydown="if(event.key==='Enter')ouvrir(${i})">
+      <img src="photos/corse/${p.n}-mini.webp" alt="${esc(p.titre)} — ${esc(p.lieu)}"
+           loading="${i < 4 ? 'eager' : 'lazy'}"
+           width="900" height="${p.portrait ? 1600 : 506}">
+      <button class="acheter" onclick="event.stopPropagation();commander('${esc(p.titre)}')">Acheter</button>
+      <figcaption class="voile">
+        <div class="t">${esc(p.titre)}</div>
+        <div class="l">${esc(p.lieu)} · ${quand(p.date)}</div>
+      </figcaption>
+    </figure>`;
+}
+
+async function demarrer(){
+  PHOTOS = await fetch('photos/corse/photos.json').then(r=>r.json());
+  // La première ouvre en pleine largeur, le reste coule en mosaïque.
+  document.getElementById('ouverture').innerHTML = figure(PHOTOS[0], 0, 'ouverture');
+  document.getElementById('grille').innerHTML =
+    PHOTOS.slice(1).map((p,k)=>figure(p, k+1, 'vue')).join('');
+  observer();
+}
+
+/* Révélation au défilement */
+function observer(){
+  const io = new IntersectionObserver(es=>es.forEach(e=>{
+    if(e.isIntersecting){ e.target.classList.add('vu'); io.unobserve(e.target); }
+  }), {threshold:.12, rootMargin:'0px 0px -8%'});
+  document.querySelectorAll('.rev').forEach((el,i)=>{
+    el.style.transitionDelay = (i%6)*55 + 'ms';
+    io.observe(el);
+  });
+}
+
+/* Visionneuse */
+const vis = document.getElementById('vis');
+function ouvrir(i){
+  ACTUEL = i;
+  const p = PHOTOS[i];
+  document.getElementById('visImg').src = `photos/corse/${p.n}.webp`;
+  document.getElementById('visImg').alt = `${p.titre} — ${p.lieu}`;
+  document.getElementById('visT').textContent = p.titre;
+  document.getElementById('visL').textContent = `${p.lieu} · ${new Date(p.date)
+    .toLocaleDateString('fr-FR',{day:'numeric',month:'long',year:'numeric'})}`;
+  document.getElementById('visCmd').onclick = ()=>commander(p.titre);
+  if(!vis.open) vis.showModal();
+}
+function glisser(d){ ouvrir((ACTUEL + d + PHOTOS.length) % PHOTOS.length); }
+addEventListener('keydown', e=>{
+  if(!vis.open) return;
+  if(e.key==='ArrowRight') glisser(1);
+  if(e.key==='ArrowLeft')  glisser(-1);
+});
+vis.addEventListener('click', e=>{ if(e.target === vis) vis.close(); });
+
+/* Commande : on prépare le message, le client l'envoie. */
+function commander(quoi){
+  const sujet = encodeURIComponent(`Commande de tirage — ${quoi}`);
+  const corps = encodeURIComponent(
+    `Bonjour Nathan,\n\nJe souhaite commander un tirage de la collection « Corse du Sud ».\n\n` +
+    `Photographie ou format : ${quoi}\nQuantité : 1\n\n` +
+    `Mes coordonnées :\nNom :\nAdresse de livraison :\nTéléphone :\n\nMerci !`);
+  location.href = `mailto:${MAIL}?subject=${sujet}&body=${corps}`;
+}
+
+/* Barre au défilement + léger parallaxe sur l'ouverture */
+const bar = document.getElementById('bar'), fond = document.getElementById('heroFond');
+let tick = false;
+addEventListener('scroll', ()=>{
+  if(tick) return;
+  tick = true;
+  requestAnimationFrame(()=>{
+    const y = scrollY;
+    bar.classList.toggle('scrolled', y > 40);
+    if(y < innerHeight) fond.style.transform = `translateY(${y * 0.28}px)`;
+    tick = false;
+  });
+}, {passive:true});
+
+demarrer();
+</script>
+</body>
+</html>
