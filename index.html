@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nathan Leprêtre — Étudiant, Entrepreneur, Créatif</title>
-<meta name="description" content="Portfolio de Nathan Leprêtre — étudiant entrepreneur, créateur de Nexboost, photographe et passionné de marketing digital.">
+<meta name="description" content="Portfolio de Nathan Leprêtre — L3 Marketing, Communication &amp; Digital à l'IAE Lille, en alternance au Moulin à Vélos. Fondateur de NexBoost : sites web, présence en ligne et SEO pour les TPE et PME.">
 <meta name="author" content="Nathan Leprêtre">
 <meta property="og:title" content="Nathan Leprêtre — Portfolio">
-<meta property="og:description" content="Étudiant, entrepreneur et créatif en construction. Découvrez mon parcours.">
+<meta property="og:description" content="Étudiant en alternance, entrepreneur et créatif. Découvrez mon parcours — et NexBoost, mon agence pour les TPE et PME.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://nathanlepretre.fr">
 <meta name="theme-color" content="#0b0b0f">
@@ -21,7 +21,7 @@
 :root {
   --bg: #0b0b0f;
   --fg: #ede9e3;
-  --fg-dim: rgba(237,233,227,0.5);
+  --fg-dim: rgba(237,233,227,0.66);
   --accent: #6366f1;
   --accent-soft: rgba(99, 102, 241,0.15);
   --accent-glow: rgba(99, 102, 241,0.2);
@@ -149,7 +149,7 @@ img { display: block; max-width: 100%; }
   transition: opacity 0.4s;
   font-family: var(--sans);
 }
-.journey-line-dot.active::after { opacity: 1; color: var(--accent); }
+.journey-line-dot.now::after { opacity: 1; color: var(--accent); }
 
 /* === SECTION COUNTER === */
 .section-counter {
@@ -368,7 +368,7 @@ section {
   color: var(--accent);
 }
 .histoire-text p {
-  font-size: 16px; font-weight: 400;
+  font-size: 17px; font-weight: 400;
   color: var(--fg-dim); line-height: 1.9;
   margin-bottom: 22px; max-width: 520px;
 }
@@ -403,7 +403,7 @@ section {
 .msl-header h2 span { color: var(--accent); }
 .msl-info { padding-top: 12px; }
 .msl-info p {
-  font-size: 16px; font-weight: 400;
+  font-size: 17px; font-weight: 400;
   color: var(--fg-dim); line-height: 1.9;
   margin-bottom: 18px;
 }
@@ -1382,8 +1382,22 @@ section {
 }
 .diploma-card-title { font-family: var(--serif); font-size: 24px; color: var(--fg); line-height: 1.2; }
 .diploma-card-meta { font-size: 14px; color: var(--fg-dim); margin-top: 6px; }
-.diploma-card-school { font-size: 13px; color: rgba(237,233,227,0.35); margin-top: 4px; }
+.diploma-card-school { font-size: 13.5px; color: rgba(237,233,227,0.55); margin-top: 5px; }
 .diploma-card.vietnam { background: linear-gradient(150deg, rgba(99, 102, 241,0.12), rgba(99, 102, 241,0.02)); border-color: rgba(99, 102, 241,0.25); }
+
+.diploma-duo { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: start; }
+.diploma-duo { align-items: center; }
+.diploma-feature { margin: 0; }
+.diploma-feature-legend {
+  margin-top: 14px; text-align: center;
+  font-family: var(--sans); font-size: 11.5px; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--fg-dim);
+}
+.diploma-card.current {
+  background: linear-gradient(150deg, rgba(99,102,241,0.16), rgba(99,102,241,0.03));
+  border-color: rgba(99,102,241,0.3);
+}
+@media (max-width: 900px) { .diploma-duo { grid-template-columns: 1fr; gap: 26px; } }
 
 /* — Bloc téléchargement CV — */
 .cv-block { display: flex; align-items: center; gap: 16px; margin-top: 10px; flex-wrap: wrap; }
@@ -1606,6 +1620,143 @@ section { overflow-x: clip; }
   .xp-glow, #goldDust, .xp-shape { display: none !important; }
   .xp-wi { transform: none !important; transition: none !important; }
 }
+
+.hero-status {
+  margin-top: 18px; max-width: 620px;
+  font-size: 14.5px; line-height: 1.8; color: var(--fg-dim);
+}
+.hero-status a { color: var(--fg); border-bottom: 1px solid rgba(99,102,241,0.45); padding-bottom: 1px; }
+.hero-status a:hover { color: var(--accent); }
+@media (max-width: 900px) { .hero-status { font-size: 13.5px; } }
+
+@media (min-width: 1200px) { section { padding-left: 156px; } }
+
+/* ===== SECTION HANDBALL ===== */
+#handball { flex-direction: column; align-items: flex-start; overflow: hidden; }
+.hand-layout {
+  display: grid; grid-template-columns: 0.95fr 1.05fr; gap: 56px;
+  width: 100%; align-items: center; margin-top: 56px;
+}
+.hand-photos { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.hand-photo {
+  border-radius: 20px; overflow: hidden; position: relative;
+  box-shadow: 0 22px 50px rgba(0,0,0,0.5);
+  border: 1px solid rgba(255,255,255,0.07);
+}
+.hand-photo img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.9s var(--transition); }
+.hand-photo:hover img { transform: scale(1.05); }
+.hand-photo.tall { grid-column: 1 / -1; aspect-ratio: 16/10; }
+.hand-photo.small { aspect-ratio: 1/1; }
+.hand-number {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  aspect-ratio: 1/1; border-radius: 20px; text-align: center;
+  background: linear-gradient(150deg, rgba(99,102,241,0.14), rgba(99,102,241,0.02));
+  border: 1px solid rgba(99,102,241,0.25);
+}
+.hand-number strong {
+  font-family: var(--serif); font-size: clamp(44px, 5vw, 76px); font-weight: 300;
+  color: var(--accent); line-height: 1;
+}
+.hand-number span {
+  margin-top: 10px; font-size: 11px; letter-spacing: 2.5px;
+  text-transform: uppercase; color: var(--fg-dim);
+}
+.hand-text h2 { font-family: var(--serif); font-size: clamp(30px, 3.8vw, 56px); font-weight: 300; line-height: 1.2; margin-bottom: 26px; }
+.hand-text h2 em { font-style: italic; color: var(--accent); }
+.hand-text p { font-size: 17px; color: var(--fg-dim); line-height: 1.85; margin-bottom: 20px; max-width: 540px; }
+.hand-stats { display: flex; gap: 40px; flex-wrap: wrap; margin: 34px 0 30px; }
+.hand-stat strong {
+  display: block; font-family: var(--serif); font-size: clamp(34px, 3.4vw, 46px);
+  font-weight: 300; color: var(--accent); line-height: 1;
+}
+.hand-stat span {
+  display: block; margin-top: 8px; font-size: 12px; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--fg-dim);
+}
+.hand-qualities { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.hand-quality {
+  padding: 20px 22px; border-radius: 18px;
+  background: linear-gradient(150deg, rgba(255,255,255,0.045), rgba(255,255,255,0.012));
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: transform 0.5s var(--transition), border-color 0.4s;
+}
+.hand-quality:hover { transform: translateY(-5px); border-color: rgba(99,102,241,0.4); }
+.hand-quality b { display: block; font-family: var(--sans); font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--fg); margin-bottom: 8px; }
+.hand-quality span { font-size: 14px; color: var(--fg-dim); line-height: 1.6; }
+
+/* ===== SECTION ALTERNANCE ===== */
+#alternance { flex-direction: column; align-items: flex-start; overflow: hidden; }
+.alt-layout {
+  display: grid; grid-template-columns: 1fr 0.85fr; gap: 56px;
+  width: 100%; align-items: start; margin-top: 56px;
+}
+.alt-text h2 { font-family: var(--serif); font-size: clamp(30px, 3.8vw, 56px); font-weight: 300; line-height: 1.2; margin-bottom: 26px; }
+.alt-text h2 em { font-style: italic; color: var(--accent); }
+.alt-text p { font-size: 17px; color: var(--fg-dim); line-height: 1.85; margin-bottom: 20px; max-width: 560px; }
+.alt-missions { list-style: none; margin-top: 34px; display: grid; gap: 2px; }
+.alt-missions li {
+  display: grid; grid-template-columns: 34px 1fr; gap: 16px; align-items: baseline;
+  padding: 18px 0; border-top: 1px solid rgba(255,255,255,0.09);
+}
+.alt-missions li:last-child { border-bottom: 1px solid rgba(255,255,255,0.09); }
+.alt-missions .num { font-family: var(--sans); font-size: 12px; letter-spacing: 1px; color: var(--accent); }
+.alt-missions b { display: block; font-family: var(--serif); font-size: 21px; font-weight: 400; color: var(--fg); line-height: 1.3; }
+.alt-missions span { display: block; margin-top: 5px; font-size: 15px; color: var(--fg-dim); line-height: 1.65; }
+.alt-card {
+  position: sticky; top: 100px;
+  padding: 38px 34px; border-radius: 24px; text-align: center;
+  background: linear-gradient(150deg, rgba(255,255,255,0.05), rgba(255,255,255,0.012));
+  border: 1px solid rgba(255,255,255,0.09);
+  box-shadow: 0 22px 60px rgba(0,0,0,0.45);
+}
+.alt-card-logo { width: 100%; max-width: 250px; margin: 0 auto 26px; }
+.alt-card-logo svg { width: 100%; height: auto; display: block; }
+.alt-card-role { font-family: var(--sans); font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
+.alt-card-name { font-family: var(--serif); font-size: 26px; line-height: 1.25; margin-bottom: 10px; }
+.alt-card-desc { font-size: 14.5px; color: var(--fg-dim); line-height: 1.7; }
+.alt-card-link {
+  display: inline-flex; align-items: center; gap: 8px; margin-top: 22px;
+  font-family: var(--sans); font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--fg); border-bottom: 1px solid rgba(99,102,241,0.4); padding-bottom: 4px; cursor: none;
+  transition: color 0.3s, border-color 0.3s;
+}
+.alt-card-link:hover { color: var(--accent); border-color: var(--accent); }
+
+/* ===== SECTION NEXBOOST — OFFRE ===== */
+#nexboost { flex-direction: column; align-items: center; text-align: center; overflow: hidden; }
+.nb-head { max-width: 780px; }
+#nexboost h2 { font-family: var(--serif); font-size: clamp(32px, 4.2vw, 62px); font-weight: 300; line-height: 1.15; margin-bottom: 26px; }
+#nexboost h2 em { font-style: italic; color: var(--accent); }
+.nb-lead { font-size: 18px; color: var(--fg-dim); line-height: 1.85; max-width: 620px; margin: 0 auto; }
+.nb-offer {
+  margin-top: 56px; width: 100%; max-width: 1000px;
+  padding: 48px 44px; border-radius: 28px;
+  background: linear-gradient(150deg, rgba(99,102,241,0.14), rgba(99,102,241,0.02));
+  border: 1px solid rgba(99,102,241,0.28);
+  box-shadow: 0 30px 80px rgba(0,0,0,0.45);
+}
+.nb-offer-title { font-family: var(--serif); font-size: clamp(24px, 2.6vw, 34px); font-weight: 400; line-height: 1.3; margin-bottom: 16px; }
+.nb-offer-desc { font-size: 16.5px; color: var(--fg-dim); line-height: 1.8; max-width: 640px; margin: 0 auto; }
+.nb-services { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 36px 0 40px; }
+.nb-service {
+  padding: 24px 20px; border-radius: 18px;
+  background: rgba(11,11,15,0.45); border: 1px solid rgba(255,255,255,0.08);
+  transition: transform 0.5s var(--transition), border-color 0.4s;
+}
+.nb-service:hover { transform: translateY(-5px); border-color: rgba(99,102,241,0.45); }
+.nb-service b { display: block; font-family: var(--serif); font-size: 21px; font-weight: 400; margin-bottom: 8px; }
+.nb-service span { font-size: 14.5px; color: var(--fg-dim); line-height: 1.6; }
+.nb-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+@media (max-width: 900px) {
+  .hand-layout, .alt-layout { grid-template-columns: 1fr; gap: 36px; }
+  .hand-text h2, .alt-text h2 { font-size: clamp(26px, 6.5vw, 38px); }
+  .hand-qualities, .nb-services { grid-template-columns: 1fr; }
+  .alt-card { position: static; padding: 30px 24px; }
+  .nb-offer { padding: 34px 24px; }
+  #nexboost h2 { font-size: clamp(26px, 7vw, 40px); }
+  .hand-stats { gap: 28px; }
+}
 </style>
 </head>
 <body>
@@ -1639,6 +1790,7 @@ section { overflow-x: clip; }
 <div class="mobile-menu" id="mobileMenu">
   <a href="#hero">Accueil</a>
   <a href="#histoire">Mon Histoire</a>
+  <a href="#handball">Handball</a>
   <a href="#mystudentlife">MyStudentLife</a>
   <a href="#agence">L'Agence</a>
   <a href="#pitch">Concours de Pitch</a>
@@ -1646,6 +1798,8 @@ section { overflow-x: clip; }
   <a href="#vietnam">Stage au Vietnam</a>
   <a href="#galerie">Galerie</a>
   <a href="corse.html">Corse — vues aériennes</a>
+  <a href="#alternance">Alternance</a>
+  <a href="#nexboost">NexBoost — TPE/PME</a>
   <a href="#vision">Ma Vision</a>
   <a href="#conclusion">Contact</a>
 </div>
@@ -1655,27 +1809,32 @@ section { overflow-x: clip; }
   <div class="journey-line-bg"></div>
   <div class="journey-line-fill" id="journeyFill"></div>
   <div class="journey-line-dot" data-label="Accueil" style="top:5.5%"></div>
-  <div class="journey-line-dot" data-label="Histoire" style="top:15.4%"></div>
-  <div class="journey-line-dot" data-label="Photo" style="top:25.3%"></div>
-  <div class="journey-line-dot" data-label="Agence" style="top:35.2%"></div>
-  <div class="journey-line-dot" data-label="Pitch" style="top:45%"></div>
-  <div class="journey-line-dot" data-label="Éloquence" style="top:54.9%"></div>
-  <div class="journey-line-dot" data-label="Vietnam" style="top:64.8%"></div>
-  <div class="journey-line-dot" data-label="Galerie" style="top:74.6%"></div>
-  <div class="journey-line-dot" data-label="Vision" style="top:84.5%"></div>
+  <div class="journey-line-dot" data-label="Histoire" style="top:12.3%"></div>
+  <div class="journey-line-dot" data-label="Handball" style="top:19.2%"></div>
+  <div class="journey-line-dot" data-label="Photo" style="top:26.0%"></div>
+  <div class="journey-line-dot" data-label="Agence" style="top:32.9%"></div>
+  <div class="journey-line-dot" data-label="Pitch" style="top:39.7%"></div>
+  <div class="journey-line-dot" data-label="Éloquence" style="top:46.5%"></div>
+  <div class="journey-line-dot" data-label="Vietnam" style="top:53.4%"></div>
+  <div class="journey-line-dot" data-label="Galerie" style="top:60.2%"></div>
+  <div class="journey-line-dot" data-label="Diplômes" style="top:67.0%"></div>
+  <div class="journey-line-dot" data-label="Alternance" style="top:73.9%"></div>
+  <div class="journey-line-dot" data-label="NexBoost" style="top:80.7%"></div>
+  <div class="journey-line-dot" data-label="Vision" style="top:87.6%"></div>
   <div class="journey-line-dot" data-label="Contact" style="top:94.4%"></div>
 </div>
 
 <!-- Section Counter -->
 <div class="section-counter" id="sectionCounter">
   <span class="current">01</span>
-  <span>/ 11</span>
+  <span>/ 14</span>
 </div>
 
 <!-- Nav Dots -->
 <nav class="nav-dots" id="navDots">
   <button class="nav-dot active" data-section="hero" data-label="Accueil" aria-label="Accueil"></button>
   <button class="nav-dot" data-section="histoire" data-label="Histoire" aria-label="Histoire"></button>
+  <button class="nav-dot" data-section="handball" data-label="Handball" aria-label="Handball"></button>
   <button class="nav-dot" data-section="mystudentlife" data-label="Photo" aria-label="Photo"></button>
   <button class="nav-dot" data-section="agence" data-label="Agence" aria-label="Agence"></button>
   <button class="nav-dot" data-section="pitch" data-label="Pitch" aria-label="Pitch"></button>
@@ -1683,6 +1842,8 @@ section { overflow-x: clip; }
   <button class="nav-dot" data-section="vietnam" data-label="Vietnam" aria-label="Stage au Vietnam"></button>
   <button class="nav-dot" data-section="galerie" data-label="Galerie" aria-label="Galerie"></button>
   <button class="nav-dot" data-section="parcours" data-label="Diplômes" aria-label="Diplômes"></button>
+  <button class="nav-dot" data-section="alternance" data-label="Alternance" aria-label="Alternance"></button>
+  <button class="nav-dot" data-section="nexboost" data-label="NexBoost" aria-label="NexBoost"></button>
   <button class="nav-dot" data-section="vision" data-label="Vision" aria-label="Vision"></button>
   <button class="nav-dot" data-section="conclusion" data-label="Contact" aria-label="Contact"></button>
 </nav>
@@ -1721,6 +1882,10 @@ section { overflow-x: clip; }
   <p class="hero-subtitle reveal delay-6">
     Étudiant, entrepreneur et créatif en construction.
   </p>
+  <p class="hero-status reveal delay-6">
+    L3 Marketing, Communication &amp; Digital — IAE Lille · en alternance au Moulin à Vélos, Lille<br>
+    Fondateur de <a href="#nexboost" data-hover>NexBoost</a>, agence digitale pour les TPE et PME
+  </p>
   <a href="documents/CV-Nathan-Lepretre.pdf" download class="hero-cv reveal delay-6" data-hover>
     <span style="font-size:16px;">⤓</span> Télécharger mon CV
   </a>
@@ -1756,6 +1921,55 @@ section { overflow-x: clip; }
     </div>
   </div>
   <div class="histoire-image reveal delay-3 parallax-image" data-speed="0.04" style="background:url('photos/01-histoire/IMG_1.webp') center/cover;"></div>
+</section>
+
+<!-- ===== SECTION — HANDBALL ===== -->
+<section id="handball">
+  <div class="chapter-label reveal">Handball — depuis 9 ans</div>
+  <div class="hand-layout">
+    <div class="hand-photos reveal delay-2">
+      <div class="hand-photo tall">
+        <img src="photos/06-galerie/sport/IMG_7881.WEBP" width="1170" height="780" alt="Nathan Leprêtre, maillot 11, face au gardien lors d'un match de handball" loading="lazy">
+      </div>
+      <div class="hand-photo small">
+        <img src="photos/06-galerie/sport/IMG_7880.jpg" width="780" height="780" alt="Nathan Leprêtre en suspension, prêt à tirer au handball" loading="lazy">
+      </div>
+      <div class="hand-number">
+        <strong>11</strong>
+        <span>Mon numéro</span>
+      </div>
+    </div>
+    <div class="hand-text">
+      <h2 class="reveal delay-1">La niaque, ça se travaille au <em>gymnase</em>.</h2>
+      <p class="reveal delay-2">
+        Je joue au handball depuis neuf ans, au poste de demi-centre. C'est le poste qui organise&nbsp;:
+        lire le jeu, choisir le bon moment, faire jouer les autres avant soi.
+      </p>
+      <p class="reveal delay-3">
+        Neuf saisons apprennent des choses qu'aucun cours ne transmet. Aller chercher un match
+        qu'on est en train de perdre. Retourner à l'entraînement un mardi soir de novembre.
+        Et se souvenir qu'un but part toujours d'une passe.
+      </p>
+      <div class="hand-stats reveal delay-3">
+        <div class="hand-stat"><strong>9</strong><span>Saisons</span></div>
+        <div class="hand-stat"><strong>Demi-centre</strong><span>Mon poste</span></div>
+      </div>
+      <div class="hand-qualities">
+        <div class="hand-quality reveal delay-3">
+          <b>Niaque</b>
+          <span>Un match se renverse rarement d'un coup. On gratte, on recommence.</span>
+        </div>
+        <div class="hand-quality reveal delay-4">
+          <b>Motivation</b>
+          <span>Des saisons entières d'entraînements, y compris les soirs sans envie.</span>
+        </div>
+        <div class="hand-quality reveal delay-5">
+          <b>Esprit d'équipe</b>
+          <span>Le demi-centre ne marque pas toujours. Son travail, c'est de faire marquer.</span>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- ===== SECTION 3 — MYSTUDENTLIFE ===== -->
@@ -2032,13 +2246,24 @@ section { overflow-x: clip; }
   </div>
 
   <div class="parcours-layout">
-    <!-- scan du diplôme, tilt 3D, cliquable -->
-    <div class="diploma-feature reveal delay-2" id="bacFeature" data-hover data-zoom="documents/bac-nathan-lepretre.png">
-      <div class="diploma-feature-inner" id="bacInner">
-        <img src="documents/bac-nathan-lepretre.png" alt="Diplôme du Baccalauréat Général — Nathan Leprêtre" loading="lazy">
-        <div class="diploma-glare" id="bacGlare"></div>
-      </div>
-      <div class="diploma-feature-tag">Cliquer pour agrandir</div>
+    <!-- scans des diplômes, tilt 3D, cliquables -->
+    <div class="diploma-duo">
+      <figure class="diploma-feature reveal delay-2" data-hover data-zoom="documents/dut-nathan-lepretre.jpg">
+        <div class="diploma-feature-inner">
+          <img src="documents/dut-nathan-lepretre.jpg" width="1060" height="1500" alt="Attestation du DUT Techniques de Commercialisation — Nathan Leprêtre, juillet 2026" loading="lazy">
+          <div class="diploma-glare"></div>
+        </div>
+        <figcaption class="diploma-feature-legend">DUT — juillet 2026</figcaption>
+        <div class="diploma-feature-tag">Cliquer pour agrandir</div>
+      </figure>
+      <figure class="diploma-feature reveal delay-3" data-hover data-zoom="documents/bac-nathan-lepretre.jpg">
+        <div class="diploma-feature-inner">
+          <img src="documents/bac-nathan-lepretre.jpg" width="1600" height="1200" alt="Diplôme du Baccalauréat Général — Nathan Leprêtre, session 2024" loading="lazy">
+          <div class="diploma-glare"></div>
+        </div>
+        <figcaption class="diploma-feature-legend">Baccalauréat — 2024</figcaption>
+        <div class="diploma-feature-tag">Cliquer pour agrandir</div>
+      </figure>
     </div>
 
     <!-- liste des diplômes + CV -->
@@ -2050,10 +2275,16 @@ section { overflow-x: clip; }
         <div class="diploma-card-school">Lycée Notre-Dame, Valenciennes</div>
       </div>
       <div class="diploma-card reveal delay-4">
-        <div class="diploma-card-year">2024 — en cours</div>
-        <div class="diploma-card-title">BUT Techniques de Commercialisation</div>
-        <div class="diploma-card-meta">Université Polytechnique Hauts-de-France — Valenciennes</div>
-        <div class="diploma-card-school">+ L3 Marketing & Communication Digital · IAE Lille (rentrée)</div>
+        <div class="diploma-card-year">2024 — 2026 · obtenu</div>
+        <div class="diploma-card-title">DUT Techniques de Commercialisation</div>
+        <div class="diploma-card-meta">Option marketing digital, e-business et entrepreneuriat</div>
+        <div class="diploma-card-school">IUT de Valenciennes — Université Polytechnique Hauts-de-France · juillet 2026</div>
+      </div>
+      <div class="diploma-card current reveal delay-4">
+        <div class="diploma-card-year">2026 — 2027 · en cours</div>
+        <div class="diploma-card-title">L3 Marketing, Communication &amp; Digital</div>
+        <div class="diploma-card-meta">IAE Lille — en apprentissage</div>
+        <div class="diploma-card-school">Alternance au Moulin à Vélos, Lille</div>
       </div>
       <div class="diploma-card vietnam reveal delay-5">
         <div class="diploma-card-year">Mars — Mai 2026</div>
@@ -2068,6 +2299,73 @@ section { overflow-x: clip; }
         </a>
         <a href="documents/CV-Nathan-Lepretre.pdf" target="_blank" rel="noopener" class="cv-view" data-hover>Aperçu</a>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION — ALTERNANCE / NOUVELLE ÉTAPE ===== -->
+<section id="alternance">
+  <div class="chapter-label reveal">Septembre 2026 — aujourd'hui</div>
+  <div class="alt-layout">
+    <div class="alt-text">
+      <h2 class="reveal delay-1">Nouvelle étape&nbsp;: <em>l'alternance</em>.</h2>
+      <p class="reveal delay-2">
+        Depuis la rentrée, je suis en L3 Marketing, Communication &amp; Digital à l'IAE Lille,
+        en apprentissage. Une semaine à l'école, une semaine en entreprise&nbsp;: le marketing
+        cesse d'être un exercice, il devient un métier.
+      </p>
+      <p class="reveal delay-3">
+        Mon terrain, c'est <strong>Le Moulin à Vélos</strong>, à Lille&nbsp;: des vélos de ville et de
+        randonnée, neufs et reconditionnés. J'y tiens la vitrine en ligne du magasin, de la fiche
+        produit jusqu'à la vente.
+      </p>
+      <ol class="alt-missions">
+        <li class="reveal delay-2"><span class="num">01</span><div><b>Le site web</b><span>Faire vivre le site du magasin, le tenir à jour et soigner ce que les clients y trouvent.</span></div></li>
+        <li class="reveal delay-3"><span class="num">02</span><div><b>La mise en ligne des produits</b><span>Photographier chaque vélo, écrire sa fiche, le publier.</span></div></li>
+        <li class="reveal delay-3"><span class="num">03</span><div><b>Les marketplaces</b><span>Publier et suivre les annonces sur les différentes plateformes de vente.</span></div></li>
+        <li class="reveal delay-4"><span class="num">04</span><div><b>Les réseaux sociaux</b><span>Raconter l'atelier et les vélos qui en sortent, et donner envie de pousser la porte.</span></div></li>
+        <li class="reveal delay-4"><span class="num">05</span><div><b>La vente en magasin</b><span>Conseiller les clients, trouver le bon vélo, conclure la vente.</span></div></li>
+      </ol>
+    </div>
+    <aside class="alt-card reveal delay-3">
+      <div class="alt-card-logo"><svg viewBox="0 0 1065.09 238.24" xmlns="http://www.w3.org/2000/svg"><path d="m1065.09 238.24h-1065.09c.54-10.66.57-21.24 1.69-31.7 3.88-36 15-69.67 34.71-100.17 37.36-57.81 89.86-93.19 158.23-103.91 14.05-2.21 28.52-2.35 42.8-2.36 274.31-.13 548.61-.1 822.91-.1h4.75v238.23zm-783.95-31.63c1.48 4.88 2.96 9.76 4.4 14.51h119.51c-.91-7.4-1.51-14.52-2.7-21.53-3.16-18.71-8.64-36.69-17.9-53.39-2.55-4.54-5.11-9.08-7.66-13.63-13.92-22.86-32.26-41.38-54.74-56.28-20.05 35.69-39.76 70.79-59.39 105.74 3.96 4.35 7.74 8.5 11.52 12.65 2.32 3.97 4.64 7.95 6.96 11.92zm171.78 16.47h597.14v-207.93h-741.45c89.16 40.89 136.36 110.62 144.31 207.93zm-15.84-1.83c-5.58-119.61-105.76-212.31-222.86-205.41-110.19 6.49-194.5 99.11-198.26 205.16h17.13c4.67-99.87 82.98-183.53 183.53-188.45 43.34-2.12 83.16 9.01 118.42 34.16 52.99 37.8 80.18 90.19 84.99 154.54h17.06zm-361.6-88.38c34.76 20.63 68.99 40.94 101.93 60.49 4.63-4.05 8.73-7.64 12.8-11.2-19.85-35.33-39.61-70.5-59.55-106-22.73 14.97-40.72 33.65-55.18 56.71zm68.26-64.09c19.83 35.3 39.67 70.63 59.4 105.75 5.56-1.57 10.47-2.95 15.38-4.33v-121.98c-18.84-1.32-57.04 9.16-74.78 20.55zm90.51-20.99v122.43c5.22 1.45 10.14 2.82 15.41 4.29 19.78-35.22 39.56-70.44 59.5-105.93-23.55-12.75-48.25-19.4-74.91-20.79zm-62.99 159.61c-34.45-20.44-68.77-40.8-103.3-61.29-11.92 24.05-18.74 48.75-19.79 74.99h119.19c1.3-4.57 2.52-8.86 3.9-13.7zm12.21 13.85h85.89c-1.75-19.57-22.35-36.07-44.47-35.75-19.8.28-40.26 17.88-41.41 35.75z" fill="#fff"/><path d="m384.46 146.2c-32.08 18.98-64.16 37.98-96.26 56.93-2.25 1.33-4.7 2.33-7.05 3.48-2.32-3.97-4.64-7.95-6.96-11.92 9.27-5.76 18.47-11.64 27.82-17.27 24.9-15 49.86-29.9 74.79-44.84 2.55 4.54 5.11 9.08 7.66 13.63z" fill="#ed7543"/><g fill="#fff"><path d="m693.6 101.59h-16.16c-.57-8.56-1.13-17.07-1.7-25.58-.33-.06-.65-.12-.98-.18-2.93 8.47-5.86 16.94-8.97 25.9-4.63 0-9.44.19-14.22-.14-1.09-.08-2.54-1.77-3-3.03-2.97-8.04-5.71-16.16-9.41-24.17-.62 8.87-1.24 17.74-1.88 26.98h-16.24c1.47-23.19 2.94-46.32 4.43-69.73h16.81c4.97 14.09 9.97 28.28 15.39 43.65 5.26-15.32 10.14-29.53 15.02-43.75h16.72c1.39 23.28 2.77 46.42 4.18 70.06z"/><path d="m942.41 61.62v39.74h-16.31v-69.61c5.26 0 10.38-.22 15.45.15 1.36.1 3.01 1.76 3.8 3.13 6.39 11.06 12.6 22.22 18.87 33.34.45.79.92 1.56 2.17 3.66v-40.34h15.97v70.04c-5.1 0-10.37.19-15.61-.14-1.18-.07-2.59-1.77-3.32-3.04-6.19-10.79-12.25-21.66-18.35-32.51-.61-1.08-1.28-2.12-2.67-4.41z"/><path d="m768.68 68.99c-1.28 19.94-18.73 33.86-37.16 32.45-20.24-1.55-34.84-18.65-32.9-37.71 2-19.65 18.6-33.45 37.43-32.15 18.8 1.3 34.23 17.88 32.63 37.42zm-16.17-2.5c0-10.53-8.41-18.86-19.01-18.81-10.21.05-18.83 8.51-18.93 18.57-.1 10.41 8.95 19.38 19.43 19.25 10.04-.12 18.51-8.82 18.51-19.02z"/><path d="m748.42 173.49c-.19-19.19 15.97-35.51 35.06-35.4 19.55.12 34.94 15.33 35.45 35.05.49 18.74-16.02 35.18-35.35 35.21-18.99.03-34.97-15.81-35.16-34.86zm35.19-19.11c-10.2 0-18.85 8.37-19.04 18.47-.2 10.37 8.8 19.4 19.32 19.38 10.01-.02 18.56-8.71 18.61-18.91.05-10.56-8.29-18.93-18.88-18.94z"/><path d="m690.01 192.29v15.91h-44.73v-69.76h44.61v15.75h-28.3v10.59h22.63v16.4h-22.67v11.12h28.46z"/><path d="m544.33 208.44c-3.74 0-6.91-.21-10.05.05-4.73.38-8.48-.09-9.17-6.02-.12-1.01-2.48-2.29-3.94-2.5-2.77-.4-5.65-.05-8.48-.13-6.41-.17-13.49-1.51-12.87 8.43h-17.54c6.48-19.09 12.85-37.89 19.23-56.7.27-.78.56-1.56.82-2.35 3.96-11.76 3.96-11.84 16.38-10.91 1.31.1 3.23 1.56 3.64 2.8 7.36 22.17 14.53 44.4 21.98 67.32zm-30.62-41.7c-2.11 6.17-3.84 11.21-5.68 16.58h10.91c-1.7-5.4-3.27-10.35-5.23-16.58z"/><path d="m538.79 31.85h44.55v15.73h-28.36v10.56h23.02v16.3h-23.09v10.91h28.37v16.06h-44.48v-69.56z"/><path d="m778.44 31.57h16.18v17.46c0 7.97-.07 15.94.02 23.91.08 7.9 4.39 12.74 11.02 12.6 5.94-.13 9.89-5.08 9.92-12.54.04-12.09.03-24.19.04-36.28 0-1.61 0-3.22 0-5.09h16.35c0 1.99.01 3.76 0 5.53-.11 13.44.31 26.91-.5 40.31-.83 13.95-12.47 24.15-26.21 24.25-13.55.1-25.15-10.35-26.64-24.06-.2-1.81-.17-3.65-.17-5.47-.01-13.42 0-26.85 0-40.61z"/><path d="m825.44 185.85h15.72c.57 1.33.79 3.51 1.92 4.19 2.51 1.5 5.6 3.29 8.21 2.97 2.01-.25 5.03-3.52 5.06-5.49.03-2.28-2.21-5.41-4.36-6.73-3.47-2.13-7.79-2.81-11.52-4.58-9.04-4.3-13.65-13.42-11.94-22.97 1.52-8.5 9.32-15.51 18.38-16.51 9.5-1.05 18.91 4.46 22.5 13.2.38.92.76 1.86.92 2.82.22 1.28.24 2.61.4 4.66-5 0-9.74.07-14.47-.08-.69-.02-1.25-1.31-2.03-1.61-2.27-.89-4.6-1.97-6.96-2.13-.86-.06-2.94 2.8-2.63 3.41 1.02 2 2.55 4.19 4.46 5.2 3.92 2.07 8.49 2.97 12.32 5.16 10 5.72 13.92 15.79 10.77 26.28-2.91 9.69-13.2 16.42-24.4 15.95-10.39-.43-19.31-7.96-21.52-18.24-.35-1.61-.49-3.26-.82-5.49z"/><path d="m607.6 180.92c5.06-15.31 9.62-29.12 14.23-43.1h17.13c-8.01 23.69-15.93 47.11-23.84 70.49h-15.47c-7.49-23.35-14.96-46.64-22.58-70.37h17.04c4.3 13.71 8.68 27.66 13.48 42.97z"/><path d="m482.43 101.34v-69.59h15.96v53.84h25.64v15.74h-41.61z"/><path d="m860.51 85.68h25.62v15.74h-41.39v-69.75h15.77z"/><path d="m745.05 208.21h-41.38v-69.9h15.88v53.74h25.5z"/><path d="m914.11 101.59h-15.44v-69.89h15.44z"/><path d="m520.05 132.25q-14.09.49-19.84-12.08c-.48-1.05-.97-2.1-1.46-3.17 11.45-3.61 15.85-.51 21.3 15.25z"/><path d="m659.95 132.38c2.53-5.3 4.62-9.92 6.99-14.4.48-.9 1.99-1.71 3.08-1.77 3.78-.21 7.58-.08 12.18-.08-2.5 5.27-4.64 10.02-7.07 14.62-.46.87-2.08 1.5-3.21 1.56-3.64.2-7.29.07-11.97.07z"/></g></svg></div>
+      <div class="alt-card-role">Mon entreprise d'accueil</div>
+      <div class="alt-card-name">Le Moulin à Vélos</div>
+      <div class="alt-card-desc">
+        Magasin et atelier à Lille&nbsp;: vélos de ville et de randonnée, neufs et reconditionnés,
+        entretien et réparation.
+      </div>
+      <a href="https://lemoulinavelos.com" target="_blank" rel="noopener" class="alt-card-link" data-hover>Voir le site &rarr;</a>
+    </aside>
+  </div>
+</section>
+
+<!-- ===== SECTION — NEXBOOST, L'AGENCE CONTINUE ===== -->
+<section id="nexboost">
+  <div class="nb-head">
+    <div class="chapter-label reveal" style="justify-content:center;">NexBoost — toujours en activité</div>
+    <h2 class="reveal delay-1">Et NexBoost, lui, ne <em>s'arrête pas</em>.</h2>
+    <p class="nb-lead reveal delay-2">
+      L'alternance n'a pas mis mon agence en pause. Je continue, en parallèle de mes études,
+      à créer des sites et à travailler la visibilité en ligne de mes clients.
+    </p>
+  </div>
+
+  <div class="nb-offer reveal delay-3">
+    <div class="nb-offer-title">Vous êtes une TPE ou une PME&nbsp;?</div>
+    <p class="nb-offer-desc">
+      Si vous cherchez quelqu'un pour revoir votre présence en ligne et votre référencement
+      naturel, je prends de nouveaux clients. On regarde ensemble où vous en êtes, et ce qui
+      peut être gagné rapidement.
+    </p>
+    <div class="nb-services">
+      <div class="nb-service"><b>Site web</b><span>Création ou refonte, pensée pour vos clients et pour votre métier.</span></div>
+      <div class="nb-service"><b>Présence en ligne</b><span>Fiche Google, réseaux sociaux, photos&nbsp;: être trouvé, et donner envie.</span></div>
+      <div class="nb-service"><b>Référencement (SEO)</b><span>Remonter dans les résultats de recherche sur ce que vos clients tapent vraiment.</span></div>
+    </div>
+    <div class="nb-actions">
+      <a href="mailto:nexboost.pro@gmail.com?subject=Ma%20pr%C3%A9sence%20en%20ligne" class="cta-btn primary" data-hover>Parler de votre visibilité</a>
+      <a href="https://nexboost.fr" target="_blank" rel="noopener" class="cta-btn secondary" data-hover>Découvrir nexboost.fr &rarr;</a>
     </div>
   </div>
 </section>
@@ -2209,6 +2507,7 @@ section { overflow-x: clip; }
 
     journeyDots.forEach((dot, i) => {
       dot.classList.toggle('active', i <= current);
+      dot.classList.toggle('now', i === current);
     });
 
     document.querySelectorAll('.parallax-image').forEach(el => {
@@ -2349,24 +2648,24 @@ section { overflow-x: clip; }
   }
 
   // === DIPLÔME — TILT 3D + GLARE ===
-  const bacFeature = document.getElementById('bacFeature');
-  const bacInner = document.getElementById('bacInner');
-  const bacGlare = document.getElementById('bacGlare');
-  if (bacFeature && bacInner) {
+  document.querySelectorAll('.diploma-feature').forEach(feature => {
+    const inner = feature.querySelector('.diploma-feature-inner');
+    const glare = feature.querySelector('.diploma-glare');
+    if (!inner) return;
     const MAX = 9; // amplitude d'inclinaison
-    bacFeature.addEventListener('mousemove', e => {
-      const r = bacFeature.getBoundingClientRect();
+    feature.addEventListener('mousemove', e => {
+      const r = feature.getBoundingClientRect();
       const px = (e.clientX - r.left) / r.width;
       const py = (e.clientY - r.top) / r.height;
       const ry = (px - 0.5) * 2 * MAX;
       const rx = -(py - 0.5) * 2 * MAX;
-      bacInner.style.transform = `rotateX(${rx}deg) rotateY(${ry}deg) translateZ(10px)`;
-      if (bacGlare) { bacGlare.style.setProperty('--gx', px * 100 + '%'); bacGlare.style.setProperty('--gy', py * 100 + '%'); }
+      inner.style.transform = `rotateX(${rx}deg) rotateY(${ry}deg) translateZ(10px)`;
+      if (glare) { glare.style.setProperty('--gx', px * 100 + '%'); glare.style.setProperty('--gy', py * 100 + '%'); }
     });
-    bacFeature.addEventListener('mouseleave', () => {
-      bacInner.style.transform = 'rotateX(0) rotateY(0) translateZ(0)';
+    feature.addEventListener('mouseleave', () => {
+      inner.style.transform = 'rotateX(0) rotateY(0) translateZ(0)';
     });
-  }
+  });
 
   // === VISIONNEUSE PLEIN ÉCRAN DES DIPLÔMES ===
   const docViewer = document.getElementById('docViewer');
